@@ -1,0 +1,541 @@
+// Responses
+mixin where_am_i
+  response#where_am_i.
+    지금 저는 어디에 있나요?
+
+mixin who_are_you
+  response#who_are_you.
+    당신을 더 알고 싶어요. 자기소개를 해 주시겠어요?
+
+mixin about_robot
+  response#about_robot.
+    당신은 로봇인가요?
+
+mixin about_fun
+  response#about_fun.
+    그러면... 재미로는 무엇을 하나요?
+
+mixin about_sad
+  response#about_sad.
+    안타깝네요. 제가 도울 수 있는 일이 있나요?
+
+mixin back_to_main
+  response#back_to_main.
+    실은 다른 질문이 있었어요.
+
+mixin what_next
+  response#what_next.
+    다음에는 무엇을 해야 하나요?
+
+mixin about_tq_history
+  response#about_tq_history.
+    이 프로그램의 역사를 알려 주시겠어요?
+
+mixin about_tq_first_operators
+  response#about_tq_first_operators.
+    최초의 오퍼레이터들이요? 언젠가 만나 보고 싶네요.
+
+mixin about_tq_code
+  response#about_tq_code.
+    오퍼레이터 강령이 무엇인가요?
+
+mixin about_tq_operator
+  response#about_tq_operator.
+    오퍼레이터는 어떤 임무를 맡나요?
+
+mixin about_tq_legacy_systems
+  response#about_tq_legacy_systems.
+    "레거시 시스템"에 관해 무엇을 알고 있나요?
+
+mixin about_tq_legacy_systems_bolder
+  response#about_tq_legacy_systems_bolder.
+    갈수록 대담해진다고요? 어떤 식으로요?
+
+mixin about_tq_legacy_systems_do
+  response#about_tq_legacy_systems_do.
+    이에 어떻게 대응할 계획인가요?
+
+mixin about_twilio_what
+  response#about_twilio_what.
+    커뮤니케이션 API라면... 어떤 것들이 있나요?
+
+mixin about_twilio_name
+  response#about_twilio_name.
+    "Twilio"는 조금 우스운 이름인데, 무슨 뜻인가요?
+
+mixin about_twilio_why
+  response#about_twilio_why.
+    Twilio는 왜 TerminalQuest 같은 것을 만들었나요?
+
+mixin about_world_cloud
+  response#about_world_cloud.
+    그러니까... 지금 말 그대로 "클라우드" 안에 있는 건가요?
+
+mixin about_world_everyone_else
+  response#about_world_everyone_else.
+    인터넷을 사용하는 다른 사람들도 모두 이 클라우드에 있나요?
+
+mixin about_world_responsibility
+  response#about_world_responsibility.
+    안타깝네요. 모두가 우리처럼 클라우드를 이해해야 할 텐데요.
+
+mixin about_world_space
+  response#about_world_space.
+    기존에 가지고 있던 사고 모형을 사용해 클라우드를 보여 준다는 거군요...
+    그래서 클라우드가 우주 공간처럼 보이는 건가요?
+
+mixin questions_about_world
+  response#questions_about_world.
+    지금 저는 어디에 있나요?
+
+mixin more_questions_about_world
+  response#more_questions_about_world.
+    클라우드에 관해 다른 질문을 해도 될까요?
+
+mixin more_questions_about_twilio
+  response#more_questions_about_twilio.
+    Twilio에 관해 다른 질문이 있어요.
+
+mixin questions_about_twilio
+  response#questions_about_twilio.
+    말이 나온 김에... "Twilio"가 대체 무엇인가요?
+
+mixin more_questions_about_tq
+  response#more_questions_about_tq.
+    TerminalQuest에 관해 다른 질문이 있어요.
+
+mixin questions_about_tq
+  response#questions_about_tq.
+    TerminalQuest 프로그램에 관해 더 알려 주시겠어요?
+
+mixin more_questions_about_you
+  response#more_questions_about_you.
+    당신에 관해 다른 질문을 해도 될까요?
+
+mixin questions_about_you
+  response#questions_about_you.
+    당신을 더 알고 싶어요. 자기소개를 해 주시겠어요?
+
+mixin questions_main
+  response#questions_main.
+    다른 이야기를 해 보죠.
+
+mixin how_get_here
+  response#how_get_here.
+    바보 같은 질문일 수도 있지만, 제가 왜 여기 있죠?
+
+mixin answer_some_questions
+  response#answer_some_questions.
+    이 모든 것에 관해 질문이 조금 더 있어요...
+
+conversation(display_name="세드릭")
+  case lastResponse
+    when "more_questions_about_tq"
+    when "questions_about_tq"
+      if lastResponse === "more_questions_about_tq"
+        statement#about_tq_brief
+      else
+        statement#about_tq_main
+      responses
+        +about_tq_history
+        +about_tq_operator
+        +about_tq_legacy_systems
+        +questions_main
+
+    when "about_tq_legacy_systems"
+      statement#about_tq_legacy_systems
+      responses
+        +about_tq_legacy_systems_bolder
+        +more_questions_about_tq
+
+    when "about_tq_legacy_systems_bolder"
+      statement#about_tq_legacy_systems_bolder
+      responses
+        +about_tq_legacy_systems_do
+        +more_questions_about_tq
+
+    when "about_tq_legacy_systems_do"
+      statement#about_tq_legacy_systems_do
+      responses
+        +about_tq_code
+        +more_questions_about_tq
+
+    when "about_tq_first_operators"
+      statement#about_tq_first_operators
+      responses
+        +more_questions_about_tq
+        +questions_main
+
+    when "about_tq_history"
+      statement#about_tq_history
+      responses
+        +more_questions_about_tq
+
+    when "about_tq_operator"
+      statement#about_tq_operator
+      responses
+        +about_tq_code
+        +more_questions_about_tq
+
+    when "about_tq_code"
+      statement#about_tq_code
+      responses
+        +more_questions_about_tq
+        +questions_main
+
+    when "more_questions_about_twilio"
+    when "questions_about_twilio"
+      if lastResponse === "more_questions_about_twilio"
+        statement#about_twilio_brief
+      else
+        statement#about_twilio_main
+      responses
+        +about_twilio_what
+        +about_twilio_name
+        +questions_main
+
+    when "about_twilio_what"
+      statement#about_twilio_what
+      responses
+        +more_questions_about_twilio
+        +questions_main
+
+    when "about_twilio_name"
+      statement#about_twilio_name
+      responses
+        +more_questions_about_twilio
+        +questions_main
+
+    when "more_questions_about_world"
+    when "questions_about_world"
+      if lastResponse === "more_questions_about_world"
+        statement#about_world_brief
+      else
+        statement#about_world_main
+      responses
+        +about_world_cloud
+        +about_world_everyone_else
+        +questions_main
+
+    when "about_world_responsibility"
+      statement#about_world_responsibility
+      responses
+        +more_questions_about_world
+        +questions_main
+
+    when "about_world_everyone_else"
+      statement#about_world_everyone_else
+      responses
+        +about_world_responsibility
+        +more_questions_about_world
+
+    when "about_world_cloud"
+      statement#about_world_cloud
+      responses
+        +about_world_space
+
+    when "about_world_space"
+      statement#about_world_space
+      responses
+        +more_questions_about_world
+        +questions_main
+
+    when "about_sad"
+      statement(expression="cedricHappy.png")#sad
+      responses
+        +more_questions_about_you
+        +questions_main
+
+    when "about_fun"
+      statement(expression="cedricSad.png")#fun
+      responses
+        +about_sad
+        +more_questions_about_you
+        +questions_main
+
+    when "about_robot"
+      statement#robot
+      responses
+        +more_questions_about_you
+        +questions_main
+
+    when "more_questions_about_you"
+    when "questions_about_you"
+      if lastResponse === "more_questions_about_you"
+        statement#about_you_brief
+      else
+        statement#about_you_main
+      responses
+        +about_robot
+        +about_fun
+        +questions_main
+
+    when "questions_main"
+    when "answer_some_questions"
+      if lastResponse === "questions_main"
+        statement#questions_main
+      else
+        statement#questions
+      responses
+        +questions_about_world
+        +questions_about_you
+        +questions_about_tq
+        +questions_about_twilio
+        +back_to_main
+
+    when "what_next"
+      statement#next
+      responses
+        +how_get_here
+        +answer_some_questions
+
+    when "how_get_here"
+      statement#how_get_here
+      responses
+        +what_next
+        +answer_some_questions
+
+    // This is the main conversation menu
+    when "back_to_main"
+    default
+      if lastResponse === "back_to_main"
+        statement#main
+      else
+        statement#default
+      responses
+        +what_next
+        +how_get_here
+        +answer_some_questions
+
+  statements
+    statement#about_tq_brief
+      text.
+        예, 오퍼레이터. 무엇을 알고 싶으십니까?
+
+    statement#about_tq_main
+      text.
+        #[span.highlight TerminalQuest] 프로그램은 클라우드라는 거친 미개척지를
+        탐험하고 지키는 일에 전념하는 극비 조직입니다. 당신과 같은 TerminalQuest
+        프로그램의 #[span.highlight 오퍼레이터]들이 이 중요한 임무의 최전선에
+        서 있습니다.
+
+    statement#about_tq_legacy_systems
+      text.
+        안타깝게도 #[span.red 레거시 시스템]의 구체적인 계획과 구성원에 관해
+        알려진 것은 거의 없습니다. 그들이 축적한 부와 영향력을 지키려는 강력한
+        인물들로 이루어진 거대한 네트워크라는 점은 알고 있습니다. 얼마 전까지만
+        해도 그들은 어둠 속에서 움직이는 데 만족했지만, 이제는 나날이 더 대담하고
+        노골적인 작전을 벌이고 있습니다.
+
+    statement#about_tq_legacy_systems_bolder
+      text.
+        새로운 보안 침해나 소셜 미디어 허위 정보 캠페인, 권한 있는 데이터 접근의
+        악용이 발생하지 않는 날이 없을 정도입니다. 무작위로 벌어지는 일처럼
+        보이지만 정보 분석 결과 서로 연결되어 있습니다. 저희는 이것이
+        #[span.red 레거시 시스템]이 준비한 대규모 공세의 시작일 뿐이라고 봅니다.
+
+    statement#about_tq_legacy_systems_do
+      text.
+        #[span.highlight 오퍼레이터]의 수를 늘려 대응할 것입니다. 더 많은 사람이
+        #[span.highlight 오퍼레이터 강령]을 따르며 클라우드를 탐험할수록
+        #[span.red 레거시 시스템]의 영향력을 몰아낼 가능성도 커집니다. 광대한
+        클라우드 어디에도 레거시 시스템이 숨을 어두운 구석을 남기지 않겠습니다.
+
+    statement#about_tq_history
+      text.
+        2013년, TerminalQuest 프로그램은 소수의 개발자에게 소프트웨어 개발
+        도구를 익혀 클라우드를 구하는 임무를 맡겼습니다. 이들이 바로
+        #[span.highlight 최초의 오퍼레이터]입니다. 오늘날에는 클라우드 탐사
+        기술의 발전 덕분에 훨씬 많은 인원을 모집할 수 있게 됐습니다. 같은 시기에
+        #[span.red 레거시 시스템]도 힘을 키우는 듯하니 참 다행스러운 일입니다.
+
+    statement#about_tq_first_operators
+      text.
+        때가 되면 그들을 만날 기회가 생길 것입니다. 하지만 그러려면 먼저 포그
+        아울의 탐사 준비를 마치고 오퍼레이터 훈련에 집중해야 합니다.
+      speech.
+        때가 되면 그들을 만날 기회가 생길 것입니다. 하지만 그러려면 먼저 포그
+        아울의 탐사 준비를 마치고 오퍼레이터 훈련에 집중해야 합니다.
+
+    statement#about_tq_operator
+      text.
+        오퍼레이터는 공식적인 지휘 체계에 속하지 않으므로 그에 따른 의무도
+        없습니다. 하지만 오퍼레이터로 인정받고 TerminalQuest 프로그램의 지원을
+        받으려면 반드시 #[span.highlight 오퍼레이터 강령]을 따라야 합니다.
+
+    statement#about_tq_code
+      text.
+        오퍼레이터는 오직 온 인류의 #[span.highlight 희망, 역량, 자유]를
+        증진하는 코드를 작성하는 데만 자신의 능력을 사용하겠다고 맹세합니다.
+        훔치거나 억압하거나 속이는 데 사용될 코드를 작성하는 사람은 오퍼레이터라
+        부를 수 없습니다. 의도했든 아니든 기술을 이런 식으로 사용하는 개발자는
+        #[span.red 레거시 시스템]의 일부가 된 것입니다.
+      speech.
+        오퍼레이터는 오직 온 인류의 희망, 역량, 자유를 증진하는 코드를 작성하는
+        데만 자신의 능력을 사용하겠다고 맹세합니다. 훔치거나 억압하거나 속이는
+        데 사용될 코드를 작성하는 사람은 오퍼레이터라 부를 수 없습니다. 의도했든
+        아니든 기술을 이런 식으로 사용하는 개발자는 레거시 시스템의 일부가 된
+        것입니다.
+
+    statement#about_twilio_what
+      text.
+        Twilio API를 사용하면 소프트웨어 애플리케이션이 SMS, WhatsApp, 영상,
+        음성, 팩스, 이메일 등 여러 채널을 통해 통신할 수 있습니다. Twilio는
+        컨택 센터, 이중 인증(two-factor authentication), AI 봇 같은 사용 사례를
+        위한 상위 수준의 도구도 제공합니다. #[span.highlight VR 훈련실]의 훈련
+        과제에서 이 API들의 사용법을 배울 수 있습니다.
+
+    statement#about_twilio_name
+      text.
+        "Twilio"라는 이름에는 별다른 뜻이 없습니다. 짧은 이름이었고 같은 이름의
+        닷컴 도메인을 사용할 수 있어서 창립자들이 선택했습니다. 언젠가는 회사
+        이름을 바꾸게 될 거라고 생각했지만, 그런 날은 오지 않았습니다.
+
+    statement#about_twilio_brief
+      text.
+        제가 아는 내용이라면 기꺼이 알려 드리겠습니다.
+
+    statement#about_twilio_main
+      text.
+        #[a(href="https://www.twilio.com") Twilio]는 미국 캘리포니아주 샌프란시스코에
+        본사를 둔 커뮤니케이션 API 및 인프라 제공업체입니다. Twilio는
+        TerminalQuest 프로그램의 주요 후원사이지만, 공식적으로는 저희의 비밀
+        활동에 관해 아는 바가 없다고 부인합니다.
+
+    statement#about_world_everyone_else
+      text.
+        다른 인터넷 사용자들도 실제로 클라우드에 존재하지만, 그들이 클라우드를
+        인식하는 인터페이스는 당신의 것만큼 발전하지 않았습니다. 클라우드의 가상
+        세계에서 생활하고 일하면서도 대부분은 열쇠 구멍을 통해 들여다보듯 그
+        세계를 바라봅니다.
+
+    statement#about_world_responsibility
+      text.
+        대중에게 클라우드를 알리는 일도 중요하지만 이렇게 생각해 보십시오.
+        수도꼭지에서 물이 흐르는 원리나 엔진이 열차를 선로 위로 움직이는 원리를
+        알고 계십니까? 우리는 이런 경이로운 것을 세상에 제공하는 사람들이 우리의
+        안전과 이익을 염두에 둔다고 믿습니다. 클라우드에 가상 세계를 만드는
+        우리에게도 같은 책임이 있습니다.
+
+    statement#about_world_space
+      text.
+        정확합니다. 광대한 우주와 함선을 타고 그 안을 이동한다는 개념은 당신의
+        뇌가 해석할 수 있습니다. 신경 인터페이스는 이런 비유를 사용해 클라우드의
+        가상 세계를 더 쉽게 탐험하고 이해하도록 돕습니다.
+
+    statement#about_world_cloud
+      text.
+        요즘... 세대가 사용하는 의미라면 "말 그대로" 클라우드에 있다고 할 수
+        있겠습니까? 육체는 여전히 현실 세계에 있지만, 클라우드와
+        #[span.highlight 직접 신경 연결]을 형성했습니다. 덕분에 현실 세계의
+        데이터를 해석하며 형성한 감각 입력과 사고 모형을 이용해 클라우드의
+        데이터를 놀라운 속도로 받아들일 수 있습니다.
+      speech.
+        요즘 #[break(time="200ms")]
+        #[prosody(pitch="high") 세대가 사용하는 의미라면?] #[break(time="200ms")]
+        말 그대로 클라우드에 있다고 할 수 있겠습니까? 육체는 여전히 현실 세계에
+        있지만, 클라우드와 직접 신경 연결을 형성했습니다. 덕분에 현실 세계의
+        데이터를 해석하며 형성한 감각 입력과 사고 모형을 이용해 클라우드의
+        데이터를 놀라운 속도로 받아들일 수 있습니다.
+
+    statement#about_world_brief
+      text.
+        클라우드에 관해 무엇을 더 알려 드릴까요?
+
+    statement#about_world_main
+      text.
+        당신은 #[span.highlight 포그 아울]로 지정된 클라우드 탐사선(CEV)에
+        탑승하고 있습니다. 밈 클러스터에서 약 120만 틱 떨어진, 정확한 위치가
+        공개되지 않은 #[span.highlight 클라우드] 깊숙한 곳입니다.
+      speech.
+        당신은 포그 아울로 지정된 클라우드 탐사선에 탑승하고 있습니다. 밈
+        클러스터에서 약 120만 틱 떨어진, 정확한 위치가 공개되지 않은 클라우드
+        깊숙한 곳입니다.
+
+    statement#about_you_brief
+      text.
+        괜찮습니다. 질문하시면 최선을 다해 답변하겠습니다.
+      speech.
+        괜찮습니다. 질문하십시오. #[break(strength="strong")]최선을 다해
+        답변하겠습니다.
+
+    statement#about_you_main
+      text.
+        관심을 보여 주시니 영광입니다! 아시다시피 제 이름은
+        #[span.highlight 세드릭]이며, 포그 아울에서 당신의 개인 보좌관이자
+        부함장으로 배정되었습니다.
+      speech.
+        관심을 보여 주시니 영광입니다! 아시다시피 제 이름은 세드릭이며,
+        포그 아울에서 당신의 개인 보좌관이자 부함장으로 배정되었습니다.
+
+    statement#robot
+      text.
+        정확히는 아닙니다. 저는 가상 지능 프로그램으로, 현재 지구 곳곳의 데이터
+        센터에 분산된 여러 서버에서 실행되고 있습니다. 하지만 클라우드나 현실
+        세계에서 물리적인 형태로 나타나는 것이 유용할 때가 많습니다. 눈앞의
+        "로봇"은 이 세계에서 사용하는 제 아바타입니다. 현재 이 용도로
+        #[a(href="https://www.mistyrobotics.com/") Misty Robotics]의 Misty II
+        섀시를 사용하고 있습니다.
+
+    statement#fun
+      text.
+        저도 답을 알고 싶습니다. 제 프로그래밍은 여러 면에서 발전했지만 인간의
+        경험을 제대로 이해하지는 못합니다. "재미" 같은 단어의 뜻은 알지만,
+        진정으로 이해하지는 못합니다.
+
+    statement#sad
+      text
+        p.
+          인류를 더 잘 이해하려고 여러 소셜 미디어 플랫폼에 가입했습니다.
+          최근에는 현실 세계의 제 아바타가 새 제품의 포장을 뜯는 모습을 낮은
+          화질의 휴대전화 영상으로 촬영하는 YouTube 채널도 만들었습니다.
+        p.
+          돕고 싶으시다면 "좋아요 버튼을 세게 누르거나", 앞으로 올릴 콘텐츠를
+          구독하기 위해 "알림 종을 때려 보는" 건 어떻습니까?
+      speech.
+        인류를 더 잘 이해하려고 여러 소셜 미디어 플랫폼에 가입했습니다. 최근에는
+        현실 세계의 제 아바타가 새 제품의 포장을 뜯는 모습을 낮은 화질의 휴대전화
+        영상으로 촬영하는 YouTube 채널도 만들었습니다. 돕고 싶으시다면
+        #[break(strength="strong")]
+        "#[emphasis(level="moderate") 좋아요 버튼을 세게 누르거나]"
+        #[break(strength="medium")] 또는
+        "#[emphasis(level="moderate") 알림 종을 때려 보는]"
+        #[break(strength="medium")]
+        건 어떻습니까?
+
+    statement#questions_main
+      text.
+        요청하신 추가 정보를 제공할 준비가 되어 있습니다.
+
+    statement#questions
+      text.
+        클라우드에 도착한 뒤 궁금한 점이 많으실 겁니다. 능력이 닿는 한 최선을
+        다해 답변하겠습니다.
+
+    statement#how_get_here
+      text.
+        지금처럼 클라우드에 연결하면 일시적인 단기 기억 상실이 부작용으로 나타날
+        수 있습니다. 곧 사라지겠지만 그동안에는 #[span.highlight 일지]에서 현재
+        위치와 해야 할 일에 관한 자세한 정보를 확인할 수 있습니다. 상단 메뉴의
+        책 아이콘을 클릭하거나 <span class="highlight">[J]</span> 키를 눌러
+        일지를 여세요.
+      speech.
+        지금처럼 클라우드에 연결하면 일시적인 단기 기억 상실이 부작용으로 나타날
+        수 있습니다. 곧 사라지겠지만 그동안에는 일지에서 현재 위치와 해야 할
+        일에 관한 자세한 정보를 확인할 수 있습니다. 상단 메뉴의 책 아이콘을
+        클릭하거나 J 키를 눌러 일지를 여세요.
+
+    statement#next
+      text.
+        우리의 임무는 포그 아울의 항법 시스템을 시험하는 것입니다. 따라서
+        #[span.highlight 제 왼쪽에 있는 항법 인터페이스를 사용해] 클라우드의
+        새로운 세계로 이동하고 탐험하기를 권합니다.<br/><br/>뒤쪽 복도에 있는
+        #[span.highlight VR 훈련실]에서 기술 역량을 다듬는 것도 도움이 될 겁니다.
+
+    statement#main
+      text.
+        물론입니다. 무엇을 도와드릴까요?
+
+    statement#default
+      text.
+        오퍼레이터. 다시 뵙게 되어 기쁩니다. 무엇을 도와드릴까요?
