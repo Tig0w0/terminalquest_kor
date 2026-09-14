@@ -1,0 +1,56 @@
+mixin dossier
+  response#dossier.
+    [복무 기록 확인] 가족 중에 공군에서 복무한 분이 있군요?
+
+mixin traffic
+  response#traffic.
+    주의해야 할 항법상의 위험 요소가 있나요?
+
+mixin about
+  response#about.
+    누구시고 함선에서는 무슨 일을 하는지 다시 알려 주시겠어요?
+
+conversation(display_name="메건")
+  case lastResponse
+    when "dossier"
+      statement#dossier
+      responses
+        +traffic
+
+    when "about"
+      statement#about
+      responses
+        +dossier
+
+    when "traffic"
+      statement#traffic
+      responses
+        +about
+
+    default
+      statement#default
+      responses
+        +traffic
+        +about
+
+  statements
+    statement#dossier
+      text.
+        제914공수비행단 장교의 딸로서 이 말은 꼭 해야겠네요. "하늘도 한계가
+        아니다."<br/><br/>그래도 솔직히 말하면 제 함선이 공군의 낡은 비행기
+        그 어떤 것보다 훨씬 멋지지만요.
+
+    statement#traffic
+      text.
+        몇 가지 있지만 제가 처리하지 못할 건 없습니다. 로스앤젤레스에서 운전을
+        견뎌 내고 나면 살인적인 비트 혜성과 좁은 논리 게이트(logic gate)도
+        훨씬 덜 무섭거든요.
+
+    statement#about
+      text.
+        물론이죠. 저는 포그 아울의 조종사를 맡게 된 메건입니다. 포그 아울의
+        조종감은 정말 꿈만 같다고 꼭 말씀드리고 싶네요.
+
+    statement#default
+      text.
+        무슨 일이죠, 오퍼레이터? 어느 항로로 설정할까요?

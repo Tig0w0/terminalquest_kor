@@ -1,0 +1,60 @@
+mixin dossier
+  response#dossier.
+    [복무 기록 확인] 개발자 교육 경험도 많지만 평화봉사단에서도 활동하셨군요?
+
+mixin about
+  response#about.
+    누구시고 함선에서는 무슨 일을 하는지 다시 알려 주시겠어요?
+
+mixin whats_this
+  response#whats_this.
+    함선의 이 구역은 어디에 사용하는 곳인가요?
+
+conversation(display_name="크레이그")
+  case lastResponse
+    when "dossier"
+      statement#dossier
+      responses
+        +whats_this
+
+    when "about"
+      statement#about
+      responses
+        +dossier
+
+    when "whats_this"
+      statement#whats_this
+      responses
+        +about
+
+    default
+      statement#default
+      responses
+        +whats_this
+        +about
+
+  statements
+    statement#dossier
+      text.
+        맞아요! 평화봉사단원으로 가이아나에서 컴퓨터 기술을 가르쳤습니다.
+        그때부터 지금까지 기술이 얼마나 발전했는지 놀라울 정도예요. 당시에
+        클라우드로 바로 연결되는 신경 인터페이스가 있었다면 훨씬 쉬웠겠죠.
+
+    statement#whats_this
+      text.
+        이곳은 TerminalQuest 프로그램의 최신 교육 기술인 가상 현실(VR) 훈련
+        시뮬레이터입니다! 사용하려면 터미널 앞으로 걸어가
+        <span class="highlight">스페이스바</span>를 누르세요. 프로그래밍
+        실력을 키울 수 있는 훈련 시뮬레이션 목록이 나타납니다. 하나를 골라
+        탐험을 시작하세요!<br/><br/>새로운 훈련 임무가 계속 추가되니 자주
+        확인하는 것도 잊지 마세요.
+
+    statement#about
+      text.
+        물론이죠! 저는 개발자이자 포그 아울의 훈련 장교 크레이그입니다.
+        <br/><br/>클라우드에서 예기치 못한 해킹 문제를 만나더라도 잘 대처할 수
+        있도록 가상 현실 훈련 플랫폼의 시뮬레이션을 만들고 있습니다.
+
+    statement#default
+      text.
+        안녕하세요, 오퍼레이터! 새로운 걸 배우기에 좋은 날이죠. 그렇지 않나요?

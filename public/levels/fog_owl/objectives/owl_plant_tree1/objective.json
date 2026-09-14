@@ -1,0 +1,16 @@
+{
+  "title": "포그 아울: 나무 심기!",
+  "description": "TerminalQuest를 플레이하면 호주의 산림 복원을 지원할 수 있습니다. <strong>HACK</strong>을 클릭하면 Twilio가 나무 한 그루를 심는 데 1달러를 기부합니다!",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "HACK을 클릭해 나무 한 그루를 심으세요."
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}

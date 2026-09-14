@@ -1,0 +1,60 @@
+mixin dossier
+  response#dossier.
+    [복무 기록 확인] 아역 배우로도 활동하셨다고요?
+
+mixin about
+  response#about.
+    누구시고 함선에서는 무슨 일을 하는지 다시 알려 주시겠어요?
+
+mixin whats_this
+  response#whats_this.
+    뒤에 있는 플랫폼은 무엇인가요?
+
+conversation(display_name="미카")
+  case lastResponse
+    when "dossier"
+      statement#dossier
+      responses
+        +whats_this
+
+    when "about"
+      statement#about
+      responses
+        +dossier
+
+    when "whats_this"
+      statement#whats_this
+      responses
+        +about
+
+    default
+      statement#default
+      responses
+        +whats_this
+        +about
+
+  statements
+    statement#dossier
+      text.
+        그게 어떻게 기록에 들어갔죠?! 사실이기는 하지만 짧고 그다지 성공적이지
+        못한 경력이었어요. 가장 유명한 배역은 사람처럼 행동하는 과일이었죠.
+        아이들에게 매일 과일과 채소를 5회분씩 먹어야 한다고 알려 주는 인상적인
+        노래와 춤을 선보였답니다.<br/><br/>그러니 사과인 척할 사람이 필요한
+        임무가 생기면 저만 믿으세요.
+
+    statement#whats_this
+      text.
+        저건 <span class="highlight">항법 지도(nav map)</span>입니다. 항법
+        지도를 사용하면 클라우드의 목적지로 이동할 수 있어요. 관심이 필요해
+        보이는 몇몇 주요 지점을 지도에 표시해 두었습니다. 시간이 날 때마다
+        그 장소들을 방문해 보세요.
+
+    statement#about
+      text.
+        아, 물론이죠. 저는 포그 아울의 통신 장교 미카입니다. 여러 언어에
+        능통할 뿐 아니라 클라우드를 탐험하며 만나는 이들과 민감한 협상을
+        진행하거나 갈등을 해결하는 일도 도울 수 있습니다.
+
+    statement#default
+      text.
+        안녕하세요, 오퍼레이터! 오늘은 어디로 떠날까요?

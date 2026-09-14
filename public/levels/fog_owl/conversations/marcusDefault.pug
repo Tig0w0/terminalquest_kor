@@ -1,0 +1,58 @@
+mixin dossier
+  response#dossier.
+    [복무 기록 확인] 클라우드 탐사선의 수석 엔지니어는 철자 맞히기 대회 출제자보다 한 단계 낮은 직책처럼 보이는데요.
+
+mixin what_this
+  response#what_this.
+    함선의 이 구역은 어떤 곳인가요?
+
+mixin about
+  response#about.
+    누구시고 함선에서는 무슨 일을 하는지 다시 알려 주시겠어요?
+
+conversation(display_name="마커스")
+  case lastResponse
+    when "dossier"
+      statement#dossier
+      responses
+        +what_this
+
+    when "what_this"
+      statement#what_this
+      responses
+        +about
+
+    when "about"
+      statement#about
+      responses
+        +dossier
+
+    default
+      statement#default
+      responses
+        +what_this
+        +about
+
+  statements
+    statement#what_this
+      text.
+        이곳은 포그 아울의 뛰는 심장, 최첨단
+        <span class="highlight">패킷 전송 드라이브(packet transmission drive)</span>를
+        관리하는 기관실입니다. 이 드라이브 시스템은 클라우드에 연결된 오퍼레이터
+        클러스터를 가상 세계 사이에서 엄청난 속도로 이동시키죠.<br/><br/>
+        마침내 레거시 시스템보다 한발 앞서게 해 줄 기술이라고 생각합니다.
+
+    statement#dossier
+      text.
+        하, 그런 내용도 적어 놨군요? 뛰어난 기술 실력뿐 아니라 정확한 발음도
+        제 자랑거리입니다. 단어의 어원을 아는 것도 생각보다 쓸모가 많고요.
+
+    statement#about
+      text.
+        물론이죠. 저는 포그 아울의 수석 엔지니어 마커스입니다. 우리 새가 계속
+        노래하도록 돌보는 게 제 일이죠. 지금은 아주 아름다운 곡조로군요.
+        시스템에 조금이라도 이상이 생기면 바로 알려 드리겠습니다.
+
+    statement#default
+      text.
+        오퍼레이터. 모든 시스템 상태가 정상입니다. 이쪽은 전부 문제없습니다.
