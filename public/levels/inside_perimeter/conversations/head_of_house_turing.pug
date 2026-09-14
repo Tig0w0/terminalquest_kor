@@ -1,0 +1,52 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+  let allComplete = worldState.insideCatacombs.keySpellsObtained.length === 4 ? true : false;
+
+mixin join_house
+  response#join_house.
+    기숙사에 들어가려면 어떻게 해야 하나요?
+
+mixin pledge_scroll
+  response#pledge_scroll.
+    지하 묘지에서 서약 두루마리를 찾았습니다. 이제 무엇을 해야 하나요?
+
+conversation(display_name="튜링 기숙사 책임자")
+  case lastResponse
+    when "join_house"
+      statement#join_house
+      responses
+        if allComplete
+          +pledge_scroll
+
+    when "pledge_scroll"
+      statement#pledge_scroll
+      responses
+        +join_house
+
+    default
+      statement#default
+      responses
+        if allComplete
+          +join_house
+          +pledge_scroll
+        else
+          +join_house
+
+  statements
+    statement#default
+      text.
+        API 비전술 아카데미에 온 것을 환영합니다, 오퍼레이터! 곧 시작될 기숙사 대항전이 무척 기대되는군요.
+
+    statement#join_house
+      text.
+        아카데미 부지를 둘러보다 보면 여러 기숙사의 학생들을 만나게 될 겁니다.
+        기숙사에 들어가려면 서약 두루마리를 찾아야 합니다. 도움이 필요하면 관리인을 찾아가세요.
+
+    statement#pledge_scroll
+      text.
+        지하 묘지에서 훌륭한 성과를 거둔 것을 축하합니다. 서약 두루마리를 찾았으니 이제 비전술 아카데미의 네 기숙사 중 하나에 들어갈 수 있습니다.
+        안뜰을 곧장 지나 중앙 홀로 들어가세요. 다른 기숙사 책임자들과 함께 그곳에서 기숙사 배정식을 지켜보겠습니다!
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

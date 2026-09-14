@@ -1,0 +1,72 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin house
+  response#house.
+    호퍼 기숙사에 관해 더 알려 주시겠어요?
+
+mixin more_info
+  response#more_info.
+    그게 무슨 뜻인가요? 어떤 것들을 베타 테스트하나요?
+
+mixin one_sentence
+  response#one_sentence.
+    API 도구의 가장 멋진 점을 한 문장으로 말한다면 뭐라고 하시겠어요?
+
+conversation(display_name="호퍼 기숙사 학생 대표 벅스")
+  case lastResponse
+    when "house"
+      statement#house
+      responses
+        +more_info
+        +one_sentence
+
+    when "more_info"
+      statement#more_info
+      responses
+        +house
+        +one_sentence
+
+    when "one_sentence"
+      statement#one_sentence
+      responses
+        +house
+        +more_info
+
+    default
+      statement#default
+      responses
+        +house
+        +more_info
+        +one_sentence
+
+  statements
+    statement#default
+      text.
+        호퍼 기숙사를 대표해 API 비전술 아카데미에 온 것을 환영합니다!
+
+    statement#one_sentence
+      text.
+        API의 놀라운 점은 리소스와 도구를 나누는 데 초점을 둔다는 거예요.<BR><BR>
+        코드가 어디에나 있다는 건 누구나 코드를 작성할 수 있다는 뜻이죠. 누구나 코드를 작성할 수 있다면 정말 놀라운 사람들의 힘을 끌어낼 수 있다는 뜻이고요. 앗, 말하다 보니 꼭 튜링 기숙사 학생 같네요!
+
+    statement#more_info
+      text.
+        실제 도구를 시험하는 것을 좋아하지만 테스트만 하는 건 아니에요. 그 도구를 API 학습에도 활용하죠.
+        도구를 다루는 방법과 도구로 할 수 있는 일의 한계를 넓히고 싶거든요.<BR><BR>
+        구체적인 예를 들면, 얼마 전에는 Postman으로 데이터를 저장하는 방법을 살펴봤어요.
+        API를 만들고 공유하고 테스트하고 문서화할 수 있게 해 주는 Postman 매개변수를 이것저것 시험했죠.
+        도구가 너무 유용해서 정신이 번쩍 들더군요… 온실 지붕에도 구멍이 뻥 뚫렸지만요.
+        제가 이런 말을 했다고 기숙사 책임자에게는 알리지 마세요!
+
+    statement#house
+      text.
+        <span class="highlight">호퍼 기숙사</span> 학생들은 대담하고 새로운 것을 기꺼이 시도하는 것으로 유명합니다.
+        우리는 지정 베타 테스터예요. 베타 단계의 API 주문이 충돌하거나 망가져도 두려워하지 않죠…
+        다른 기숙사에서는 주문을 망가뜨려 달라고 찾아오기도 해요… 물론 연구·개발을 위해서랍니다.<BR><BR>
+        진지하게 말하자면, 호퍼 기숙사는 코드가 어디에나 있다고 믿습니다.
+        그리고 그 말이 현실에서 무엇을 뜻하는지 직접 시험하는 일을 맡고 있죠.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

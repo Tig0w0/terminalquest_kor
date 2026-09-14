@@ -1,0 +1,28 @@
+{
+  "title": "API 아카데미: SDK와 라이브러리",
+  "description": "SDK와 라이브러리에 관한 지식을 증명하면 튜링 기숙사의 열쇠 주문 조각을 받을 수 있습니다.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "영어 전체 명칭",
+      "label": "SDK는 무엇의 약자인가요? 영어 전체 명칭을 입력하세요."
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "A, B, C, D 또는 E",
+      "label": "다음 중 Twilio가 서버 측 헬퍼 라이브러리를 제공하지 않는 프로그래밍 언어는 무엇인가요? A: Node.js, B: C++, C: PHP, D: Ruby, E: Python"
+    },
+    {
+      "name": "answer3",
+      "type": "text",
+      "placeholder": "true 또는 false",
+      "label": "참 또는 거짓: 라이브러리는 인증처럼 서버와 주고받는 저수준 상호작용의 일부를 처리하고 추상화하여 API 작업을 더 쉽게 만들 수 있습니다."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

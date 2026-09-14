@@ -1,0 +1,29 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin example
+  response#example.
+    API의 예를 하나 들어 주시겠어요?
+
+conversation(display_name="놀란 마법사 수전의 초상화")
+  case lastResponse
+    when "example"
+      statement#example
+
+    default
+      statement#default
+      responses
+        +example
+
+  statements
+    statement#default
+      text.
+        JavaScript 학생들은 운도 좋지… Twilio가 서버 측 헬퍼 라이브러리뿐 아니라 브라우저 SDK까지 준다고요?
+
+    statement#example
+      text.
+        <a href="https://api.nasa.gov/index.html">NASA Open API</a>를 사용하면 NASA를, 나아가 우주 전체를 탐험할 수 있어요. 매일 새로운 우주 사진을 보고 싶나요? 화성의 날씨는요? 화성 탐사선이 찍은 사진은요? API 라이브러리의 힘은 끊임없이 저를 놀라게 하는군요.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

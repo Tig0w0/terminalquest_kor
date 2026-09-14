@@ -1,0 +1,32 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin tools
+  response#tools.
+    API 도구를 다루려면 어떤 지식이 필요한가요?
+
+conversation(display_name="먼지 쌓인 그레이스 호퍼 석상")
+  case lastResponse
+    when "tools"
+      statement#tools
+
+    default
+      statement#default
+      responses
+        +tools
+
+  statements
+    statement#default
+      text.
+        호퍼 기숙사에서는 도구를 능숙하게 다루는 것이 성공으로 가는 가장 좋은 길임을 배우게 됩니다.
+        예를 들어 Postman에서 인증이 필요한 API 요청에 인증 정보를 보내려면 Authorization 탭을 사용해야 합니다.
+        이 지식은 호퍼 기숙사의 마법을 더욱 강하게 해 줄 겁니다.
+
+    statement#tools
+      text.
+        API 도구, 특히 Postman 같은 도구를 다루는 데는 기초적인 API 지식만으로 충분할 때도 있습니다.
+        배우는 사람이라면 디버깅할 때 나방을 두려워할 필요가 없지요!
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

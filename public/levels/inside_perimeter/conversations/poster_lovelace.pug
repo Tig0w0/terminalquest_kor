@@ -1,0 +1,18 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+conversation(display_name="러브레이스 기숙사 게시물")
+  statement#default
+  responses
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">세계적으로 명성 높은 API 비전술 아카데미의 러브레이스 기숙사가 주최하는 국제 가상 미술전<br><br>
+        출품작<br><BR>
+        <span class="highlight">인터페이스 추상화 // 추상적 인터페이스</span><BR><BR>
+        네 기숙사에 소속된 학생 예술가 25명 이상이 만든 독창적인 코드 예술과 인터랙티브 설치 작품을 선보입니다.</p>
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

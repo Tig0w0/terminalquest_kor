@@ -1,0 +1,33 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin apis
+  response#apis.
+    API가 강력한 또 다른 이유는 무엇인가요?
+
+conversation(display_name="먼지 쌓인 앨런 튜링 석상")
+  case lastResponse
+    when "apis"
+      statement#apis
+
+    default
+      statement#default
+      responses
+        +apis
+
+  statements
+    statement#default
+      text.
+        튜링 기숙사에서는 모든 코드의 중심에 사람이 있다는 사실을 배우게 됩니다.
+        튜링 기숙사의 사람들은 모든 프로그래밍 언어의 학생이 API를 더 쉽게 다룰 수 있도록
+        소프트웨어 개발 키트(SDK)와 라이브러리를 만드는 데 뛰어납니다.
+
+    statement#apis
+      text.
+        API 비전술은 오랜 역사를 지닌 학문이며, 우리는 최근에야 그 힘을 풀어내기 시작했습니다.
+        한때 제가 몸담았던 인간을 다시 표현한 존재에 불과하지만,
+        이곳 비전술 아카데미와 세계 곳곳에서 API가 발전하고 새로운 힘이 발견되는 모습을 지켜봤습니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

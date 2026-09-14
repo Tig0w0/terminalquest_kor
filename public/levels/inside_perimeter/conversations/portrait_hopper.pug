@@ -1,0 +1,29 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin example
+  response#example.
+    API의 예를 하나 들어 주시겠어요?
+
+conversation(display_name="거만한 공주의 궁전 초상화")
+  case lastResponse
+    when "example"
+      statement#example
+
+    default
+      statement#default
+      responses
+        +example
+
+  statements
+    statement#default
+      text.
+        몇몇 약삭빠른 학생은 여러 요청에서 인증 정보를 관리하려고 Postman 변수를 쓴다더군요. 믿을 수 있겠어요?
+
+    statement#example
+      text.
+        <a href="https://www.mapbox.com/">Mapbox API</a>를 사용하면 지도와 경로 안내, 장소 검색 등을 이용할 수 있답니다… 물론 제가 도보 길 안내를 받을 일은 없겠지만요!
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

@@ -1,0 +1,35 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin apis
+  response#apis.
+    API가 그토록 강력한 이유는 무엇인가요?
+
+conversation(display_name="먼지 쌓인 존 폰 노이만 석상")
+  case lastResponse
+    when "apis"
+      statement#apis
+
+    default
+      statement#default
+      responses
+        +apis
+
+  statements
+    statement#default
+      text.
+        폰 노이만 기숙사에서는 효율성과 논리가 마법의 핵심임을 알게 됩니다.
+        API 코드의 효율을 극대화하려면 정보를 가져올 때는 GET 요청을,
+        정보를 보낼 때는 POST 요청을 사용한다는 사실을 알아야 합니다.
+
+    statement#apis
+      text.
+        지금은 생전의 기억만 남았지만 잠시 자랑을 보태자면,
+        정신이 물리적 세계를 빚을 수 있다고 믿은 덕분에 한때 세기의 인물로 선정되기도 했습니다.
+        이곳 비전술 아카데미만큼 그 믿음이 참된 곳은 없지요.
+        저는 그저 지하 묘지의 어두운 벽 안에 잊힌 먼지 쌓인 석상일 뿐이지만,
+        수많은 학생이 마음속으로 성을 설계한 뒤 API로 그 성에 생명을 불어넣는 모습을 지켜봤습니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

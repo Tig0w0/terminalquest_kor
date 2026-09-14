@@ -1,0 +1,20 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+conversation(display_name="폰 노이만 기숙사 게시물")
+  statement#default
+  responses
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">API, SDK, HTTP, REST. 이 개념들을 핵심 기능까지 정제할 방법을 찾고 있나요?
+        기말시험을 이겨 낼 달콤하고 농축된 API 지식이 필요한가요?
+        폰 노이만 기숙사가 후원하는 물약 동아리에서 올해 <span class="highlight">API 비전술 ‘과학 박람회’</span>를 열어
+        새로 만든 API 물약을 선보입니다.<BR><BR>
+        차갑게 우린 음료를 맛보고 API의 비효율을 끓여 없애는 워크숍도 즐기세요.
+        최고의 API 매시업에는 새 가마솥을 드립니다!</p>
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

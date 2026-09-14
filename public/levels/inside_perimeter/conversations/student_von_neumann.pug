@@ -1,0 +1,72 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin house
+  response#house.
+    이곳을 둘러보며 다른 비전술사들을 만나고 있습니다. 폰 노이만 기숙사에 관해 더 알려 주시겠어요?
+
+mixin more_info
+  response#more_info.
+    물약 동아리에 관해 더 알려 주세요!
+
+mixin one_sentence
+  response#one_sentence.
+    API의 가장 멋진 점을 한 문장으로 말한다면 뭐라고 하시겠어요?
+
+conversation(display_name="폰 노이만 기숙사 학생 대표 진")
+  case lastResponse
+    when "house"
+      statement#house
+      responses
+        +more_info
+        +one_sentence
+
+    when "more_info"
+      statement#more_info
+      responses
+        +house
+        +one_sentence
+
+    when "one_sentence"
+      statement#one_sentence
+      responses
+        +house
+        +more_info
+
+    default
+      statement#default
+      responses
+        +house
+        +more_info
+        +one_sentence
+
+  statements
+    statement#default
+      text.
+        안녕하세요, 오퍼레이터. 지금까지 API 비전술 아카데미는 마음에 드나요?
+
+    statement#one_sentence
+      text.
+        API를 사용하면 개발자가 기능을 처음부터 만들 필요 없이 이미 존재하는 기능을 활용할 수 있습니다.<br><br>
+        그런 해결책이 라이브러리나 SDK에 깔끔하게 묶여 있으면 특히 효과적이죠…
+        또는 폰 노이만 기숙사의 영약으로 마셔도 좋고요. API는 개발자가 새로운 힘을 더 쉽게 얻도록 해 줄 뿐만 아니라
+        진입 장벽도 낮춰 더 많은 개발자가 더 완만한 학습 곡선을 거쳐 더 많은 놀라운 일을 해낼 수 있게 합니다.
+        이것이 효율성과 생산성의 정의가 아니라면, 기숙사 대항전에서 호퍼 기숙사를 응원하겠다고 엄숙히 맹세하죠!
+
+    statement#more_info
+      text.
+        물약 동아리는 올해 API 비전술 ‘과학 박람회’를 열어 우리가 개발해 온 여러 API 솔루션을 선보일 예정입니다.<br><br>
+        효율성과 생산성을 중시하기 때문에 여러 API를 조합해 새로운 해결책을 만드는 방법을 늘 탐구하죠.
+        알맞은 공식을 찾고, 올바른 재료를 끓이고, API 강장제를 한 방울 더해 API 영약을 만드는 일이랍니다…
+
+    statement#house
+      text.
+        <span class="highlight">폰 노이만 기숙사</span>에서는 이론과 응용을 넘나들며 연구합니다.
+        효율성을 중시하고, API로 대규모 문제를 해결하며, 오래 지속될 시스템을 설계해야 한다고 믿죠.
+        그렇다고 이론의 실용적인 면을 탐구하지 않는 것은 아닙니다. 아무리 이론을 좋아하는 폰 노이만 기숙사 학생이라도
+        화학 실험실에서 API 솔루션을 가장 가치 있는 기능만 남도록 정제하는 모습을 흔히 볼 수 있어요.
+        비전술 아카데미의 물약 동아리도 우리가 운영합니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

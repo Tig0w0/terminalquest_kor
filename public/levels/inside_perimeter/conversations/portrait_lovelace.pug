@@ -1,0 +1,29 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin example
+  response#example.
+    API의 예를 하나 들어 주시겠어요?
+
+conversation(display_name="외로운 귀부인의 초상화")
+  case lastResponse
+    when "example"
+      statement#example
+
+    default
+      statement#default
+      responses
+        +example
+
+  statements
+    statement#default
+      text.
+        모든 SMS에는 받는 사람이 있어야 하죠… 설마 제게 메시지를 보내는 건가요? 누군가 제게 소식을 전해 준 지 정말 오래됐답니다…
+
+    statement#example
+      text.
+        <a href="https://www.boredapi.com/">Bored API</a>에 요청을 보내면 재미있는 활동을 하나 추천해 줘요. “친구들과 박물관에 가기”, “친구들과 노래방에 가기”, “친구들에게 문자 보내기”… 이제 친구만 있으면 되겠군요.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

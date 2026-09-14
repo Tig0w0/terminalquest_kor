@@ -1,0 +1,28 @@
+{
+  "title": "API 아카데미: HTTP 메서드",
+  "description": "HTTP 메서드에 관한 지식을 증명해 폰 노이만 기숙사의 상징 동물에게 인정받고 열쇠 주문 조각을 얻으세요.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "예: A, B, C 또는 D",
+      "label": "다음 중 HTTP 메서드가 아닌 것은 무엇인가요?<br>A: GET<br>B: POST<br>C: UPDATE<br>D: DELETE"
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "",
+      "label": "API를 사용해 원격 서버에서 정보를 조회하거나 읽으려면 어떤 HTTP 메서드를 사용해야 하나요?"
+    },
+    {
+      "name": "answer3",
+      "type": "text",
+      "placeholder": "",
+      "label": "마지막으로 폰 노이만 기숙사의 상징 동물에게 자격을 증명하려면 다음 문제에 답하세요. Twilio Programmable SMS API로 메시지를 만들고 전송할 때 어떤 HTTP 메서드를 사용해야 하나요?"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

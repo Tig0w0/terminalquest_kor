@@ -1,0 +1,31 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin documentation
+  response#documentation.
+    API 문서에서 읽은 개념을 실제로 구현하는 가장 좋은 방법은 무엇인가요?
+
+conversation(display_name="먼지 쌓인 에이다 러브레이스 석상")
+  case lastResponse
+    when "documentation"
+      statement#documentation
+
+    default
+      statement#default
+      responses
+        +documentation
+
+  statements
+    statement#default
+      text.
+        러브레이스 기숙사에서는 이해가 표현의 열쇠임을 배우게 됩니다.
+        러브레이스 기숙사의 힘을 키우려면 API 문서를 살펴보고 원하는 답을 찾으세요.
+
+    statement#documentation
+      text.
+        문서를 읽으려면 논리와 이해력이 필요하지만, 이를 적용하려면 상상력과 창의력이 필요합니다.
+        그렇지 않나요, 오퍼레이터?
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

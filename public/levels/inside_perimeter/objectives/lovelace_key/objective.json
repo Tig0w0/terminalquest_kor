@@ -1,0 +1,28 @@
+{
+  "title": "API 아카데미: API 요청 보내기",
+  "description": "API 요청을 성공적으로 보내 러브레이스 열쇠 주문 조각을 얻으세요.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "true 또는 false",
+      "label": "참 또는 거짓: Twilio Programmable SMS에 요청하려면 Account SID와 Auth Token을 요청에 포함해야 합니다."
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "세 번째 필수 매개변수는 무엇인가요?",
+      "label": "Twilio Programmable SMS API로 메시지를 만들 때는 세 가지 매개변수가 필요합니다. 첫째, `From` 또는 `MessagingServiceSid`. 둘째, `Body` 또는 `MediaUrl`. 세 번째는 무엇인가요?"
+    },
+    {
+      "name": "answer3",
+      "type": "text",
+      "placeholder": "새 메시지의 SID는 무엇인가요?",
+      "label": "명령줄에서 cURL을 사용해 Twilio Programmable SMS API로 메시지를 만드세요. 서버 응답에서 메시지의 `SID`를 찾아 여기에 제출하면 러브레이스 기숙사의 열쇠 주문 조각을 얻을 수 있습니다."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

@@ -1,0 +1,72 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin house
+  response#house.
+    튜링 기숙사에 관해 더 알려 주시겠어요?
+
+mixin more_info
+  response#more_info.
+    라이브러리와 SDK에 관해 더 설명해 주시겠어요?
+
+mixin one_sentence
+  response#one_sentence.
+    API의 가장 멋진 점을 한 문장으로 말한다면 뭐라고 하시겠어요?
+
+conversation(display_name="튜링 기숙사 학생 대표 자야")
+  case lastResponse
+    when "house"
+      statement#house
+      responses
+        +more_info
+        +one_sentence
+
+    when "more_info"
+      statement#more_info
+      responses
+        +house
+        +one_sentence
+
+    when "one_sentence"
+      statement#one_sentence
+      responses
+        +house
+        +more_info
+
+    default
+      statement#default
+      responses
+        +house
+        +more_info
+        +one_sentence
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">환영합니다, 오퍼레이터! 서약 두루마리를 찾으러 가는 길인가 보군요.</p>
+
+    statement#one_sentence
+      text.
+       API와 그 라이브러리를 통해 지식을 나눌 수 있습니다. 현재 학생들을 위한 진로 박람회를 준비하면서
+       SDK와 라이브러리로 행사를 기획하고 졸업생 데이터베이스를 만들며,
+       졸업 후 API를 실제로 활용하는 모습을 보여 재학생들에게 영감을 주고 있죠.
+       동료 학생들이 자신의 기술과 지식으로 위대한 일을 하도록 진심으로 북돋고 싶어요!<BR><BR>
+       앗, 미안해요. 한 문장이 아니었네요… 그렇다고 제가 효율을 사랑하는 폰 노이만 기숙사 학생은 아니니까요!
+
+    statement#more_info
+      text.
+        아카데미의 기숙사마다 고유한 특성이 있으며, 튜링 기숙사의 특성은 혁신과 문제 해결입니다.
+        우리는 그 특성을 살려 동료 학생들을 위한 데이터와 프로그래밍 코드 묶음인 소프트웨어 라이브러리를 만들기도 합니다.
+        비전술 아카데미의 모든 학생이 가능한 한 많은 API와 개발 키트를 이용할 수 있기를 바라거든요.
+
+    statement#house
+      text.
+        <span class="highlight">튜링 기숙사</span> 학생들은 본관의 실험실과 작업장에서 만날 수 있습니다.
+        그곳에서 아직 풀리지 않은 API 문제를 실험하죠. 코드볼 시즌을 준비하며 운동장에서 훈련하는 모습도 볼 수 있어요.
+        우리 상징 동물이 호랑이니까요! 아니면… 사실 비전술 아카데미 어디에서든 우리를 만날 수 있습니다.
+        거의 모든 동아리에서 활동하고 있거든요. 아직 동아리나 모임, 라이브러리가 없다면
+        새로운 문제를 해결하고 사람들을 이어 주기 위해 직접 만듭니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

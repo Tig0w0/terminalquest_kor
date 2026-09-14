@@ -1,0 +1,29 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin example
+  response#example.
+    API의 예를 하나 들어 주시겠어요?
+
+conversation(display_name="속삭이는 바람 벽의 초상화")
+  case lastResponse
+    when "example"
+      statement#example
+
+    default
+      statement#default
+      responses
+        +example
+
+  statements
+    statement#default
+      text.
+        바람결에 들리는 말로는 Twilio Programmable SMS API에 GET 요청을 보내 메시지를 전송하려던 학생들이 원하는 결과를 얻지 못하고 있다더군요.
+
+    statement#example
+      text.
+        <a href="https://openweathermap.org/api">OpenWeather API</a>를 사용하면 20만 개가 넘는 도시의 날씨를 앱에 넣거나 과거 날씨 데이터에 접근할 수 있답니다. 누가 알겠어요? 저도 처음부터 이렇게 바람이 많았던 건 아닐지도 모르죠.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

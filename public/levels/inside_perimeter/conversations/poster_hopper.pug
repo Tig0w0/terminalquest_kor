@@ -1,0 +1,18 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+conversation(display_name="호퍼 기숙사 게시물")
+  statement#default
+  responses
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">모든 비전술사에게 알립니다. 호퍼 기숙사의 새로운 베타 테스트 대회가 열립니다!
+        정식 출시 전에 최신 도구를 시험할 기회입니다. 솔직한 의견을 들려주세요! 디버깅의 짜릿함을 경험하세요!<BR><BR>
+        <span class="highlight">호퍼 테스트 동아리</span>는 매달 둘째 주 화요일에 온실에서 모입니다.
+        테스트나 품질 보증 경험이 없어도 참여할 수 있습니다!</p>
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

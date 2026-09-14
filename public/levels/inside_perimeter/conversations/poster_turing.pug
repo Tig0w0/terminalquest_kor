@@ -1,0 +1,17 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+conversation(display_name="튜링 기숙사 게시물")
+  statement#default
+  responses
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">비전술사 여러분께 알립니다. 튜링 기숙사에서 곧 열릴 <span class="highlight">API 진로 박람회</span>를 위해
+        여러분의 의견을 기다립니다!<BR><BR>
+        가장 자주 쓰고 좋아하는 API는 무엇인가요? 익히기 가장 어려웠던 주문은 무엇인가요? 가장 흥미로운 API 비전술 진로는 무엇인가요?</p>
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);
