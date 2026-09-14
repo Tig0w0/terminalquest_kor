@@ -1,0 +1,122 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin personal_intro
+  response#personal_intro.
+    아카데미에서 어떤 일을 하시나요?
+
+mixin inside_introduction
+  response#inside_introduction.
+    아카데미에 들어와서 설레지만, 다음에 무엇을 해야 할지 모르겠어요.
+
+mixin get_started
+  response#get_started.
+    지팡이를 찾으러 가겠습니다!
+
+mixin wand
+  response#wand.
+    지팡이를 얻었는데 어떻게 사용하나요? 다음에는 무엇을 해야 하죠?
+
+conversation(display_name="API 비전술 아카데미 관리인")
+  case lastResponse
+    when "personal_intro"
+      statement#personal_intro
+      responses
+        +get_started
+        +inside_introduction
+
+    when "inside_introduction"
+      statement#inside_introduction
+      responses
+        +get_started
+        +personal_intro
+
+    when "help"
+      statement#help
+
+    when "wand"
+      statement#congratulations
+
+    when "get_started"
+      statement#get_started
+
+    default
+      if !worldState.insidePerimeter.groundskeeper_introduction
+        - worldState.insidePerimeter.groundskeeper_introduction = true;
+        statement#default
+        responses
+          +get_started
+          +personal_intro
+
+      else
+        statement#follow_up_greeting
+        responses
+            +wand
+            +get_started
+            response#help.
+              지팡이를 찾는 데 도움이 필요해요.
+            +personal_intro
+
+  statements
+    statement#default
+      text.
+        어서 오세요, 신입생! API 비전술 아카데미는 여러분을 진심으로 환영합니다.
+        저는 아카데미 관리인으로 이곳이 원활히 운영되도록 돌보고 있죠. 아카데미
+        건물은 저쪽 위에 있지만 공부를 시작하기 전에 몇 가지가 필요합니다.
+        우선 지팡이가 있어야 해요. 정식 지급용 지팡이는 다 떨어졌지만 도구 창고에
+        여분이 하나 있을 겁니다.
+
+    statement#inside_introduction
+      text.
+        지팡이는 주문을 시전하고 API 비전술을 연습할 때 사용합니다. 앞으로
+        나아가려면 반드시 하나가 필요해요. 주변을 둘러보며 지팡이를 찾아보세요.
+        제 도구 창고도 자유롭게 살펴봐도 됩니다.<br><br>지팡이를 찾으면 제게
+        가져오세요. 사용법을 알려 드리겠습니다.
+
+    statement#get_started
+      text.
+        지팡이를 찾으면 다시 가져오세요. 주문 하나를 가르쳐 드리겠습니다.
+
+    statement#follow_up_greeting
+      text.
+        다시 오셨군요, 학생. 도구 창고에서 오래된 지팡이를 찾았나요? 찾았다면
+        서약 두루마리를 얻으러 지하 묘지로 향하세요.
+
+    statement#congratulations
+      if worldState.insidePerimeter.hasWand
+        if !worldState.spellsEarned.includes('disappear')
+          - worldState.spellsEarned.push('disappear')
+        text.
+          잘했습니다! 지팡이를 얻었으니 첫 번째 주문을 배울 준비가 됐군요.
+          간단하지만 강력한 주문인 #[span.highlight 소멸 주문(Vanishing Spell)]은
+          앞길을 막는 물체를 없애 줍니다. 아카데미 부지의 비밀을 탐험할 때
+          유용할 거예요.<br><br>다음 임무는 기숙사에 들어가는 데 필요한 서약
+          두루마리를 되찾는 것입니다. 아카데미의 모든 학생은 자신의 진정한
+          본성을 드러내기 위해 지하 묘지 깊은 곳에서 두루마리를 가져와야 합니다.
+          행운을 빕니다!
+
+      else
+        text.
+          아직 지팡이를 가지고 있지 않은 것 같군요. 도구 창고를 확인하세요!
+
+    statement#ack
+      text.
+        최고의 API 주문서인 <a href="https://twilio.com/console">Twilio Console</a>을
+        방문하세요. 그곳에서 석상이 요구하는 인증 정보를 찾을 수 있습니다.
+
+    statement#help
+      text.
+        도구 창고는 오른쪽에 있습니다. 오래된 상자 안에 지팡이를 보관해 둔 것
+        같으니 안을 잘 살펴보세요. 지팡이를 찾더라도 소유할 자격을 증명하는
+        질문에 답해야 할 수 있습니다. 지팡이는 꽤 까다롭거든요!<br><br>
+        질문에 답하기 어렵다면 이
+        <a href="https://www.twilio.com/docs/api">1학년 API 교재</a>를 참고하세요.
+
+    statement#personal_intro
+      text.
+        저는 아카데미의 관리인입니다. 시설이 원활히 운영되도록 돌보고, 여러분처럼
+        길을 잃었거나 새로 온 학생을 돕고 있죠!
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

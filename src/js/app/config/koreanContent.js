@@ -126,6 +126,21 @@ const mapObservationOverrides = {
   },
 };
 
+const runtimeTextOverrides = {
+  'I should go find the toolshed and see if there is an extra wand inside!':
+    '도구 창고로 가서 여분의 지팡이가 있는지 찾아봐야겠어요!',
+  'I think I need to learn a spell later to do anything here!':
+    '여기서 무언가 하려면 먼저 주문을 배워야 할 것 같아요!',
+  'I need the magic key to unlock the Scroll Room. I should activate all the house statues inside these Catacombs before returning.':
+    '두루마리 방을 열려면 마법 열쇠가 필요합니다. 돌아오기 전에 지하 묘지에 있는 모든 기숙사 석상을 활성화해야겠어요.',
+  "I've obtained the magic key. I should go and claim my pledge scroll!":
+    '마법 열쇠를 얻었습니다. 이제 서약 두루마리를 찾으러 가야겠어요!',
+  "I've obtained my pledge scroll. Time to head to the Main Hall and choose my house.":
+    '서약 두루마리를 얻었습니다. 중앙 홀로 가서 기숙사를 선택할 시간이에요.',
+  'I got my pledge scroll! I should head to the Main Hall to choose my house now!':
+    '서약 두루마리를 얻었습니다! 이제 중앙 홀로 가서 기숙사를 선택해야겠어요!',
+};
+
 export function localizeLevel(levelName, levelInfo) {
   return Object.assign({}, levelInfo, levels[levelName] || {});
 }
@@ -151,4 +166,13 @@ export function localizeMap(levelName, mapData) {
   });
 
   return mapData;
+}
+
+export function localizeRuntimeText(text) {
+  if (typeof text !== 'string') {
+    return text;
+  }
+
+  const normalizedText = text.trim().replace(/\s+/g, ' ');
+  return runtimeTextOverrides[normalizedText] || text;
 }

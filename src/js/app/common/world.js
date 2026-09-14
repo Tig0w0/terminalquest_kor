@@ -5,6 +5,7 @@ import { staticFilePath } from './fs_utils';
 import TiledService from './tiled';
 import { requireFromExtension } from './assetLoader';
 import analytics from './analytics';
+import { localizeRuntimeText } from '../config/koreanContent';
 
 function resolveFilterFn(keyOrFilter) {
   if (typeof keyOrFilter === 'string') {
@@ -113,7 +114,7 @@ class World {
 
     questStatus[levelName] = {
       title,
-      description,
+      description: localizeRuntimeText(description),
       complete,
     };
 
@@ -173,7 +174,7 @@ class World {
 
   showNotification = (toastMessage, timeout = 0) => {
     window.setTimeout(() => {
-      setContext({ toastMessage });
+      setContext({ toastMessage: localizeRuntimeText(toastMessage) });
     }, timeout);
   };
 
