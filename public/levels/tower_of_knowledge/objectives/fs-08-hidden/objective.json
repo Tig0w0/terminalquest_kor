@@ -1,0 +1,14 @@
+{
+  "title": "숨김 파일 만들기",
+  "description": "디렉터리에 새 숨김 파일을 만드세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "숨김 파일을 만들었으면 해킹을 누르세요!"
+    }
+  ],
+  "show_ide": false,
+  "rewards": { "xp": 100 }
+}

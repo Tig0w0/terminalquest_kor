@@ -1,0 +1,14 @@
+{
+  "title": "직접 파일 만들기",
+  "description": "새 디렉터리 안에 파일을 만드세요.",
+  "validation_fields": [
+    {
+      "name": "newFileName",
+      "type": "text",
+      "placeholder": "fileName",
+      "label": "새로 만든 파일의 이름은 무엇인가요?"
+    }
+  ],
+  "show_ide": false,
+  "rewards": { "xp": 100 }
+}

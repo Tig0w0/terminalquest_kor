@@ -130,6 +130,12 @@ const mapObservationOverrides = {
 };
 
 const runtimeTextOverrides = {
+  'I should probably speak to Cedric to see if any more plans have been found for the <span class="highlight">Dark Ducktypium Forge</span>.':
+    '<span class="highlight">어둠의 덕타이피움 대장간</span> 설계도를 더 찾았는지 세드릭과 이야기해 봐야겠다.',
+  'I\'ve completed everything in the <span class="highlight">Challenge Question</span> mission for now!':
+    '지금 할 수 있는 <span class="highlight">도전 문제</span> 미션을 모두 완료했다!',
+  "I've completed everything in the Challenge Question mission for now!":
+    '지금 할 수 있는 도전 문제 미션을 모두 완료했다!',
   'I should complete the last objective to clean up this mess!':
     '이 엉망진창인 상황을 정리하려면 마지막 과제를 완료해야 해!',
   'I need to complete the current objective before I can pass through to the next room.':

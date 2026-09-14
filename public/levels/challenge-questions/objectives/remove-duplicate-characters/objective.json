@@ -1,0 +1,1 @@
+{"title":"연속 중복 문자 제거하기","description":"문자열에서 연속해서 중복되는 문자를 제거하세요.","validation_fields":[{"name":"prompt","type":"prompt","placeholder":"","label":"함수를 테스트하려면 해킹을 누르세요."}],"show_ide":true,"rewards":{"xp":100}}

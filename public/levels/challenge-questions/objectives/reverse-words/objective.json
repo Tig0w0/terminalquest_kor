@@ -1,0 +1,1 @@
+{"title":"거꾸로 된 문장","description":"문장의 단어 순서를 뒤집으세요.","validation_fields":[{"name":"prompt","type":"prompt","placeholder":"","label":"함수를 테스트하려면 해킹을 누르세요."}],"show_ide":true,"rewards":{"xp":100}}

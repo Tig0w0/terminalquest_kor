@@ -1,0 +1,79 @@
+- const worldState = getState('TQ_JAVASCRIPT_WORLD_STATE');
+
+mixin what_research
+  response#what_research.
+    이곳에서는 어떤 연구를 하나요?
+
+mixin what_can_i_learn
+  response#what_can_i_learn.
+    연구소에서 JavaScript에 관해 무엇을 배울 수 있나요?
+
+conversation(display_name="세드릭")
+  - const savedDay = worldState && Object.values(worldState.room1_split.lasers).every(isOn => isOn);
+  - const pleaseHurry = worldState && worldState.room1 && worldState.room1.explosionTriggered;
+  if savedDay
+    statement#saved_day
+  else if pleaseHurry
+    statement#please_hurry
+  else
+    case lastResponse
+      when "what_research"
+        statement#what_research
+        responses
+          +what_can_i_learn
+      when "what_can_i_learn"
+        statement#what_can_i_learn
+        responses
+          +what_research
+      default
+        statement#default
+        responses
+          +what_can_i_learn
+          +what_research
+
+  statements
+    statement#saved_day
+      text.
+        연구소 폭발로 생긴 차원 균열이 사라진 것 같군요. 잘했습니다! 해낼 줄 알았습니다.
+      speech
+        prosody(rate="110%").
+          연구소 폭발로 생긴 차원 균열이 사라진 것 같군요. 잘했습니다! 해낼 줄 알았습니다.
+
+    statement#please_hurry
+      text.
+        오퍼레이터, 정보에 따르면 연구소 폭발로 생긴 #[span.red 차원 균열]이
+        아직도 커지고 있습니다.<br/><br/>오른쪽 방의 #[span.highlight 수석 과학자와 협력하세요.]
+        현재 해결책을 찾고 있습니다.
+      speech
+        prosody(rate="110%").
+          오퍼레이터. 정보에 따르면 연구소 폭발로 생긴 차원 균열이 아직도 커지고 있습니다.
+          오른쪽 방의 수석 과학자와 협력하세요. 현재 해결책을 찾고 있습니다.
+
+    statement#what_can_i_learn
+      text.
+        연구소를 돌아다니려면 JavaScript 프로그래밍 언어에 익숙해져야 합니다.
+        그 과정에서 컴퓨터에 #[a(href="https://www.nodejs.org") Node.js] JavaScript 런타임도 설치하여
+        JavaScript 코드를 작성하고 실행할 수 있게 됩니다.
+      speech
+        prosody(rate="110%").
+          연구소를 돌아다니려면 자바스크립트 프로그래밍 언어에 익숙해져야 합니다.
+          컴퓨터에 노드 제이에스 런타임도 설치하여 자바스크립트 코드를 작성하고 실행하게 됩니다.
+
+    statement#what_research
+      text.
+        현재 연구팀은 JavaScript의 힘을 만드는 원천으로 추정되는 신원소
+        #[span.highlight 덕타이피움]의 에너지 생성 특성을 연구하고 있습니다.
+        오른쪽의 보안 장벽을 지나가 직접 연구 자료를 살펴보세요.
+      speech
+        prosody(rate="110%").
+          현재 연구팀은 자바스크립트의 힘을 만드는 원천으로 추정되는 신원소 덕타이피움의
+          에너지 생성 특성을 연구하고 있습니다. 오른쪽 보안 장벽을 지나 연구 자료를 살펴보세요.
+
+    statement#default
+      text.
+        오퍼레이터, #[span.highlight JavaScript 테스트 연구소]의 작업을 관찰하러 와 주어 기쁩니다.
+        TwilioQuest 과학자들은 JavaScript 프로그래밍 언어의 잠재력을 밝히는 데 큰 진전을 이루고 있습니다.
+      speech
+        prosody(rate="110%").
+          오퍼레이터. 자바스크립트 테스트 연구소의 작업을 관찰하러 와 주어 기쁩니다.
+          트윌리오퀘스트 과학자들은 자바스크립트의 잠재력을 밝히는 데 큰 진전을 이루고 있습니다.

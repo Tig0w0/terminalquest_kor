@@ -1,0 +1,14 @@
+{
+  "title": "직접 디렉터리 만들기",
+  "description": "파일을 보관할 새 디렉터리를 만드세요.",
+  "validation_fields": [
+    {
+      "name": "newDirPath",
+      "type": "text",
+      "placeholder": "/path/to/directory",
+      "label": "방금 만든 디렉터리의 파일 경로는 무엇인가요?"
+    }
+  ],
+  "show_ide": false,
+  "rewards": { "xp": 100 }
+}

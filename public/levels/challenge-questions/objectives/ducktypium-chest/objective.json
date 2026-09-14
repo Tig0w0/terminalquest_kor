@@ -1,0 +1,1 @@
+{"title":"덕타이피움 흉갑 회수하기","description":"세드릭이 문을 열고 어둠의 덕타이피움 흉갑을 얻도록 단어의 순서를 알려 주세요.","validation_fields":[{"name":"words","type":"text","placeholder":"skrept jah vuh","label":"문에 적힌 단어"}],"show_ide":false,"rewards":{"xp":100,"items":["dark_ducktypium_armor_chest"]}}

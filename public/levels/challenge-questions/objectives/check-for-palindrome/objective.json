@@ -1,0 +1,1 @@
+{"title":"회문 확인하기","description":"문자열을 앞뒤로 읽었을 때 같은지 판단하세요.","validation_fields":[{"name":"prompt","type":"prompt","placeholder":"","label":"함수를 테스트하려면 해킹을 누르세요."}],"show_ide":true,"rewards":{"xp":100}}

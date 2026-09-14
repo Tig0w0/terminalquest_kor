@@ -1,0 +1,1 @@
+{"title":"덕타이피움 투구 회수하기","description":"세드릭이 덕타이피움 투구를 회수하는 데 필요한 이동 지시를 주세요.","validation_fields":[{"name":"instructions","type":"text","placeholder":"up down left right","label":"세드릭의 이동 지시"}],"show_ide":false,"rewards":{"xp":100,"items":["dark_ducktypium_armor_helmet"]}}

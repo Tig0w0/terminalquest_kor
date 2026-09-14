@@ -1,0 +1,14 @@
+{
+  "title": "파일 삭제하기",
+  "description": "이전 과제에서 만든 파일을 삭제하세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "파일을 삭제했으면 해킹을 누르세요!"
+    }
+  ],
+  "show_ide": false,
+  "rewards": { "xp": 100 }
+}

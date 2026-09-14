@@ -1,0 +1,78 @@
+-
+  const STATE_KEY = "com.twilioquest.challenge-questions";
+  const worldState = getState(STATE_KEY);
+
+mixin what_they_do
+  response#what_they_do.
+    이런! 그들이 무엇을 하려는 거죠?
+
+mixin transition_to_other_map
+  response#transition_to_other_map.
+    시뮬레이션의 다른 구역으로 가 봅시다!
+
+conversation(display_name="세드릭")
+  case lastResponse
+    when "bottom_of_this"
+      statement#final
+      responses
+    when "what_they_do"
+      statement#forge
+      responses
+        response#bottom_of_this.
+          제가 진상을 밝혀낼게요!
+    when "transition_to_computations"
+      statement#transition_to_map
+      responses
+      - worldState.chosenMap = 'default';
+    when "transition_to_power"
+      statement#transition_to_map
+      responses
+      - worldState.chosenMap = 'room2';
+    when "transition_to_bugs"
+        statement#transition_to_map
+        responses
+        - worldState.chosenMap = 'room3';
+    when "transition_to_other_map"
+      statement#where_to
+      responses
+        if worldState.currentMapName !== 'default'
+          response#transition_to_computations.
+            연산이 이루어지는 구역을 렌더링한다.
+        if worldState.currentMapName !== 'room2'
+          response#transition_to_power.
+            동력이 생성되는 구역을 렌더링한다.
+        if worldState.currentMapName !== 'room3'
+          response#transition_to_bugs.
+            버그를 수리하는 구역을 렌더링한다.
+    default
+      if worldState.challengeMapsCompleted >= 1
+        statement#default_room2
+        responses
+          +transition_to_other_map
+      else
+        statement#default
+        responses
+          +what_they_do
+
+  statements
+    statement#default
+      text.
+        오퍼레이터! 와 줘서 다행이에요! #[span.red 레거시 시스템]이 #[span.highlight JavaScript 테스트 연구소]에서 덕타이피움 표본을 훔쳤어요.
+    statement#forge
+      text.
+        우리도 확실히 몰라요! #[span.highlight 현장 오퍼레이터] 한 명이 #[span.highlight 어둠의 덕타이피움 대장간]이라는 시설의 설계도 일부를 찾아냈어요. 가능한 부분은 이곳에 렌더링해 두었습니다. 이 시뮬레이션을 탐색하고 시설의 목적을 밝혀 주세요!
+    statement#final
+      text.
+        이 시뮬레이션에 꼭 다시 와 주세요. #[span.highlight 현장 오퍼레이터]들이 곧 더 많은 설계도를 가져올 겁니다!
+    statement#where_to
+      text.
+        좋아요! 구성을 어디로 설정할까요?
+    statement#transition_to_map
+      text.
+        출발하세요!
+    statement#default_room2
+      text.
+        연산 문제를 잘 처리했어요! 이제 #[span.red 레거시 시스템]이 그 기계로 어둠의 덕타이피움을 합성하고 있었다는 사실을 알아냈습니다!
+        #[span.highlight 현장 오퍼레이터]들이 제가 렌더링할 수 있는 #[span.highlight 어둠의 덕타이피움 대장간] 설계도를 추가로 찾았어요. 탐색하고 싶은 구역을 말하면 그곳으로 보내 드릴게요!
+
+- setState(STATE_KEY, worldState);

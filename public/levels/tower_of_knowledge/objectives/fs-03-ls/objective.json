@@ -1,0 +1,14 @@
+{
+  "title": "다른 디렉터리 또는 파일 찾기",
+  "description": "컴퓨터에서 다른 디렉터리 또는 파일을 찾으세요.",
+  "validation_fields": [
+    {
+      "name": "directoryOrFileName",
+      "type": "text",
+      "placeholder": "directory",
+      "label": "디렉터리 또는 파일 이름을 입력하세요."
+    }
+  ],
+  "show_ide": false,
+  "rewards": { "xp": 100 }
+}

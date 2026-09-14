@@ -1,0 +1,1 @@
+{"title":"덕타이피움 각반 회수하기","description":"세드릭이 보물을 찾으려면 어떤 항아리를 깨야 하는지 알아내세요.","validation_fields":[{"name":"color","type":"text","placeholder":"white and green, gray, or terracotta","label":"어떤 색 항아리에 함정이 없나요?"}],"show_ide":false,"rewards":{"xp":100,"items":["dark_ducktypium_armor_legs"]}}
