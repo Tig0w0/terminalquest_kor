@@ -1,0 +1,15 @@
+{
+  "title": "API 아카데미: Fetch 요청",
+  "description": "API에서 마법 문구를 가져오는 async 함수를 작성하세요.",
+  "show_ide": true,
+  "validation_fields": [
+    {
+      "name": "magicalPhrase",
+      "type": "text",
+      "label": "API에서 받은 마법 문구를 붙여 넣으세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

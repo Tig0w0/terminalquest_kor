@@ -1,0 +1,46 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="무한 확장의 교과서")
+  case lastResponse
+    when "chapter_2"
+      statement#chapter_2
+      responses
+        response#chapter_1.
+          제1장: 건설
+    when "chapter_1"
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 출처
+    default
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 출처
+
+  statements
+    statement#default
+      text.
+        <span class="highlight">제2권/4권. 제1장: 건설</span><br><br>
+        무한 지식의 탑이 처음부터 탑이었던 것은 아니다.
+        사서는 프로그램에 따라 지식을 모으다가, 다른 사람이 개발자가 되도록 돕기 위해
+        그 지식을 나누는 것에도 가치가 있음을 깨달았다.<br><br>
+
+        그래서 먼저 탑이라는 발상을 세우고, 이어서 탑이 솟아 있는 행성 전체와 탑 자체를 만들었다.
+    statement#chapter_1
+      text.
+        <span class="highlight">제2권/4권. 제1장: 건설</span><br><br>
+        무한 지식의 탑이 처음부터 탑이었던 것은 아니다.
+        사서는 프로그램에 따라 지식을 모으다가 그 지식을 나누는 것에도 가치가 있음을 깨달았다.
+        자신의 지식으로 다른 이들이 개발자가 될 힘을 얻을 수 있었던 것이다!<br><br>
+
+        그래서 먼저 탑이라는 발상을 세우고, 이어서 탑이 솟아 있는 행성 전체와 탑 자체를 만들었다.
+    statement#chapter_2
+      text.
+        <span class="highlight">제2권/4권. 제2장: 출처</span><br><br>
+        사서가 탑을 지은 존재로 알려지자 여행자들이 그녀에게 지식을 가져오기 시작했다.
+        기록 보관자들은 보존하고 싶은 전문 지식을 들고 찾아왔다.
+        사서도 ‘신규 개발자 고충 수집기’라는 프로그램을 클라우드로 보내
+        개발자에게 필요한 것이 무엇인지 직접 조사했다.
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

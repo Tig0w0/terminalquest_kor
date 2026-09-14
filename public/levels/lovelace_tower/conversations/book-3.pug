@@ -1,0 +1,34 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin excerpt
+  response#excerpt.
+    책의 발췌문 읽기
+
+conversation(display_name="러브레이스 장서 제3권")
+  case lastResponse
+    when "excerpt"
+      statement#excerpt
+    default
+      statement#default
+      responses
+        +excerpt
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">
+        <span class="highlight">
+        <a href="https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/7739689/">초보 개발자가 사용자 인터페이스 API와 도구를 도입할 때 느끼는 장애물</a>
+        </span>
+        <br><br>
+        Irum Rauf 외 지음</p>
+
+    statement#excerpt
+      text.
+        “API 개발자는 사용하기 좋은 API를 만들기 위해 다양한 설계 지침과 경험 법칙을 활용할 수 있다.
+        그러나 <span class="highlight">개발 환경을 고려하지 않은 채 API만 따로 떼어 사용성을 개선할 수는 없다.</span>
+        API는 특정 시스템 환경에서 사용되며, 제대로 사용하려면 그 환경이 올바르게 구성되어야 한다.”(226쪽)
+
+- setState(STATE_KEY, worldState);

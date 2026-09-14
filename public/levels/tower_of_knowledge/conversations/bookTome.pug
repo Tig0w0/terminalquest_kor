@@ -1,0 +1,42 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="끈질긴 여행자의 고서")
+  case lastResponse
+    when "chapter_2"
+      statement#chapter_2
+      responses
+        response#chapter_1.
+          제1장: 신규 개발자 고충 수집기
+    when "chapter_1"
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 의심
+    default
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 의심
+
+  statements
+    statement#default
+      text.
+        <span class="highlight">제1장: 신규 개발자 고충 수집기</span><br><br>
+        사서가 탑을 짓기 시작한 뒤에도 탑은 오랫동안 잠들어 있었다.
+        사서는 자신의 조사로 도서관에 초보 개발자에게 필요한 지식이 있음을 알았지만,
+        개발 기초를 찾아 탑에 오는 여행자는 거의 없었다. 그러던 어느 날 고충 수집기가 갑자기 추락했다.
+    statement#chapter_1
+      text.
+        <span class="highlight">제1장: 신규 개발자 고충 수집기</span><br><br>
+        사서가 탑을 짓기 시작한 뒤에도 탑은 오랫동안 잠들어 있었다.
+        사서는 자신의 조사로 도서관에 초보 개발자에게 필요한 지식이 있음을 알았지만,
+        개발 기초를 찾아 탑에 오는 여행자는 거의 없었다. 그러던 어느 날 고충 수집기가 갑자기 추락했다.
+    statement#chapter_2
+      text.
+        <span class="highlight">제2장: 의심</span><br><br>
+        고충 수집기를 고칠 수 없었던 사서는 근처 성계에 구조 신호를 보냈다.
+        프로그램의 추락만 걱정한 것은 아니었다. 레거시 시스템이 프로그램을 조작했을지 모른다고 의심하기 시작한 것이다.
+        사서는 <span class="highlight">TwilioQuest 오퍼레이터</span>가 신호를 듣고 프로그램을 수리해
+        탑을 지키는 데 도움을 주기를 바랐다.
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

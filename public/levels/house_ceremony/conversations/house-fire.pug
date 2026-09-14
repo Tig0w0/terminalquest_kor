@@ -1,0 +1,133 @@
+-
+  const STATE_KEY = 'TQ_HOUSE_CEREMONY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+  const localizedHouseNames = { lovelace: '러브레이스', turing: '튜링', neumann: '폰 노이만', hopper: '호퍼' };
+
+mixin hopper
+  response#hopper.
+    호퍼 기숙사
+
+mixin lovelace
+  response#lovelace.
+    러브레이스 기숙사
+
+mixin turing
+  response#turing.
+    튜링 기숙사
+
+mixin neumann
+  response#neumann.
+    폰 노이만 기숙사
+
+mixin yes_lo
+  response#yes_lo.
+    확실합니다.
+
+mixin yes_ho
+  response#yes_ho.
+    확실합니다.
+
+mixin yes_vn
+  response#yes_vn.
+    확실합니다.
+
+mixin yes_tu
+  response#yes_tu.
+    확실합니다.
+
+mixin no
+  response#no.
+    아니요, 조금 더 생각하겠습니다.
+
+conversation(display_name="API 비전술 아카데미의 기숙사 불꽃")
+  case lastResponse
+
+    when "hopper"
+      statement#hopper
+      responses
+        +yes_ho
+        +no
+
+    when "lovelace"
+      statement#lovelace
+      responses
+        +yes_lo
+        +no
+
+    when "turing"
+      statement#turing
+      responses
+        +yes_tu
+        +no
+
+    when "neumann"
+      statement#neumann
+      responses
+        +yes_vn
+        +no
+
+    when "yes_lo"
+      - worldState.playerHouse = "lovelace"
+      statement#congratulations
+
+    when "yes_ho"
+      - worldState.playerHouse = "hopper"
+      statement#congratulations
+
+    when "yes_vn"
+      - worldState.playerHouse = "neumann"
+      statement#congratulations
+
+    when "yes_tu"
+      - worldState.playerHouse = "turing"
+      statement#congratulations
+
+    when "no"
+      statement#choose
+      responses
+        +hopper
+        +lovelace
+        +turing
+        +neumann
+
+    default
+      statement#default
+      responses
+        +hopper
+        +lovelace
+        +turing
+        +neumann
+
+  statements
+    statement#default
+      text.
+        가장 신성한 기숙사 배정식에서 API 비전술 아카데미가 여러분을 기숙사로 초대합니다.
+        서약 두루마리를 내 불꽃에 바쳐 들어갈 기숙사를 선택하세요.
+
+    statement#hopper
+      text.
+        호퍼 기숙사에 들어가겠다는 뜻이 확실한가요?
+
+    statement#lovelace
+      text.
+        러브레이스 기숙사에 들어가겠다는 뜻이 확실한가요?
+
+    statement#turing
+      text.
+        튜링 기숙사에 들어가겠다는 뜻이 확실한가요?
+
+    statement#neumann
+      text.
+        폰 노이만 기숙사에 들어가겠다는 뜻이 확실한가요?
+
+    statement#congratulations
+      text.
+        #[span.highlight #{localizedHouseNames[worldState.playerHouse]} 기숙사]에 들어간 것을 축하합니다!
+
+    statement#choose
+      text.
+        준비가 되면 서약 두루마리를 내 불꽃에 바쳐 기숙사를 선택하세요. 아직 확신이 없다면
+        각 기숙사 책임자에게 결정에 도움이 될 정보를 들을 수 있습니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

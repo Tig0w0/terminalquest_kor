@@ -1,0 +1,35 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin excerpt
+  response#excerpt.
+    책의 발췌문 읽기
+
+conversation(display_name="러브레이스 장서 제1권")
+  case lastResponse
+    when "excerpt"
+      statement#excerpt
+    default
+      statement#default
+      responses
+        +excerpt
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">
+        <span class="highlight">
+        <a href="https://sci-hub.ru/https://journals.sagepub.com/doi/abs/10.1177/0047281617721853">애플리케이션 프로그래밍 인터페이스 문서화:<br><br>
+        소프트웨어 개발자는 무엇을 원하는가?</a>
+        </span>
+        <br><br>
+        Michael Meng, Stephanie Steinhardt, Andreas Schubert 지음</p>
+
+    statement#excerpt
+      text.
+        “API 설계뿐만 아니라 API 사용성에 대한 관심이 커지면서 API 문서화에 관한 관심도 높아지고 있다.
+        이는 사용자가 과제를 효과적이고 효율적으로 해결할 수 있게 해 주는
+        <span class="highlight">문서가 사용성에 결정적인 영향을 미친다는 사실</span>을 보여 준다…”(2쪽)
+
+- setState(STATE_KEY, worldState);

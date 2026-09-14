@@ -1,0 +1,15 @@
+{
+  "title": "API 아카데미: 로컬 함수",
+  "description": "문자열에 나타나는 특정 단어를 모두 다른 단어로 바꾸는 함수를 작성하세요.",
+  "show_ide": true,
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "sourceString에 있는 targetWord를 모두 replacementWord로 바꾸는 swapStrings 함수를 작성하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

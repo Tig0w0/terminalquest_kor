@@ -1,0 +1,16 @@
+{
+  "title": "API 아카데미: 원격과 로컬",
+  "description": "API에서 데이터를 가져와 로컬에서 처리하고 결과를 반환하는 async 함수를 작성하세요.",
+  "show_ide": true,
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "divination API에 fetch 요청을 보내고, 응답을 로컬에서 처리해 결과를 반환하는 getFilteredAuthors 함수를 작성하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": ["spell_lovelace_divination"]
+  }
+}

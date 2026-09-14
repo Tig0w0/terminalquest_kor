@@ -1,0 +1,15 @@
+{
+  "title": "API 아카데미: Async와 Await",
+  "description": "await를 사용해 디렉터리의 마지막 파일을 가져오는 async 함수를 작성하세요.",
+  "show_ide": true,
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "디렉터리의 마지막 파일을 가져와 반환하는 findLastFileInDir 함수를 작성하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

@@ -1,0 +1,69 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin busy
+  response#busy.
+    기숙사 대항전이 끝난 뒤에 찾아오면 제가 도와줄게요.
+mixin wrong_1
+  response#wrong_1.
+    모니터가 거꾸로 놓인 건 아닌가요? 농담이에요…
+mixin wrong_2
+  response#wrong_2.
+    코드가 잘못된 거예요. 코드는 항상 한 줄씩 동기적으로만 실행돼요.
+mixin right
+  response#right.
+    비동기 함수가 있는 것은 아닐까요?
+
+conversation(display_name="러브레이스 기숙사 학생")
+  case lastResponse
+    when "busy"
+      statement#busy
+    when "wrong_1"
+      statement#wrong_1
+      responses
+        +busy
+        +wrong_2
+        +right
+    when "wrong_2"
+      statement#wrong_2
+      responses
+        +busy
+        +right
+        +wrong_1
+    when "right"
+      statement#right
+    default
+      statement#default
+      responses
+        +busy
+        +wrong_2
+        +right
+        +wrong_1
+
+  statements
+    statement#default
+      text.
+        러브레이스 탑을 여기까지 올라왔다면 실력이 상당하겠네요.
+        고급 예지술 수업에서 나온 이 문제를 도와줄 수 있나요?<br><br>
+        코드를 작성했는데 함수가 예상한 순서대로 실행되지 않아요.
+        원인이 무엇일까요?
+    statement#busy
+      text.
+        알겠어요, 오퍼레이터! 도전에서 행운을 빌어요.
+    statement#wrong_1
+      text.
+        재미있는 답이네요, 오퍼레이터. 하지만 진짜로 제 코드가 순서대로 실행되지 않는 이유를 알겠어요?
+    statement#wrong_2
+      text.
+        동기 코드 이야기를 들으니 비동기 코드에 관해 배운 기억이 나요.
+        여러 비차단 함수를 동시에 실행할 수 있다는 건 확실해요.
+        분명 배웠는데… 자세한 내용이 기억나지 않을 뿐이에요!<br><br>
+        이런 비동기 실행이 일어나는 이유는 무엇일까요?
+    statement#right
+      text.
+        아, 바로 그거예요! HTTP 요청을 두 번 보내고 있으니, 비동기 함수 뒤에 #[span.highlight await] 키워드를 사용해서
+        코드가 계속 실행되기 전에 값을 받아야 해요.<br><br>
+        역시 해결해 줄 줄 알았어요. 고마워요, 오퍼레이터!
+
+- setState(STATE_KEY, worldState);

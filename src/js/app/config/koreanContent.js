@@ -39,6 +39,9 @@ const levels = {
       '지하 묘지를 지나 자신이 속할 기숙사를 찾으세요!',
   },
   lovelace_tower: {
+    flavorTextOverrides: {
+      lockedDoor: '이 문은 꿈쩍도 하지 않는다!',
+    },
     title: 'API 아카데미: 러브레이스 탑의 기숙사 시험',
     description:
       '러브레이스 탑에서 기숙사 시험이 시작되었습니다. 탑을 통과해 다음 기숙사의 문을 열 주문을 되찾으세요!',
@@ -127,6 +130,14 @@ const mapObservationOverrides = {
 };
 
 const runtimeTextOverrides = {
+  'I should complete the last objective to clean up this mess!':
+    '이 엉망진창인 상황을 정리하려면 마지막 과제를 완료해야 해!',
+  'I need to complete the current objective before I can pass through to the next room.':
+    '다음 방으로 넘어가려면 현재 과제를 먼저 완료해야 해.',
+  'I\'ve completed everything in the <span class="highlight">API Academy House Gauntlet</span> for now!':
+    '지금 할 수 있는 <span class="highlight">API 아카데미 기숙사 대항전</span> 과제를 모두 완료했다!',
+  "I've completed everything in the API Academy House Gauntlet for now!":
+    '지금 할 수 있는 API 아카데미 기숙사 대항전 과제를 모두 완료했다!',
   'I should go find the toolshed and see if there is an extra wand inside!':
     '도구 창고로 가서 여분의 지팡이가 있는지 찾아봐야겠어요!',
   'I think I need to learn a spell later to do anything here!':
@@ -139,6 +150,10 @@ const runtimeTextOverrides = {
     '서약 두루마리를 얻었습니다. 중앙 홀로 가서 기숙사를 선택할 시간이에요.',
   'I got my pledge scroll! I should head to the Main Hall to choose my house now!':
     '서약 두루마리를 얻었습니다! 이제 중앙 홀로 가서 기숙사를 선택해야겠어요!',
+  'Lovelace Tower is the first house in the House Gauntlet. I should find the House Lovelace corridor!':
+    '기숙사 대항전은 러브레이스 탑에서 시작합니다. 러브레이스 기숙사 복도를 찾아야겠어요!',
+  'I should head to Lovelace Tower to start the House Gauntlet.':
+    '기숙사 대항전을 시작하러 러브레이스 탑으로 가야겠어요.',
 };
 
 export function localizeLevel(levelName, levelInfo) {

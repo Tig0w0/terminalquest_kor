@@ -1,0 +1,26 @@
+mixin fragment
+    response#read.
+        두루마리를 읽는다.
+
+conversation(display_name="비문 조각")
+    case lastResponse
+        when "read"
+            statement#fragment
+        default
+            statement#default
+            responses
+                +fragment
+
+    statements
+        statement#default
+            text.
+                이 두루마리에는 손상되지 않은 비문 구절이 적혀 있는 것 같다!
+        statement#fragment
+            text.
+                <p>비문 조각에는 이렇게 적혀 있다.<br><br>
+
+                <em><span class="highlight">Oh, great creators of The Cloud, let me apply
+                This divination spell, newly formed through a simple phrase,
+                Strung together thanks to a most helpful API,</span></em><br><br>
+
+                <span style="text-align:center"><em>*QuestIDE에 그대로 복사해 두는 것이 좋다*</em></span></p>

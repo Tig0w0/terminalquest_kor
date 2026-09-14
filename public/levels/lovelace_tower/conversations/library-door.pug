@@ -1,0 +1,16 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+conversation(display_name="러브레이스 비밀 도서관 문")
+  case lastResponse
+    default
+      if !worldState.obj4Complete
+        statement#default
+
+  statements
+    statement#default
+      text.
+        이 비밀 구역에 들어가려면 #[span.highlight 예지 주문]을 손에 넣어야 한다.
+
+- setState(STATE_KEY, worldState);

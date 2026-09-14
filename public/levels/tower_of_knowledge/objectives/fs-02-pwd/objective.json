@@ -1,0 +1,16 @@
+{
+  "title": "홈 디렉터리 찾기",
+  "description": "터미널을 열어 현재 작업 디렉터리를 확인하세요.",
+  "validation_fields": [
+    {
+      "name": "pwd",
+      "type": "text",
+      "placeholder": "/path/looks/like/this",
+      "label": "현재 작업 디렉터리를 입력하세요."
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}

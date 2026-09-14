@@ -1,0 +1,16 @@
+{
+  "title": "파일 경로 찾기",
+  "description": "파일로 이어지는 경로를 찾으세요.",
+  "validation_fields": [
+    {
+      "name": "filePath",
+      "type": "text",
+      "placeholder": "/path/to/a/file.txt",
+      "label": "세드릭의 YouTube 동영상 파일 경로를 입력하세요."
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}

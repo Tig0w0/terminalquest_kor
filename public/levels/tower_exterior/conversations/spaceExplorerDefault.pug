@@ -1,0 +1,82 @@
+conversation(display_name="클라우드 탐험가")
+  case lastResponse
+    default
+      statement#default
+      responses
+        response#here_to_learn.
+          네! 이 탑에 관해 무엇을 알고 있나요?
+        response#what_tower.
+          여기에 탑이 있다는 것조차 몰랐어요!
+
+    when "what_tower"
+      statement#see_tower_from_space
+      responses
+        response#i_guess.
+          아, 항법 지도에서 무언가 본 것 같기도 하네요…
+        response#anyway.
+          아무튼, 비밀이라는 건 무슨 이야기죠?
+
+    when "anyway"
+    when "i_guess"
+    when "here_to_learn"
+      statement#secrets
+      responses
+        response#is_lucky.
+          운이 좋았네요! 도우러 안으로 들어가려면 어떻게 해야 하죠?
+        response#hmmm.
+          음… 정말 도우러 온 게 맞나요?
+
+    when "hmmm"
+      statement#of_course
+      responses
+        response#get_inside.
+          뭐, 알겠어요… 그래서 어떻게 안으로 들어가죠?
+
+    when "get_inside"
+    when "is_lucky"
+      statement#we_cant_get_in
+      responses
+        response#what_is_collector.
+          신규 개발자 고충 수집기요? 이름이 참 기네요! 그게 뭐죠?
+
+    when "what_is_collector"
+      statement#collector_is
+      responses
+        response#what_can_i_do.
+          작동하도록 제가 무엇을 도우면 될까요?
+
+    when "what_can_i_do"
+      statement#find_toolboxes
+      responses
+        response#ill_find_toolboxes.
+            그럼 공구 상자를 찾아볼게요!
+
+    when "ill_find_toolboxes"
+      statement#thats_the_spirit
+      responses
+
+  statements
+    statement#default
+      text.
+        안녕하세요! 당신도 이 탑의 비밀을 배우러 왔나요?
+    statement#see_tower_from_space
+      text.
+        어… 어떻게 못 봤죠? 우주에서도 보일 정도인데요!
+    statement#secrets
+      text.
+        근처 성계 전체에 송출된 저출력 구조 신호를 받았어요. 마침 보물을 찾으려고… <em>아차</em>… 아니, 도울 사람을 찾으려고 스캔 중이어서 다행이었죠!
+    statement#of_course
+      text.
+        당연하죠! 제가 사리사욕을 채우려고 클라우드의 비밀을 배우러 올 이유가 어디 있겠어요. 곤경에 처한 사람을 도우러 온 거예요!
+    statement#we_cant_get_in
+      text.
+        그게… 난감하게 됐네요… 이 <span class="highlight">신규 개발자 고충 수집기</span>를 고치기 전에는 들어갈 수 없을 것 같아요!
+    statement#find_toolboxes
+      text.
+        이 행성에 착륙하면서 공구 상자를 잔뜩 잃어버렸어요. 그중 <span class="highlight">세 개</span>만 찾아오면 <span class="highlight">신규 개발자 고충 수집기</span>를 고칠 수 있어요.
+    statement#collector_is
+      text.
+        분명 마음에 들 거예요! 이론상 온갖 질문의 답을 얻을 수 있는 아주 편리한 장치죠… 우선 작동하게 만들어야 하지만요!
+    statement#thats_the_spirit
+      text.
+        바로 그 정신이에요! 저는 여기서… 어… 감독하고 있을게요!

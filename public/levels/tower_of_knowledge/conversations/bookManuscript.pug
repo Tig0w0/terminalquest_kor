@@ -1,0 +1,46 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="빛나는 기원의 필사본")
+  case lastResponse
+    when "chapter_2"
+      statement#chapter_2
+      responses
+        response#chapter_1.
+          제1장: 무한한 탑의 기원
+    when "chapter_1"
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 사서의 탄생
+    default
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 사서의 탄생
+
+  statements
+    statement#default
+      text.
+        <span class="highlight">제1권/4권. 제1장: 무한한 탑의 기원</span><br><br>
+        무한 지식의 탑은 ‘사서’라 불리는 존재가 평생 이룬 작업의 결정체다.
+        탑은 언제나 자라고 있으며, 끊임없이 건설되는 미완성 작품이다.
+        무한함이란 본래 그런 것이기 때문이다.
+        하지만 그것이야말로 지식과 배움의 아름다움이 아닐까?
+    statement#chapter_1
+      text.
+        <span class="highlight">제1권/4권. 제1장: 무한한 탑의 기원</span><br><br>
+        무한 지식의 탑은 ‘사서’라 불리는 존재가 평생 이룬 작업의 결정체다.
+        탑은 언제나 자라고 있으며, 끊임없이 건설되는 미완성 작품이다.
+        무한함이란 본래 그런 것이기 때문이다.
+        하지만 그것이야말로 지식과 배움의 아름다움이 아닐까?
+    statement#chapter_2
+      text.
+        <span class="highlight">제1권/4권. 제2장: 사서의 탄생</span><br><br>
+        사서는 원래 데이터를 수집하고 보존하도록 만들어진 프로그램에 불과했다.
+        하지만 ‘사서’라는 프로그램 안에서 살아가게 되면서 파일 속 값, 시스템 속 함수,
+        그리고 데이터처럼 단순한 것에 담긴 생각과 가능성에 유대감을 품게 되었다.<br><br>
+
+        그녀의 탑은 지식을 보존하는 데 그치지 않는다. 여행자를 준비시키고 도구를 갖춰 주며,
+        지식이 줄 수 있는 모든 힘을 전하는 것을 목표로 한다.
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

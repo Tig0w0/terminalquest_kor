@@ -1,0 +1,46 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="성장하는 기초 지식 연감")
+  case lastResponse
+    when "chapter_2"
+      statement#chapter_2
+      responses
+        response#chapter_1.
+          제1장: 기초 지식 정리하기
+    when "chapter_1"
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 탑의 자료
+    default
+      statement#default
+      responses
+        response#chapter_2.
+          제2장: 탑의 자료
+
+  statements
+    statement#default
+      text.
+        <span class="highlight">제3권/4권. 제1장: 기초 지식 정리하기</span><br><br>
+        사서는 처음에 소프트웨어 개발과 관련된 지식만 찾도록 만들어졌지만,
+        곧 그 지식을 탑 안에 정리하는 일도 그만큼 중요하다는 것을 깨달았다.
+        아직 프로그래밍 개념을 배울 준비가 되지 않은 초보 개발자들이 더 높은 개념으로 나아가기 전에,
+        컴퓨터를 개발자처럼 사용하는 데 필요한 도구를 갖추기를 바랐다.
+    statement#chapter_1
+      text.
+        <span class="highlight">제3권/4권. 제1장: 기초 지식 정리하기</span><br><br>
+        사서는 처음에 소프트웨어 개발과 관련된 지식만 찾도록 만들어졌지만,
+        곧 그 지식을 탑 안에 정리하는 일도 그만큼 중요하다는 것을 깨달았다.
+        아직 프로그래밍 개념을 배울 준비가 되지 않은 초보 개발자들이 더 높은 개념으로 나아가기 전에,
+        컴퓨터를 개발자처럼 사용하는 데 필요한 도구를 갖추기를 바랐다.
+    statement#chapter_2
+      text.
+        <span class="highlight">제3권/4권. 제2장: 탑의 자료</span><br><br>
+        그렇지만 탑을 찾은 여행자는 어느 층부터든 자유롭게 둘러볼 수 있다.
+        탑에는 각 층과 관련된 비디오테이프가 있고, 개발자의 학습을 안내하는 파일 경로도 마련되어 있다.<br><br>
+
+        사서는 계속 갱신되는 탑의 역사를 책에 기록해 두었다.
+        때로는 이 책을 일기처럼 쓰며 <span class="highlight">레거시 시스템</span>이 탑에 찾아와
+        가장 중요한 자료를 훔치려 한다는 두려움, 나날이 커지는 두려움을 털어놓기도 한다…
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

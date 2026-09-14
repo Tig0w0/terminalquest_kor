@@ -1,0 +1,31 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin anything_else
+  response#anything_else.
+    좋아요! 그 밖에 알아 두어야 할 것이 있나요?
+
+conversation(display_name="러브레이스 기숙사 사감 클레이 교수")
+  case lastResponse
+    when "anything_else"
+      statement#anything_else
+    default
+      statement#default
+      responses
+        +anything_else
+
+  statements
+    statement#default
+      text.
+        러브레이스 탑에 온 것을 환영합니다, 오퍼레이터! 곧바로 기숙사 대항전에 뛰어들어 주다니 아무리 감사해도 모자라겠군요.<br><br>
+        앞으로의 도전에서는 API 지식을 실전에 응용하는 능력을 시험합니다.
+        모두 통과하면 대항전의 다음 기숙사로 들어갈 수 있는 #[span.highlight 예지 주문]을 얻게 될 겁니다.
+
+    statement#anything_else
+      text.
+        러브레이스 기숙사답게 이 탑에는 문서가 가득한 책과 자료가 있습니다.
+        열정 넘치는 러브레이스 학생들도 여러분을 응원할 겁니다…
+        물론 그저 숙제를 도와줄 사람을 찾고 있는 것일 수도 있지만요.
+
+- setState(STATE_KEY, worldState);

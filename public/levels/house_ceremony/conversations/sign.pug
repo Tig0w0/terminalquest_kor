@@ -1,0 +1,17 @@
+-
+  const STATE_KEY = 'TQ_HOUSE_CEREMONY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+conversation(display_name="아카데미 안내판")
+  case lastResponse
+
+    default
+        statement#default
+
+  statements
+    statement#default
+      text.
+        API 비전술 아카데미에 온 것을 환영합니다!
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

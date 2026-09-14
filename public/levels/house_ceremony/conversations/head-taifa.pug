@@ -1,0 +1,98 @@
+-
+  const STATE_KEY = 'TQ_HOUSE_CEREMONY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+  const localizedHouseNames = { lovelace: '러브레이스', turing: '튜링', neumann: '폰 노이만', hopper: '호퍼' };
+
+mixin unique
+  response#unique.
+    튜링 기숙사만의 특징이 무엇이었는지 다시 알려 주시겠어요?
+
+mixin join
+  response#join.
+    튜링 기숙사에 들어가고 싶습니다!
+
+mixin deciding
+  response#deciding.
+    어느 기숙사에 들어갈지 아직 고민 중입니다.
+
+mixin getting_started
+  response#getting_started.
+    때가 되면 튜링 운동장을 탐험하는 것도 기대돼요!
+
+conversation(display_name="튜링 기숙사 책임자 타이파 교수")
+  case lastResponse
+
+    when "unique"
+      statement#unique_resp
+      responses
+        +join
+        +deciding
+
+    when "join"
+      statement#join_resp
+
+    when "deciding"
+      statement#deciding_resp
+
+    when "getting_started"
+      statement#getting_started_resp
+
+    default
+      if !worldState.playerHouse
+        statement#default
+        responses
+          +unique
+          +join
+          +deciding
+
+      else if worldState.playerHouse && !worldState.heapsortConversationHasEnded
+        statement#history
+
+      else if worldState.playerHouse && worldState.heapsortConversationHasEnded
+        statement#gauntlet_default
+        responses
+          +getting_started
+
+  statements
+    statement#default
+      text.
+        기숙사 배정식과 기숙사 대항전이 같은 주에 열리다니!
+        API 비전술 아카데미가 어느 때보다 흥미진진하군요.
+
+    statement#unique_resp
+        text.
+          튜링 기숙사는 문제 해결과 혁신을 향한 헌신을 자랑스럽게 여깁니다.
+          튜링 기숙사 학생들은 코드볼부터 동아리, 진로 행사까지
+          아카데미 곳곳의 다양한 활동에 참여하길 좋아하죠.
+
+    statement#join_resp
+        text.
+          여러분을 맞이하게 된 튜링 기숙사는 행운이군요! 기숙사 배정식의 마지막 단계로
+          서약 두루마리를 홀 중앙의 #[span.highlight 기숙사 불꽃]에 바쳐
+          선택을 확정하세요.
+
+    statement#deciding_resp
+        text.
+          물론이죠! 기숙사를 선택하면 곧바로 기숙사 대항전에 참가할 수 있습니다.
+          아카데미에서 가장 흥미진진한 연례행사 중 하나랍니다.
+
+    statement#history
+      text.
+        튜링 기숙사는 작년과 재작년에 가장 먼저 대항전을 시작했습니다.
+        사실 러브레이스 기숙사만큼이나 자주 첫 순서로 뽑히죠.
+        비유적인 표현이지만, 올해 어느 기숙사가 먼저 뽑힐지 모두 손에 땀을 쥐고 기다리고 있습니다.<br><br>
+        아, 그리고 #[span.highlight #{localizedHouseNames[worldState.playerHouse]} 기숙사]를 선택한 것도 훌륭해요!
+
+    statement#gauntlet_default
+      text.
+        이제 기숙사 대항전을 관람할 뿐 아니라 직접 출전하기까지 하는군요, 오퍼레이터!
+        기분이 어떤가요? 러브레이스 기숙사는 무작위 추첨인데도 가장 자주 대항전의 첫 순서로 뽑힌 기록을 이어 가는군요.
+        러브레이스 탑에는 훌륭한 과제가 가득합니다!<br><br>
+        멋진 출발이 되길 바랍니다!
+
+    statement#getting_started_resp
+      text.
+        우선 러브레이스 탑에서 행운을 빕니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

@@ -1,0 +1,36 @@
+- const worldState = getState('com.twilioquest.developer-fundamentals.tower_of_knowledge');
+
+conversation(display_name="사서")
+  case lastResponse
+    when "how_learn"
+      statement#select_floor
+      responses
+    when "what_is_place"
+      statement#this_place
+      responses
+        response#how_learn.
+          원대한 목표네요! 저도 이곳의 지식을 배울 수 있을까요?
+    default
+      statement#default
+      responses
+        response#what_is_place.
+          고마워요! 여기는 어떤 곳인가요?
+
+  statements
+    statement#default
+      text.
+        반갑습니다, 개발자여! <span class="highlight">무한 지식의 탑</span>에 온 것을 환영합니다!
+    statement#this_place
+      text.
+        <span class="highlight">무한 지식의 탑</span>은 영원히 확장되는 도서관입니다.
+        <br/><br/>
+        사서인 제 목표는 개발자가 되는 데 필요한 모든 지식을 이 탑 안에 담는 것입니다.
+    statement#select_floor
+      text.
+        그렇습니다! 하지만 노력할 만한 가치가 있는 목표이지요.
+        <br/><br/>
+        지식을 모으는 목적은 다른 이들과 나누는 데 있습니다. 그렇지 않다면 정보를 쌓아 온 제 노력이 모두 헛수고가 될 테니까요.
+        <br/><br/>
+        도서관에 무엇이 있는지 보고 싶다면 제 뒤에 있는 <span class="highlight">파란색 엘리베이터 제어판을 확인하세요.</span> 도서관 곳곳에는 제가 탑의 역사를 기록한 책 받침대도 있습니다. 보다시피 저는 역사가이기도 하답니다…
+
+- setState('com.twilioquest.developer-fundamentals.tower_of_knowledge', worldState);

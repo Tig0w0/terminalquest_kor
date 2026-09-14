@@ -1,0 +1,51 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin secret
+  response#secret.
+    비밀이라니, 무슨 비밀이죠?
+
+mixin library
+  response#library.
+    러브레이스 비밀 도서관에는 무엇이 있나요?
+
+conversation(display_name="API 비전술 아카데미 관리인")
+  case lastResponse
+    when "secret"
+      statement#secret
+    when "library"
+      statement#library
+    default
+      if !worldState.obj4Complete
+        statement#default
+        responses
+          +secret
+      else if worldState.obj4Complete
+        statement#secret_default
+        responses
+          +library
+
+  statements
+    statement#default
+      text.
+        러브레이스 탑을 거의 끝냈군요! 이제 과제가 하나만 남았습니다…<br><br>
+        제 뒤에는 비밀… 아, 아니지. 마지막 과제를 먼저 끝내는 편이 좋겠군요.
+
+    statement#secret
+      text.
+        저곳을 지나가려면 #[span.highlight 예지 주문]이 필요합니다… 지금은 이 정도만 말해 두죠.
+
+    statement#secret_default
+      text.
+        예지 주문을 얻었군요! 훌륭합니다, 오퍼레이터. 제 뒤에는 러브레이스 비밀 도서관으로 가는 문이 있습니다.
+        예지 주문을 사용하면 도서관에 들어갈 수 있지요. 중앙 홀로 돌아간 뒤 기숙사 대항전의 다음 구간으로 넘어갈 때도 이 주문이 도움이 될 겁니다.
+        제 뒤의 문처럼 반짝이는 파란색 표식이 있는 곳을 찾으세요. 그곳에서 이 주문을 사용할 수 있습니다.
+
+    statement#library
+      text.
+        API 비전술 아카데미에는 비밀 문과 방을 비롯한 숨겨진 장소가 가득합니다…
+        각 기숙사에는 해당 기숙사의 주문을 얻어야만 들어갈 수 있는 특별한 구역이 있지요. 더 말하면 안 되겠군요…<br><br>
+        남은 기숙사 대항전도 행운을 빕니다, 오퍼레이터!
+
+- setState(STATE_KEY, worldState);

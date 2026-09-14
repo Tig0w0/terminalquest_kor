@@ -1,0 +1,49 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin page_2
+  response#page_2.
+    2쪽
+
+mixin page_3
+  response#page_3.
+    3쪽
+
+conversation(display_name="프레드릭의 협박 편지")
+  case lastResponse
+    when "page_2"
+      statement#page_2
+      responses
+        +page_3
+    when "page_3"
+      statement#page_3
+    default
+      statement#default
+      responses
+        +page_2
+
+  statements
+    statement#default
+      text.
+        이런, 이런, 이런. 여기까지 올 줄은 몰랐군, 오퍼레이터.
+        내가 망가뜨린 러브레이스 비문을 고칠 방법까지 찾아낸 모양이군.<br><br>
+        네 실력을 조금 과소평가했나 보군… 그래 봐야 아주 조금이지만! 네가 이 편지를 찾을 때쯤이면
+        나는 이미 두 번째 기숙사를 열고 한참 앞서 있을 것이다.
+        나 역시 기숙사 대항전에 참가했으며, 아무도 나를 막을 수 없다!
+
+    statement#page_2
+      text.
+        나 같은 은하계의 슈퍼 악당이 “배움”과 “지식” 따위는 질색하면서 왜 API 비전술 아카데미 같은 곳에 왔는지 궁금하겠지. 우웩.<br><br>
+        그런데 누가 알았겠나? 기숙사 대항전이 사실 전능한 힘을 지닌…
+
+    statement#page_3
+      text.
+        …주문 모음의 근원이었다는 것을. 나는 모든 주문을 해제하고, 그 모두를 휘두를 것이다.
+        너도, 오퍼레이터, 네가 그토록 아끼는 아카데미도 나를 막지 못한다!<br><br>
+        <p style="text-align:right">
+        악명 높은,<br><br>
+        레거시 시스템의 프레드릭
+        </p>
+
+- setState(STATE_KEY, worldState);

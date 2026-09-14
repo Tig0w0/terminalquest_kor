@@ -1,0 +1,96 @@
+-
+  const STATE_KEY = 'TQ_HOUSE_CEREMONY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+  const localizedHouseNames = { lovelace: '러브레이스', turing: '튜링', neumann: '폰 노이만', hopper: '호퍼' };
+
+mixin unique
+  response#unique.
+    폰 노이만 기숙사만의 특징이 무엇이었는지 다시 알려 주시겠어요?
+
+mixin join
+  response#join.
+    폰 노이만 기숙사에 들어가고 싶습니다!
+
+mixin deciding
+  response#deciding.
+    어느 기숙사에 들어갈지 아직 고민 중입니다.
+
+mixin getting_started
+  response#getting_started.
+    폰 노이만 기숙사 차례가 되면 연구실을 탐험하는 것도 기대돼요.
+
+conversation(display_name="폰 노이만 기숙사 책임자 반 후크 교수")
+  case lastResponse
+
+    when "unique"
+      statement#unique
+      responses
+        +join
+        +deciding
+
+    when "join"
+      statement#join
+
+    when "deciding"
+      statement#deciding
+
+    when "getting_started"
+      statement#getting_started
+
+    default
+      if !worldState.playerHouse
+        statement#default
+        responses
+          +unique
+          +join
+          +deciding
+
+      else if worldState.playerHouse && !worldState.heapsortConversationHasEnded
+        statement#history
+
+      else if worldState.playerHouse && worldState.heapsortConversationHasEnded
+        statement#gauntlet_default
+        responses
+          +getting_started
+
+  statements
+    statement#default
+      text.
+        API 비전술 아카데미에 온 것을 환영합니다, 오퍼레이터! 폰 노이만 기숙사에 들어올 건가요?
+
+    statement#unique
+        text.
+          폰 노이만 기숙사는 생산성과 효율을 중시합니다.
+          다시 말해, 물약을 중시한다는 뜻이죠! 폰 노이만 기숙사 학생들은
+          화학 실험실에서 생산성과 효율 문제에 효과적인 해결책을
+          찾아내는 데 특히 뛰어납니다.
+
+    statement#join
+        text.
+          정말 좋은 소식이군요! 기숙사를 결정했으니
+          서약 두루마리를 #[span.highlight 기숙사 불꽃]에 바쳐 선택을 확정하세요.
+
+    statement#deciding
+        text.
+          괜찮습니다. 결정을 내리면 언제든
+          서약 두루마리를 #[span.highlight 기숙사 불꽃]에 바치세요.
+
+    statement#history
+      text.
+        재미있는 사실을 하나 알려 드리죠. 러브레이스 기숙사가 대개 대항전을 시작하는 반면 폰 노이만 기숙사는 보통 마지막을 맡습니다. 물론 전부 우연이지만요.
+        기숙사가 어떤 무작위 순서로 뽑히는지 지켜보는 건 언제나 재미있습니다.
+        올해는 폰 노이만 연구실에서 대항전을 시작할지도 모르죠. 아무도 모르는 일이니까요…<br><br>
+        그리고 #[span.highlight #{localizedHouseNames[worldState.playerHouse]} 기숙사]를 고른 것도 훌륭합니다. 그 기숙사에도 행운이군요!
+
+    statement#gauntlet_default
+      text.
+        기숙사 대항전 아침에 학생이 사라지다니! 그것도 보통 학생이 아니라 출전 선수 본인이 말이에요…
+        그 학생을 찾는 동안 대신 출전해 주겠다니, API 비전술 아카데미로서는 정말 다행입니다.<br><br>
+        아무튼 러브레이스 탑은 기숙사 대항전을 시작하기에 아주 좋은 곳입니다.
+
+    statement#getting_started
+      text.
+        그래요, 그래요. 대항전을 치르다 보면 언젠가 그 연구실에도 가게 될 겁니다. 행운을 빕니다, 오퍼레이터!
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

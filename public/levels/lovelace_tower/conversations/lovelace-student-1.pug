@@ -1,0 +1,66 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin busy
+  response#busy.
+    도와주고 싶지만 다음 과제에 집중해야 해요.
+mixin wrong_1
+  response#wrong_1.
+    리소스와 표현 사이에는 차이가 없다.
+mixin wrong_2
+  response#wrong_2.
+    리소스는 웹에서 이름이 없는 대상이고, 표현은 리소스의 모음이다.
+mixin right
+  response#right.
+    리소스는 URL이 있는 모든 대상이고, 표현은 리소스의 상태를 설명하는 것이다.
+
+conversation(display_name="러브레이스 기숙사 학생")
+  case lastResponse
+    when "busy"
+      statement#busy
+    when "wrong_1"
+      statement#wrong_1
+      responses
+        +busy
+        +wrong_2
+        +right
+    when "wrong_2"
+      statement#wrong_2
+      responses
+        +busy
+        +wrong_1
+        +right
+    when "right"
+      statement#right
+    default
+      statement#default
+      responses
+        +busy
+        +wrong_1
+        +wrong_2
+        +right
+
+  statements
+    statement#default
+      text.
+        정말 바쁜 건 알지만, 이 숙제 문제를 푸는 것 좀 도와줄 수 있나요?<br><br>
+        API에서 #[span.highlight 리소스]와 #[span.highlight 표현]은 어떻게 다른가요?
+    statement#busy
+      text.
+        이해해요. 행운을 빌어요, 오퍼레이터!
+    statement#wrong_1
+      text.
+        음, 그건 아닌 것 같아요. 리소스와 표현은 서로 관련되어 있지만 분명히 다르다고 배웠는데…
+    statement#wrong_2
+      text.
+        음… 그 답은 이미 써 봤는데 교수님이 정확하지 않다고 하셨어요.
+        리소스에는 이름이 필요하다는 건 확실해요! 표현도 리소스와 관련이 있지만 다른 방식이고요…<br><br>
+        대체 어떤 차이가 있을까요?
+    statement#right
+      text.
+        네, 바로 그거예요! URI(Uniform Resource Identifier)로 식별되는 것은 무엇이든 리소스가 될 수 있고,
+        표현은 JSON처럼 기계가 읽을 수 있으면서 리소스에 관한 정보를 담은 문서가 될 수 있죠.
+        답을 알고 있을 줄 알았어요! 정말 고마워요!
+
+- setState(STATE_KEY, worldState);

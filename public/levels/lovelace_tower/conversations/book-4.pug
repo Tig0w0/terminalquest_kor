@@ -1,0 +1,35 @@
+-
+  const STATE_KEY = 'TQ_LOVELACE_TOWER_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+
+mixin excerpt
+  response#excerpt.
+    책의 발췌문 읽기
+
+conversation(display_name="러브레이스 장서 제4권")
+  case lastResponse
+    when "excerpt"
+      statement#excerpt
+    default
+      statement#default
+      responses
+        +excerpt
+
+  statements
+    statement#default
+      text.
+        <p style="text-align:center">
+        <span class="highlight">
+        <a href="https://sci-hub.ru/https://journals.sagepub.com/doi/abs/10.1177/0047281617721853">API는 왜 배우기 어려운가?<br><br>
+        개발자들의 답변</a>
+        </span>
+        <br><br>
+        Martin P. Robillard 지음</p>
+
+    statement#excerpt
+      text.
+        “하지만 사용자가 API의 상위 수준 설계와 그 의도를 알아야 하는 이유는 무엇일까?…
+        실제로 <span class="highlight">단순한 사용법을 넘어서는 순간에는 상위 수준 설계를 알아야 판단할 수 있는
+        여러 종류의 결정이 필요하다.</span>”(31쪽)
+
+- setState(STATE_KEY, worldState);
