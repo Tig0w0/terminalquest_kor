@@ -1,0 +1,148 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+mixin break_stuff
+  response#break_stuff.
+    평소에도 물건을 부수는 게 취미인가요?
+
+mixin get_started
+  if worldState.firstObjectiveHacked
+    response#get_started.
+      해킹 도구가 설명대로 작동하네요. 레이저 장벽이 사라졌어요.
+  else if worldState.hackingToolAcquired
+    response#get_started.
+      이제 해킹 도구도 생겼는데, 무엇을 하면 되나요?
+  else
+    response#get_started.
+      제 임무에 도움이 될 도구가 있다고 들었는데요?
+
+conversation(display_name="마거릿")
+  case lastResponse
+    when "break_stuff"
+      statement#break_stuff
+      responses
+        response#no_harm.
+          뭐, 아무도 안 다쳤으니 괜찮은 거죠. 그렇죠?
+        response#what_vcr.
+          VCR이 뭐예요?
+
+    when "what_vcr"
+      statement#what_vcr
+      responses
+        +get_started
+
+    when "no_harm"
+      statement#extra_parts
+      responses
+        +get_started
+
+    when "who_are_you"
+      statement#margaret
+      responses
+        +break_stuff
+        +get_started
+
+    when "get_started"
+      statement#get_started
+      responses
+        if worldState.firstObjectiveHacked
+          response#understood.
+            해킹 도구가 정말 유용하겠어요. 고마워요! 다음에는 무엇을 하죠?
+        else
+          response#how_hack.
+            해킹 도구는 어떻게 사용하나요?
+
+    when "how_hack"
+      statement#how_hack
+      responses
+        response#understood.
+          해킹할 물체를 찾고, 과제를 완료해서 보상을 얻는다. 이해했어요.
+
+    when "understood"
+      statement#keep_moving
+      responses
+        response#who_are_you.
+          누구시고 여기서는 무슨 일을 하는지 다시 알려 주시겠어요?
+
+    default
+      if !worldState.margaretInitialGreeting
+        - worldState.margaretInitialGreeting = true;
+        statement#default
+        responses
+          response#who_are_you.
+            멋지네요! 그런데 우리 전에 만난 적이 있나요?
+          +get_started
+
+      else
+        statement#follow_up_greeting
+        responses
+          response#who_are_you.
+            누구시고 여기서는 무슨 일을 하는지 다시 알려 주시겠어요?
+          +get_started
+
+  statements
+    statement#default
+      text.
+        오, 오! 오퍼레이터! 여기예요! 보여 드릴 게 있어요.
+
+    statement#follow_up_greeting
+      text.
+        안녕하세요, 인간 동료여. 지혜나 도움을 드릴까요?
+
+    statement#how_hack
+      text.
+        해킹할 수 있을 것 같은 물체 앞으로 걸어가
+        <span class="highlight">스페이스바</span>를 누르세요. 그러면 해킹
+        인터페이스가 열릴 거예요. 해킹 인터페이스에는 코드 작성이나 질문에
+        답하기 같은 과제가 표시됩니다.<br/><br/>설명에 따라 과제를 완료하면,
+        짜잔! 잠겨 있던 것이 더는 잠겨 있지 않게 되죠.
+
+    statement#get_started
+      if worldState.firstObjectiveHacked
+        text.
+          해킹 도구로 저 레이저 장벽을 해제했군요! 야호! 아주 잘했어요!
+      else if worldState.hackingToolAcquired
+        text.
+          아, 받침대에서 해킹 도구를 집었군요? 잘했어요! 그건 당신을 위한
+          거예요! 모험을 떠나라고요!<br/><br/>저기
+          <span class="highlight">성가신 레이저에 연결된 터미널</span>에
+          한번 사용해 보세요.
+      else
+        text.
+          물론 있죠. 바로 <span class="highlight">저쪽 받침대 위에 놓인
+          해킹 도구</span>예요. 이 작은 걸작만 있으면 정의의 이름으로 온갖
+          것을 망가뜨릴 수 있답니다.<br/><br/>해킹 도구로 잠긴 문을 우회하고,
+          상자를 열고, 무엇보다도 이 방에 있는 것 같은
+          <span class="highlight">레이저 장벽을 해제</span>할 수 있어요.
+
+    statement#margaret
+      text.
+        저는 <span class="highlight">마거릿</span>이에요. 만나서 정말
+        반가워요. TerminalQuest 프로그램의 실험 과학자이자, 당신이 모험 중에
+        사용할 엄청나게 편리한 해킹 도구를 발명한 사람이죠.<br/><br/>
+        제 직업은 사실상 세상에서 제일 멋져요. 물건을 부쉈다가 다시 조립해도
+        아무도 신경 쓰지 않거든요!
+
+    statement#break_stuff
+      text.
+        취미라기보다는 신성한 소명이라고 해야겠네요. 어릴 때 집에 있던 VCR을
+        분해했다가 다시 조립한 횟수는 세는 것도 포기했어요.
+
+    statement#what_vcr
+      text.
+        지금 저를 놀리는 건지, 아니면 제가 정말 엄청나게 나이 든 건지 모르겠네요.
+
+    statement#extra_parts
+      text.
+        보통 부품이 몇 개씩 남기는 했지만, 그래도 《고스트버스터즈》 VHS 테이프는
+        잘 재생됐어요. 그러니 괜찮았던 것 아닐까요?
+
+    statement#keep_moving
+      text.
+        해킹을 마쳤으니 저 문을 지나
+        <span class="highlight">세드릭과 케빈</span>을 만나세요. 그다음에는
+        포그 아울을 타고 대모험을 떠날 것 같네요. 우리 꼬마 새가 둥지를 떠난다니
+        정말 자랑스러워요!
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

@@ -1,0 +1,56 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="케빈")
+  case lastResponse
+    when "how_help"
+      statement#how_help
+      responses
+        response#like_fredric.
+          혹시 세드릭도 자기... 형제처럼 변할 가능성이 있나요?
+        response#will_do.
+          세드릭이라면 훌륭한 동료가 될 거예요.
+
+    when "like_fredric"
+      statement#like_fredric
+      responses
+        response#will_do.
+          그러지 않을게요. 그리고 당신을 대신해 세드릭도 잘 살피겠습니다.
+
+    when "will_do"
+      statement#will_do
+      responses
+
+    default
+      statement#default
+      responses
+        response#how_help.
+          오늘 벌써 큰일을 잔뜩 겪었지만, 제가 할 수 있는 일이라면 돕겠습니다.
+
+  statements
+    statement#like_fredric
+      text.
+        그럴 것 같지는 않습니다. 세드릭은 한결같이 프레드릭보다 인류를 더
+        긍정적으로 바라보는 선택을 해 왔으니까요. 그리고 가능하다면 프레드릭의
+        행동을 그에게만 탓하지 말아 주세요. 차라리 저를 탓해야 합니다.<br/><br/>
+        프레드릭의 소프트웨어를 개발할 때 저는 언제나 무엇이 가능한지만
+        생각했지, 제가 만드는 기술이 잘못 사용되면 무슨 일이 벌어질지는
+        고민하지 않았습니다. 개발자로 살아가는 동안 저와 같은 실수를
+        저지르지 말아 주세요.
+    statement#how_help
+      text.
+        지금 세드릭이 포그 아울에 타고 있는데, 당신의 임무에 동행하고 싶어
+        합니다. 이제 세상으로 나갈 준비가 된 것 같아요. 분명 큰 도움이 될
+        겁니다. 저를 대신해 세드릭을 잘 살펴 주시겠어요?
+    statement#will_do
+      text.
+        우리를 실망시키지 않으실 거라 믿습니다. 행운을 빌어요, 오퍼레이터.
+        클라우드에서 다시 만납시다!
+    statement#default
+      text.
+        무슨 말을 해야 할지 모르겠군요. 당신은 포그 아울과 이 정거장의 모든
+        사람을 구했습니다. 평생 갚아도 모자랄 빚을 졌어요.<br/><br/>
+        그래서 부탁을 하나 더 드리기가 더욱 미안합니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

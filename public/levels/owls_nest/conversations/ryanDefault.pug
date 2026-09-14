@@ -1,0 +1,30 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="라이언")
+  case lastResponse
+    when "you_okay"
+      statement#you_okay
+      responses
+
+    default
+      statement#thanks
+      responses
+        response#you_okay.
+          고마워요. 최대한 빨리 그쪽으로 갈게요. 혼자 있어도 괜찮겠어요?
+
+  statements
+    statement#you_okay
+      text.
+        당신 덕분에 괜찮을 것 같아요. 그래도 괜찮다면 여기서 잠깐 쉬겠습니다.
+        무서워서 그러는 건 절대 아니고, 이번 주 축구를 하다가 허벅지 근육을
+        좀 다쳤거든요. 그래요, 어디까지나 근육 때문입니다.<br/><br/>
+        코드를 입력할 수 있는 제어판은
+        <span class="highlight">포그 아울 바로 옆</span>에 있습니다.
+    statement#thanks
+      text.
+        구하러 와 줘서 고마워요! 이 하드웨어 토큰을 받으세요. 포그 아울의
+        자폭 시퀀스를 중단하는 데 필요한 루트 접근 키가 들어 있습니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

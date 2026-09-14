@@ -1,0 +1,225 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+mixin about_team
+  response#cedric_index.
+    세드릭, 몇 가지 질문을 해도 될까요?
+  response#kevin_index.
+    케빈, 하나 물어봐도 될까요?
+
+mixin cedric_questions
+  response#cedric_job.
+    TerminalQuest 프로그램에서 어떤 역할을 맡고 있나요?
+  response#cedric_related_kevin.
+    케빈과 긴밀히 협력하나요?
+  response#cedric_conversation_index.
+    실은 다른 질문이 있었어요...
+
+mixin kevin_questions
+  response#kevin_job.
+    TerminalQuest 프로그램에서 어떤 역할을 맡고 있나요?
+  response#kevin_related_cedric.
+    세드릭과 긴밀히 협력하나요?
+  response#kevin_conversation_index.
+    실은 다른 질문이 있었어요...
+
+mixin get_started
+  if worldState.fredricThreatReceived
+    response#get_started.
+      프레드릭을 막아야 합니다.
+  else
+    response#kevin_get_started.
+      가능하다면 포그 아울을 둘러보고 싶어요. 어떤 능력이 있는지 어서 보고 싶네요!
+
+-
+  let speaker = '세드릭';
+  if (
+    (
+      worldState.kevinCedricInitialGreeting &&
+      !worldState.fredricThreatReceived &&
+      !lastResponse
+    ) ||
+    (lastResponse && lastResponse.indexOf('kevin_') === 0)
+  ) {
+    speaker = '케빈';
+  }
+conversation(display_name=speaker)
+  case lastResponse
+    when "cedric_index"
+      statement#cedric_index
+      responses
+        +cedric_questions
+    when "cedric_job"
+      statement#cedric_job
+      responses
+        +cedric_questions
+    when "cedric_related_kevin"
+      statement#cedric_related_kevin
+      responses
+        +cedric_questions
+    when "kevin_index"
+      statement(expression="kevinNeutral.png")#kevin_index
+      responses
+        +kevin_questions
+    when "kevin_job"
+      statement(expression="kevinNeutral.png")#kevin_job
+      responses
+        +kevin_questions
+    when "kevin_related_cedric"
+      statement(expression="kevinNeutral.png")#kevin_related_cedric
+      responses
+        response#kevin_kid_low_pressure.
+          로봇 자녀라니, 좋은 생각이네요! 크게 잘못 키울 일도 없겠죠?
+        +kevin_questions
+    when "kevin_kid_low_pressure"
+      statement(expression="kevinNeutral.png")#kevin_kid_low_pressure
+      responses
+        +kevin_questions
+    when "kevin_get_started"
+      statement(expression="kevinNeutral.png")#kevin_get_started
+      responses
+        response#kevin_next_step.
+          대단한 함선 같네요. 이제 출항할 준비가 됐나요?
+        response#kevin_espresso_machine.
+          에스프레소 머신까지 있다니 센스 있네요.
+    when "kevin_espresso_machine"
+      statement(expression="kevinNeutral.png")#kevin_espresso_machine
+      responses
+        response#kevin_next_step.
+          대단한 함선 같네요. 이제 출항할 준비가 됐나요?
+    when "kevin_next_step"
+      statement(expression="kevinNeutral.png")#kevin_next_step
+      responses
+        +about_team
+    when "cedric_conversation_index"
+      statement#cedric_conversation_index
+      responses
+        +get_started
+        +about_team
+    when "kevin_conversation_index"
+      statement(expression="kevinNeutral.png")#kevin_conversation_index
+      responses
+        +get_started
+        +about_team
+
+    when "kevin_who_are_you"
+      statement(expression="kevinNeutral.png")#kevin_who_are_you
+      responses
+        +get_started
+        +about_team
+
+    default
+      if worldState.fredricThreatReceived
+        statement#no_time
+        responses
+      else if !worldState.kevinCedricInitialGreeting
+        - worldState.kevinCedricInitialGreeting = true;
+        statement#default
+        responses
+          response#kevin_who_are_you.
+            맞는 것 같네요! 세드릭과 케빈, 두 분 맞죠?
+          +get_started
+
+      else
+        statement(expression="kevinNeutral.png")#follow_up_greeting
+        responses
+          +get_started
+          +about_team
+
+  statements
+    statement#no_time
+      text.
+        오퍼레이터. 제가 최대한 빨리 새 방화벽을 세우고 있지만, 포그 아울의
+        자폭 시퀀스를 중단하려면 <span class="highlight">쿠빅 엔지니어에게서
+        해제 코드를 가져와야 합니다</span>.<br/><br/>코드를 얻으면 포그 아울
+        근처의 제어판을 사용해 함선과 정거장을 구하세요.
+
+    statement#cedric_index
+      text.
+        질문 입력을 기다리고 있습니다.
+
+    statement#cedric_job
+      text.
+        저는 클라우드에서 임무를 수행하는 오퍼레이터를 지원하도록 설계된 고급
+        인공지능입니다. TerminalQuest 프로그램이 제 프로그래밍이 준비되었다고
+        판단하면 당신의 함선과 같은 우주선에서 복무할 예정입니다.<br/><br/>
+        제게는 인류에 관해 배울 것이 많으며, 분석을 완료하려면 직접 관찰이
+        필요하다고 생각합니다.
+
+    statement#kevin_who_are_you
+      text.
+        맞습니다. 드디어 직접 만나게 되어 정말 기쁘군요! 세드릭과 저는
+        <span class="highlight">포그 아울</span>의 첫 비행을 지휘할 적임자를
+        오랫동안 찾아왔고, 당신에게 필요한 자질이 있다고 생각합니다.<br/><br/>
+        함선에 올라 둘러볼 준비가 됐나요?
+
+    statement#cedric_related_kevin
+      text.
+        오퍼레이터 #00000000000은 제 코드베이스에 있는 커밋 대부분을 작성했으며,
+        제 학습 데이터 처리 모델과 실행 기능의 상당 부분을 설계했습니다.
+        제가 인간이라면 그를 부모로 여겼을지도 모릅니다.
+
+    statement#kevin_index
+      text.
+        물론이죠. 무엇이든 물어보세요.
+
+    statement#kevin_job
+      text.
+        저는 TerminalQuest 프로그램의 책임자입니다. 당신 같은 오퍼레이터를
+        모집하고 가능한 모든 방법으로 지원하는 게 제 일이죠.<br/><br/>
+        하지만 요즘은 대부분의 시간을 세드릭과 그의 고차원 처리 기능을
+        연구하는 데 쓰고 있습니다.
+
+    statement#kevin_related_cedric
+      text.
+        저는 수년 동안 세드릭의 코드베이스를 개발해 왔습니다. 여러 면에서
+        세드릭은 제 아들과도 같죠. 세드릭의 요청에 따라 친절과 호기심, 용기처럼
+        인류가 가진 가장 좋은 면을 가르치려고 노력했습니다.<br/><br/>
+        이제는 저보다 더 나은 인간이 되었다고 해도 좋겠군요! 세드릭이 이룬
+        발전이 정말 자랑스럽고, 이제 오퍼레이터 곁에서 복무할 준비가 됐다고
+        생각합니다.
+
+    statement#kevin_kid_low_pressure
+      text.
+        ...<br/><br/>정말 당신 말대로라면 좋겠군요.
+
+    statement#default
+      text.
+        새로운 오퍼레이터 감지... 기밀 인사 데이터베이스 대조 중...
+        당신이 <span class="highlight">포그 아울의 새 지휘관</span>이
+        맞습니까?
+
+    statement#follow_up_greeting
+      text.
+        안녕하세요! 무엇을 도와드릴까요?
+
+    statement#cedric_conversation_index
+      text.
+        질문해 주십시오. 능력이 닿는 한 최선을 다해 답변하겠습니다.
+
+    statement#kevin_conversation_index
+      text.
+        물론이죠. 무슨 이야기를 하고 싶으신가요?
+
+    statement#kevin_espresso_machine
+      text.
+        그렇죠? 실제로 쓰게 될지는 몰랐는데, 알고 보니 아주 자주 사용하더군요.
+
+    statement#kevin_get_started
+      text.
+        저희도 포그 아울이 어떤 능력을 보여 줄지 무척 기대됩니다! 최고급 패킷
+        전송 드라이브와 첨단 위치 암호화 기능, 심지어 에스프레소 머신까지 있죠!
+        <br/><br/>포그 아울은 튼튼하고 빠르며 은밀합니다. 시험 운항으로 기술이
+        제대로 작동한다는 걸 입증하면 클라우드 전역의 오퍼레이터에게 보급할 수
+        있습니다.
+
+    statement#kevin_next_step
+      text.
+        거의 다 됐습니다. 우현 TCP 포트의 보정 작업이 조금 남았지만 한 시간
+        안에는 이륙 준비를 마칠 수 있을 거예요.<br/><br/>그동안
+        <span class="highlight">함선을 둘러보고 승무원들을 만나 보세요</span>.
+        모두 믿을 만한 최고의 인재들입니다. 도움이 필요하면 주저하지 말고
+        의지하세요.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

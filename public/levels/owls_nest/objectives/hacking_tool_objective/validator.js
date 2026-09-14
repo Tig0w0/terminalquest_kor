@@ -22,6 +22,6 @@ module.exports = async function (helper) {
 
   helper.success(`
     레이저를 우회하는 데 필요한 암호를 입력했습니다. 곧 레이저가 걷히고
-    안개 올빼미에게 가는 길이 열립니다!
+    포그 아울에게 가는 길이 열립니다!
   `);
 };

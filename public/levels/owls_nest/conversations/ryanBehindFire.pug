@@ -1,0 +1,40 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="라이언")
+  case lastResponse
+    when "how_help"
+      statement#how_help
+      responses
+        response#on_it.
+          걱정 마세요. 소화기를 가져올게요.
+
+    when "on_it"
+      statement#thanks
+      responses
+
+    default
+      statement#oh_no
+      responses
+        response#how_help.
+          라이언? 도와드리고 싶지만 이 불길을 어떻게 지나야 할지 모르겠어요.
+
+  statements
+    statement#thanks
+      text.
+        이 은혜는 꼭 갚을게요! 소화기를 얻으면 불길 앞으로 걸어가
+        <span class="highlight">스페이스바를 누르세요</span>. 소화기가
+        자동으로 작동할 겁니다.
+    statement#how_help
+      text.
+        창고에 <span class="highlight">소화기</span>가 있을 거예요!
+        <span class="highlight">빨간색 상자</span> 안에 들어 있습니다.
+        <br/><br/>정거장 보안 시스템이 전부 오작동하고 있으니 먼저
+        <span class="highlight">상자를 해킹</span>해야 할지도 몰라요.
+        소화기를 얻으면 여기로 돌아와 불을 꺼 주세요. 부탁합니다!
+    statement#oh_no
+      text.
+        이봐요! 오퍼레이터! 좀 도와주시겠어요?
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

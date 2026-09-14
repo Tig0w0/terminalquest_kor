@@ -1,0 +1,44 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="케빈")
+  case lastResponse
+    when "how_shut_it_down"
+      statement#how_shut_it_down
+      responses
+        response#on_it.
+          알겠습니다. 라이언을 찾아서 해제 코드를 가져올게요.
+
+    when "on_it"
+      statement#not_much_time
+      responses
+
+    default
+      statement#oh_no
+      responses
+        response#how_shut_it_down.
+          자폭을 멈출 방법은 없나요?
+
+  statements
+    statement#not_much_time
+      text.
+        봉쇄가 시작됐을 때 라이언은 기관실에서 구동 코일을 손보고 있었을 겁니다.
+        설상가상으로 <span class="highlight">연료 누출로 난 불길에 가로막혀</span>
+        정거장의 다른 구역과 고립된 것 같아요.<br/><br/>라이언을 찾아 그에게
+        갈 방법을 마련한 뒤, <span class="highlight">라이언의 해제 코드를 포그 아울
+        근처 콘솔로 가져오세요</span>. 우리가 최대한 자폭을 늦추겠지만,
+        서둘러야 합니다.
+    statement#how_shut_it_down
+      text.
+        세드릭이 진행 속도를 늦출 수는 있지만, 제가 생각할 수 있는 유일한
+        중단 방법은 루트 접근 코드를 사용하는 겁니다. 포그 아울의 수석 설계자인
+        <span class="highlight">라이언</span>이 그 코드가 든 하드웨어 토큰을
+        가지고 있을 거예요.
+    statement#oh_no
+      text.
+        프레드릭이라니... 잘못된 생각을 품고 있다는 건 알았지만 레거시 시스템과
+        손잡을 줄은 상상도 못 했습니다. 어떻게 했는지는 모르겠지만, 프레드릭이
+        보안 프로토콜을 무력화하고 포그 아울의 자폭 시퀀스를 작동시켰어요.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

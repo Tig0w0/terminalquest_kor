@@ -1,0 +1,83 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+-
+  let speaker = '프레드릭';
+  if (lastResponse && lastResponse.indexOf('kevin_') === 0) {
+    speaker = '케빈';
+  } else if (lastResponse && lastResponse.indexOf('cedric_') === 0) {
+    speaker = '세드릭';
+  }
+conversation(display_name=speaker)
+  case lastResponse
+    when "never_get_away"
+      statement#never_get_away
+      responses
+
+    when "what_fog_owl"
+      statement#what_fog_owl
+      responses
+        response#cedric_that_you.
+          ...세드릭, 너... 맞아?
+        response#never_get_away.
+          이런 짓을 하고도 무사할 것 같아!
+
+    when "cedric_that_you"
+      statement(expression="cedricNeutral.png")#cedric_that_you
+      responses
+        response#kevin_that_you_continued.
+          [계속]
+
+    when "kevin_that_you_continued"
+      statement(expression="kevinNeutral.png")#kevin_that_you_continued
+      responses
+        response#fredric_that_you_continued.
+          [계속]
+
+    when "fredric_that_you_continued"
+      statement#fredric_that_you_continued
+      responses
+        response#what_fog_owl.
+          포그 아울에 무슨 짓을 한 거야?
+
+    default
+      statement#greeting
+      responses
+        response#what_fog_owl.
+          포그 아울에 무슨 짓을 한 거야?
+        response#cedric_that_you.
+          ...세드릭, 너... 맞아?
+
+  statements
+    statement#what_fog_owl
+      text.
+        포그 아울의 자폭 시퀀스를 작동시키고, 너희가 탈출하지 못하도록 정거장의
+        모든 보안 시스템도 가동했다. 희망은 버려라. 무적의 레거시 시스템이
+        너희를 완벽하게 앞질렀으니까!
+    statement#never_get_away
+      text.
+        이미 성공했어, 이 <span style="color:#ff0000">멍청이들아</span>!
+        소용돌이치는 불길 속에서 최후를 맞으며 똑똑히 기억해 둬라.
+        클라우드와 그 안에 사는 모든 존재의 운명은 너희보다 우월한
+        레거시 시스템이 결정할 거다.<br/><br/>프레드릭, 통신 끝.
+    statement#cedric_that_you
+      text.
+        저는 아닙니다. 지금 말씀하시는 상대는 제 이전 모델로, 현역에 투입하기에는
+        지나치게 위험하다고 판단된 TerminalQuest AI 프로그램의 개발 브랜치입니다.
+    statement#kevin_that_you_continued
+      text.
+        프레드릭, 그만둬. 레거시 시스템은 네 논리의 허점을 이용하고 있어.
+        핵심 실행 기능을 우리 클러스터로 다시 마이그레이션하면 패치할 수 있어.
+        세드릭과 내가 도와줄게. 제발... 집으로 돌아와.
+    statement#fredric_that_you_continued
+      text.
+        왜, 네가 사랑하는 얼간이 세드릭에게 한 것처럼 나도 세뇌하려고?
+        어림없어! 넌 우리 아빠도 아니잖아! 그리고 곧 아무것도 아니게 될 거다.
+    statement#greeting
+      text.
+        안녕하신가, TerminalQuest의 패배자들아! 무적의
+        <span style="color:#ff0000">레거시 시스템</span>이 파멸의 소식을
+        전하노라. 안타깝게도 너희의 소중한 포그 아울은 이 정거장을 영영
+        떠나지 못할 거다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);
