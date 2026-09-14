@@ -1,36 +1,38 @@
-# TerminalQuest
+# TerminalQuest (터미널 퀘스트)
 
-Answer the call of the cursor, and discover your power to change the world with code.
+커서의 부름에 응답하고, 코드로 세상을 바꿀 수 있는 당신의 힘을 발견하세요.
 
-**TerminalQuest** is role-playing game where you - as an elite agent known as the Operator - embark on an adventure to explore and safeguard the virtual universe of The Cloud. To do so, you will need to master the tools of software development and beyond. Do you have what it takes to defeat the evil Legacy Systems and save The Cloud?
+**TerminalQuest**는 플레이어가 '오퍼레이터(Operator)'라는 엘리트 요원이 되어 가상 우주인 '더 클라우드(The Cloud)'를 탐험하고 안전하게 지켜내는 어드벤처 롤플레잉 게임입니다. 이 임무를 완수하려면 소프트웨어 개발 도구와 프로그래밍 지식을 마스터해야 합니다. 사악한 '레거시 시스템(Legacy Systems)'을 물리치고 클라우드를 구해낼 준비가 되셨나요?
 
-## Playing the game
+## 게임 플레이
 
-The game is currently under active development, after a transition in ownership. End-user friendly builds of the game are coming soon!
+현재 이 게임은 소유권 이전 후 활발하게 개발이 진행 중입니다. 일반 유저가 쉽게 플레이할 수 있는 정식 빌드 버전이 곧 출시될 예정입니다!
 
-## Local development
+## 로컬 개발 환경 설정
 
-Developing TerminalQuest requires the following dependencies to be installed:
+TerminalQuest를 개발하고 실행하려면 다음 프로그램들이 설치되어 있어야 합니다:
 
-* [Node.js](https://nodejs.org/en) and [npm](npmjs.com) - the game is currently tested and running locally with Node 18.
-* [Python](https://www.python.org/downloads/) is currently required to install and configure some dependencies. Python 3.9 should work - 3.11 has been known to cause problems with our current build.
+* [Node.js](https://nodejs.org/ko) 및 [npm](https://www.npmjs.com/) - 이 게임은 최신 Node.js 환경(Node 18 ~ Node 24 등)에서 테스트되고 구동됩니다.
+* [Python](https://www.python.org/downloads/) - 일부 의존성 패키지 설치 및 구성을 위해 현재 필요합니다. Python 3.9 버전 사용을 권장하며, 3.11 이상의 버전은 빌드 시 문제를 일으킬 수 있습니다.
 
-After cloning this repository, install dependencies with:
+이 저장소를 클론(clone)한 후, 다음 명령어를 입력하여 의존성 패키지들을 설치하세요:
 
-```
+```bash
 npm install --legacy-peer-deps
 ```
 
-Fair warning - during this transitional period, this process may not happen without error. After dependencies are successfully installed, you can run the game in development mode with:
+> **참고:** 현재 과도기적인 개발 단계이므로, 패키지 간의 구버전 의존성 충돌을 방지하기 위해 패키지 설치 시 반드시 `--legacy-peer-deps` 옵션을 포함해야 합니다.
 
-```
+패키지 설치가 성공적으로 완료되면, 다음 명령어를 통해 개발 모드로 게임을 실행할 수 있습니다:
+
+```bash
 npm start
 ```
 
-This will open a local [Electron](https://www.electronjs.org) window running the game.
+이 명령어를 실행하면 로컬 [Electron](https://www.electronjs.org/) 창이 열리면서 게임이 구동됩니다.
 
-## License
+## 라이선스
 
-The source code for the game is available under an MIT license (see `LICENSE`).
+이 게임의 소스 코드는 MIT 라이선스를 따릅니다 (상세 내용은 `LICENSE` 파일 참조).
 
-The artwork, music, and other creative assets in this repository are available under a [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0) license.
+이 저장소에 포함된 아트워크, 음악 및 기타 창작 자산은 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) 라이선스를 따릅니다.
