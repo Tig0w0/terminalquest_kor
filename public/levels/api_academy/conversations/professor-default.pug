@@ -1,0 +1,172 @@
+-
+  const STATE_KEY = 'TQ_API_ACADEMY_WORLD_STATE';
+  const worldState = getState(STATE_KEY);
+  let allComplete = false;
+  if (
+    worldState.initiation &&
+    worldState.initiation.lastShownHouseNotification &&
+    worldState.initiation.lastShownHouseNotification === 4
+  ) {
+    allComplete = true;
+  }
+
+mixin personal_intro
+  response#personal_intro.
+    누구시고 이곳에서는 무슨 일을 하는지 다시 알려 주시겠어요?
+
+mixin exposition
+  response#exposition.
+    아카데미는 무엇을 위해 존재하나요?
+
+mixin get_started
+  response#get_started.
+    아카데미에 들어가려면 어떻게 해야 하나요?
+
+mixin houses
+  response#houses.
+    API 비전술 아카데미의 여러 기숙사에 관해 더 알려 주시겠어요?
+
+conversation(display_name="입학처장 힙소트")
+  case lastResponse
+    when "houses"
+      statement#house
+      responses
+        +exposition
+        +personal_intro
+        +get_started
+
+    when "personal_intro"
+      statement#personal_intro
+      responses
+          +get_started
+          +exposition
+          +houses
+
+    when "exposition"
+      statement#exposition
+      responses
+        +get_started
+        +personal_intro
+        +houses
+
+    when "ack"
+      statement#ack
+      responses
+        +exposition
+        +personal_intro
+        +houses
+
+    when "get_started"
+      statement#get_started
+      responses
+        if allComplete
+          +exposition
+          +personal_intro
+          +houses
+        else
+          response#ack.
+            알겠습니다. 상자를 모두 찾으면 다시 보고하겠습니다.
+
+    when "pledge_scroll"
+      statement#pledge_scroll
+      responses
+        +houses
+
+    when "houses"
+      statement#houses
+      responses
+        +exposition
+        +personal_intro
+        +get_started
+
+    default
+      if !worldState.heapsortInitialGreeting
+        - worldState.heapsortInitialGreeting = true;
+        statement#default
+        responses
+          response#personal_intro.
+            아카데미 입학에 무척 관심이 있지만, 먼저 서로 소개하는 게 좋겠죠?
+          +exposition
+          +get_started
+          +houses
+
+      else if allComplete
+        statement#thanks
+        responses
+          +exposition
+          +personal_intro
+          +houses
+
+      else
+        statement#follow_up_greeting
+        responses
+          +get_started
+          +exposition
+          +personal_intro
+          +houses
+
+  statements
+    statement#default
+      text.
+        이런, 오퍼레이터가 오셨군요! 아카데미 입학을 신청하러 오셨다고
+        생각해도 될까요?<br/><br/>꼭 그랬으면 좋겠군요. API 비전술 아카데미에서
+        공부한 오퍼레이터는 많지 않지만 모두 모범적인 학생이었답니다.
+
+    statement#follow_up_greeting
+      text.
+        다시 만났군요, 오퍼레이터! 아카데미에서 펼칠 학업 모험을 시작할 생각에
+        설레나요?
+
+    statement#thanks
+      text.
+        잘했습니다! 아카데미 입학에 필요한 과제를 모두 완료했군요. 이제 정문을
+        지나 API 비전술 아카데미로 들어가세요! 학업에 행운이 따르기를 바랍니다!
+
+    statement#get_started
+      if allComplete
+        text.
+          이제 정문을 지나 API 비전술 아카데미로 들어가세요! 학업에 행운이
+          따르기를 바랍니다, 학생!
+      else
+        text.
+          아카데미에 들어오려는 학생은 누구나 먼저 API 사용의 기본 원칙을
+          익혀야 합니다. 남쪽 숲에는 <span class="highlight">보물 상자 네 개</span>가
+          있습니다. 하나씩 열 때마다 제 뒤의 화로 하나에 불이 들어옵니다.<br/><br/>
+          화로 네 개를 모두 밝히면 API 비전술 아카데미에 들어올 자격을 증명하게
+          됩니다!
+
+    statement#ack
+      text.
+        행운을 빕니다. 상자는 아카데미의 네 학생 기숙사인 러브레이스, 튜링,
+        폰 노이만, 호퍼를 기리는 작은 기념물에 하나씩 있습니다. 각 기숙사의
+        <span class="highlight">색을 띤 석조 구조물</span>을 찾으세요.
+
+    statement#exposition
+      text.
+        API는 프로그래밍을 이루는 기본 구성 요소입니다. 여러분이 작성하는 코드
+        대부분은 다른 사람이 작성한 코드를 호출하므로 이 개념을 익히는 것이
+        무엇보다 중요합니다.<BR><BR>또한 HTTP를 통해 인터넷상의 API를 사용하는
+        방법을 배우면 코드가 할 수 있는 일이 놀랄 만큼 많아집니다. 학생들이 이
+        힘을 활용하도록 가르치는 것이 아카데미의 가장 중요한 목적입니다.
+
+    statement#personal_intro
+      text.
+        저는 API 비전술 아카데미의 입학처장
+        <span class="highlight">킴벌리 힙소트 교수</span>입니다. 개발자를 꿈꾸는
+        학생들이 우리 학교의 가르침을 배울 준비가 되었는지 확인하는 일을 하죠.
+        <BR><BR>TerminalQuest 프로그램과 오랜 관계를 이어 온 아카데미는
+        오퍼레이터의 입학을 특히 기쁘게 생각합니다. 저희도 레거시 시스템을
+        물리치며 코드로 희망과 역량, 자유를 열어 간다는 사명을 함께합니다.
+
+    statement#house
+      text.
+        API 비전술 아카데미의 네 기숙사는 일 년 내내 동아리와 활동을 운영합니다.
+        기숙사마다 고유한 특성이 있죠. #[span.highlight 러브레이스 기숙사]는
+        창의성과 예술성, #[span.highlight 튜링 기숙사]는 혁신과 문제 해결,
+        #[span.highlight 호퍼 기숙사]는 대담함과 도전 정신,
+        #[span.highlight 폰 노이만 기숙사]는 효율성과 생산성을 중시합니다.<BR><BR>
+        아카데미에서 자신의 자리를 찾아가다 보면 동료 학생들이 더 많은 이야기를
+        들려줄 겁니다.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

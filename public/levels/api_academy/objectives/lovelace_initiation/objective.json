@@ -1,0 +1,22 @@
+{
+  "title": "API 아카데미 입학: 웹의 작동 원리",
+  "description": "<strong>러브레이스 기숙사</strong>의 지식 상자를 열려면 월드 와이드 웹의 기초를 배워야 합니다.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "",
+      "label": "브라우저 같은 웹 클라이언트와 웹 서버가 HTML이나 이미지 등의 데이터를 웹에서 전송할 때 가장 흔히 사용하는 프로토콜을 나타내는 네 글자 영문 약어는 무엇인가요?"
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "",
+      "label": "클라이언트가 서버에 웹 페이지나 다른 리소스를 요청할 때 쿠키처럼 요청 사이에 유지해야 할 상태 등의 추가 정보를 보내기도 합니다. 이 추가 정보 조각을 무엇이라고 하나요?"
+    }
+  ],
+  "rewards": {
+    "xp": 200
+  }
+}

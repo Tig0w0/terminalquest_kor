@@ -1,0 +1,22 @@
+{
+  "title": "API 아카데미 입학: 원격 API",
+  "description": "<strong>호퍼 기숙사</strong>의 지식 상자를 열려면 일부 API는 다른 컴퓨터에서 실행되는 <strong>원격(remote) API</strong>라는 사실을 이해해야 합니다.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "boolean",
+      "placeholder": "",
+      "label": "API 호출을 처리하는 데 필요한 코드와 컴퓨팅 자원은 반드시 API를 호출한 컴퓨터에 물리적으로 존재해야 한다."
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "",
+      "label": "개발자에게 원격 API를 제공하는 표준적인 방식이 된 API 유형을 나타내는 네 글자 영문 약어는 무엇인가요?"
+    }
+  ],
+  "rewards": {
+    "xp": 200
+  }
+}

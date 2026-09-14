@@ -1,0 +1,22 @@
+{
+  "title": "API 아카데미 입학: RESTful API",
+  "description": "<strong>폰 노이만 기숙사</strong>의 지식 상자를 열려면 RESTful API를 배워야 합니다.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "",
+      "label": "URI로 주소를 지정할 수 있고 RESTful API를 통해 전송될 수도 있는 데이터 덩어리를 추상적으로 무엇이라고 하나요?"
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "",
+      "label": "RESTful API에서 서버에 새 데이터를 만들 때 가장 흔히 사용하는 HTTP method(메서드)/verb(동사)는 무엇인가요?"
+    }
+  ],
+  "rewards": {
+    "xp": 200
+  }
+}
