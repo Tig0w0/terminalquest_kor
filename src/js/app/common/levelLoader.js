@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { staticFilePath, staticFileUrl } from './fs_utils';
 import db from './database';
 import config from '../config/config';
-import { localizeLevel } from '../config/koreanContent';
+import { localizeLevel, localizeMap } from '../config/koreanContent';
 import { getContext } from './context';
 import {
   readFile,
@@ -485,7 +485,7 @@ class LevelLoader {
         const mapPath = path.join(missionMapsPath, mapFileName);
         const mapJson = await readFile(mapPath);
         const mapKey = path.basename(mapFileName, '.json');
-        const mapData = JSON.parse(mapJson);
+        const mapData = localizeMap(missionName, JSON.parse(mapJson));
         const mapEntry = [mapKey, mapData];
 
         return mapEntry;

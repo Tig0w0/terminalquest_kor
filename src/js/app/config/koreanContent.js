@@ -117,6 +117,38 @@ const levels = {
   },
 };
 
+const mapObservationOverrides = {
+  owls_nest: {
+    fuel_line_fire_left:
+      '<i>불길이 너무 거셉니다. 지나가려면 <em>소화기</em>가 필요합니다!<br/><br/>케빈은 기지 북서쪽 구석의 <em>빨간색 상자</em> 안에 소화기가 있다고 했습니다.</i>',
+    fuel_line_fire_right:
+      '<i>불길이 너무 거셉니다. 지나가려면 <em>소화기</em>가 필요합니다!<br/><br/>케빈은 기지 북서쪽 구석의 <em>빨간색 상자</em> 안에 소화기가 있다고 했습니다.</i>',
+  },
+};
+
 export function localizeLevel(levelName, levelInfo) {
   return Object.assign({}, levelInfo, levels[levelName] || {});
+}
+
+export function localizeMap(levelName, mapData) {
+  const overrides = mapObservationOverrides[levelName];
+  if (!overrides) {
+    return mapData;
+  }
+
+  (mapData.layers || []).forEach(layer => {
+    (layer.objects || []).forEach(object => {
+      const properties = object.properties || [];
+      const key = properties.find(property => property.name === 'key');
+      const observation = properties.find(
+        property => property.name === 'observation'
+      );
+
+      if (key && observation && overrides[key.value]) {
+        observation.value = overrides[key.value];
+      }
+    });
+  });
+
+  return mapData;
 }
