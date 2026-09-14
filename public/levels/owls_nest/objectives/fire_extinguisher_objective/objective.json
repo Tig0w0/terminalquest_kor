@@ -1,0 +1,27 @@
+{
+  "title": "안전하게 코드 사용하기",
+  "description": "이 상자 안에는 불을 끌 수 있는 <strong>소화기</strong>가 있습니다. 코드를 책임감 있게 사용할 준비가 되었음을 증명하고 아이템을 획득하세요!",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "boolean",
+      "label": "참 또는 거짓: 컴퓨터에 설치한 소프트웨어는 파일과 개인 데이터에 접근할 수도 있다."
+    },
+    {
+      "name": "answer2",
+      "type": "boolean",
+      "label": "참 또는 거짓: 인터넷에서 복사하여 붙여 넣고 실행한 코드 예제는 컴퓨터에 해를 끼칠 수 없다."
+    },
+    {
+      "name": "answer3",
+      "type": "boolean",
+      "label": "참 또는 거짓: 비밀번호, 이메일 주소 등의 개인 데이터를 코드 파일에 보관하는 것은 언제나 안전하다."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": [
+      "fire_extinguisher"
+    ]
+  }
+}

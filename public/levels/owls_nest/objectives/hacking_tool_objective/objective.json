@@ -1,0 +1,15 @@
+{
+  "title": "해킹 인터페이스 기초",
+  "description": "<strong>해킹 도구(hacking tool)</strong>를 사용하면 이 레이저 장벽 같은 장애물을 해킹해 우회할 수 있습니다. <strong>이 방의 받침대 위</strong>에서 해킹 도구를 찾으세요!",
+  "validation_fields": [
+    {
+      "name": "passcode",
+      "type": "text",
+      "placeholder": "암호를 입력하세요",
+      "label": "해킹 도구를 얻으면 인터페이스의 '목표' 탭에서 비밀 암호를 확인할 수 있습니다. 그 암호를 여기에 입력하세요:"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}
