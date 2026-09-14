@@ -10,8 +10,8 @@ export class JoinOperation extends React.Component {
       <AsyncInputBox
         onFocus={this.props.onFocus}
         onBlur={this.props.onBlur}
-        defaultButtonLabel="Join"
-        resolvingButtonLabel="Joining..."
+        defaultButtonLabel="참가"
+        resolvingButtonLabel="참가 중..."
         onSubmit={joinOperation}
         onSuccess={onSuccess}
         enableSubmitHotkey={enableSubmitHotkey}
@@ -26,7 +26,7 @@ export class CurrentOperation extends React.Component {
     
     return (
       <>
-        <h4 className="mt4">Current Operation(s)</h4>
+        <h4 className="mt4">현재 참가 중인 작전</h4>
         {operations ? 
           operations.map(
             operation => (
@@ -35,13 +35,13 @@ export class CurrentOperation extends React.Component {
               <div className={`mb3 red`}>
                 <span className={`pb1 bb b--red pointer`} 
                   onClick={() => disconnectOperation(operation)}>
-                    Leave Operation
+                    작전 나가기
                 </span>
               </div>
             </Fragment>
           )
           ) : (
-          <p>You're not in any operations right now.</p>
+          <p>현재 참가 중인 작전이 없습니다.</p>
         )}
       </>
     );

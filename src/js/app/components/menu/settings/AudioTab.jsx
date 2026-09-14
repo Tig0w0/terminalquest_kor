@@ -33,7 +33,7 @@ function VolumeControl({ title, audioType }) {
         <img
           className="h1"
           src={`images/app/audio/speaker_${icon}.png`}
-          alt="Speaker On"
+          alt="스피커 켜짐"
         />
       </td>
       <td>
@@ -74,7 +74,7 @@ function VolumeControl({ title, audioType }) {
             syncAudioState();
           }}
         >
-          {muted ? 'Unmute' : 'Mute'}
+          {muted ? '음소거 해제' : '음소거'}
         </span>
       </td>
     </tr>
@@ -84,13 +84,13 @@ function VolumeControl({ title, audioType }) {
 export default function AudioTab() {
   return (
     <Fragment>
-      <h3>Audio/Music Settings</h3>
+      <h3>오디오/음악 설정</h3>
       <table>
         <tbody>
-          <VolumeControl title="Master Volume" audioType="master" />
-          <VolumeControl title="Music Volume" audioType="music" />
-          <VolumeControl title="Voice Over Volume" audioType="vo" />
-          <VolumeControl title="SFX Volume" audioType="sfx" />
+          <VolumeControl title="전체 음량" audioType="master" />
+          <VolumeControl title="음악 음량" audioType="music" />
+          <VolumeControl title="음성 음량" audioType="vo" />
+          <VolumeControl title="효과음 음량" audioType="sfx" />
         </tbody>
       </table>
     </Fragment>

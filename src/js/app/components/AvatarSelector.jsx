@@ -56,7 +56,7 @@ export default class AvatarSelector extends React.Component {
     if (number) {
       contents = (
         <img className="character-avatar-img"
-          alt="Your character avatar"
+          alt="내 캐릭터 아바타"
           src={staticFileUrl(`avatars/avatar${number}.png`)}
           draggable="false"
         />
@@ -65,7 +65,7 @@ export default class AvatarSelector extends React.Component {
       contents = (
         <div className="pt3">
           <h1>?</h1>
-          Custom
+          직접 꾸미기
         </div>
       );
     }

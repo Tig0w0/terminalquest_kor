@@ -27,7 +27,7 @@ export default class ItemTabs extends React.Component {
           className={allTabClass}
           onClick={this.props.onClick.bind(null, 'all')}
         >
-          all
+          전체
         </div>
 
         {this.props.tabs.map(tab => {
@@ -37,7 +37,7 @@ export default class ItemTabs extends React.Component {
               onClick={this.props.onClick.bind(null, tab.name)}
               key={tab.name}
             >
-              {tab.name}
+              {tab.displayName || tab.name}
             </div>
           );
         })}

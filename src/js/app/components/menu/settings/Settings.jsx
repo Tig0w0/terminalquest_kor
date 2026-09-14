@@ -29,6 +29,16 @@ const SUBNAV_SECTIONS = [
   'Unlocks',
   'Credits',
 ];
+const SUBNAV_LABELS = {
+  Audio: '오디오',
+  User: '사용자',
+  Variables: '환경 변수',
+  Extensions: '확장 기능',
+  Teams: '팀',
+  Operations: '작전',
+  Unlocks: '잠금 해제',
+  Credits: '제작진',
+};
 
 export default class Settings extends React.Component {
   static propTypes = {
@@ -101,7 +111,7 @@ export default class Settings extends React.Component {
     return (
       <div className="settings-menu pv3 overflow-y-scroll h-100">
         <ClearDataButton />
-        <h2 className="mb1">Settings</h2>
+        <h2 className="mb1">설정</h2>
         <p className="game-version gray">
           TerminalQuest v{GAME_VERSION} |&nbsp;
           {
@@ -112,7 +122,7 @@ export default class Settings extends React.Component {
                   textDecoration: 'underline',
                   cursor: 'pointer'
                 }} onClick={() => this.onToggleGuid()}>
-                  Hide
+                  숨기기
                 </span>
               </span>
               
@@ -121,7 +131,7 @@ export default class Settings extends React.Component {
                 textDecoration: 'underline',
                 cursor: 'pointer'
               }} onClick={() => this.onToggleGuid()}>
-                Show Player GUID
+                플레이어 GUID 보기
               </span>
           }
         </p>
@@ -140,7 +150,7 @@ export default class Settings extends React.Component {
                   });
                 }}
               >
-                {section}
+                {SUBNAV_LABELS[section]}
               </h5>
             ))}
           </div>
@@ -148,8 +158,8 @@ export default class Settings extends React.Component {
           <div className="w-75">
             {this.props.subnav === 'User' && (
               <div>
-                <h3>User Settings</h3>
-                <h4 className="mv2">Name</h4>
+                <h3>사용자 설정</h3>
+                <h4 className="mv2">이름</h4>
                 <input
                   autoFocus
                   className="pa2 w-100 mw7"
@@ -160,7 +170,7 @@ export default class Settings extends React.Component {
                   value={this.props.name}
                 />
 
-                <h4 className="mb2 mt4">Avatar</h4>
+                <h4 className="mb2 mt4">아바타</h4>
                 <AvatarSelector
                   avatar={this.props.avatar}
                   hotkeysEnabled={!this.state.inputFocused}
@@ -192,12 +202,12 @@ export default class Settings extends React.Component {
 
             {this.props.subnav === 'Teams' && (
               <div className="LiveEvents">
-                <h3>Adventure Teams</h3>
+                <h3>어드벤처 팀</h3>
                 <p>
-                  If you were given an adventure team join code, type it in to
-                  send your achievements and XP to the leaderboard.
+                  어드벤처 팀 참가 코드를 받았다면 여기에 입력하세요.
+                  달성 기록과 XP가 리더보드에 전송됩니다.
                 </p>
-                <h4 className="mv2">Join Code</h4>
+                <h4 className="mv2">참가 코드</h4>
                 <JoinTeam
                   onFocus={this.onFocus.bind(this)}
                   onBlur={this.onBlur.bind(this)}
@@ -208,12 +218,12 @@ export default class Settings extends React.Component {
 
             {this.props.subnav === 'Operations' && (
               <div className="LiveEvents">
-                <h3>Operations</h3>
+                <h3>작전</h3>
                 <p>
-                  If you were given an operation join code, type it in to
-                  send your achievements and XP to the leaderboard.
+                  작전 참가 코드를 받았다면 여기에 입력하세요.
+                  달성 기록과 XP가 리더보드에 전송됩니다.
                 </p>
-                <h4 className="mv2">Join Code</h4>
+                <h4 className="mv2">참가 코드</h4>
                 <JoinOperation
                   onFocus={this.onFocus.bind(this)}
                   onBlur={this.onBlur.bind(this)}
@@ -236,7 +246,7 @@ export default class Settings extends React.Component {
             className="tc gray absolute bottom-0 left-0 w-100 pt1 pb1"
             style={{ backgroundColor: '#1f243c' }}
           >
-            All changes saved.
+            모든 변경 사항이 저장되었습니다.
           </div>
         )}
       </div>

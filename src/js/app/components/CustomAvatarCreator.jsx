@@ -5,10 +5,10 @@ import { context, setContext } from '../common/context';
 import { NUM_FEATURES, generateDataURI } from '../common/avatarRenderer';
 
 const FEATURES = [
-  ['sc', 'Skin'],
-  ['ec', 'Eyes'],
-  ['hc', 'Hair Color'],
-  ['hs', 'Hair Style'],
+  ['sc', '피부'],
+  ['ec', '눈'],
+  ['hc', '머리 색'],
+  ['hs', '머리 모양'],
 ];
 
 export default class CustomAvatarCreator extends React.Component {
@@ -103,7 +103,7 @@ export default class CustomAvatarCreator extends React.Component {
       <div className="w4 h4 b--mid-gray ba bw2 character-avatar">
       {this.context.customAvatar.uri && (
         <img className="character-avatar-img"
-          alt="Your character avatar"
+          alt="내 캐릭터 아바타"
           src={this.context.customAvatar.uri}
           draggable="false"
         />
@@ -145,7 +145,7 @@ export default class CustomAvatarCreator extends React.Component {
   render() {
     return (
       <div>
-        <h4 className="mb2">Customize:</h4>
+        <h4 className="mb2">직접 꾸미기:</h4>
         <div className="flex flex-wrap">
           {this.renderPreview()}
           {FEATURES.map(this.renderControl, this)}

@@ -49,7 +49,7 @@ export default class CharacterAvatar extends React.Component {
         <div className="relative character-avatar">
           <img
             className="character-avatar-img"
-            alt="Your character avatar"
+          alt="내 캐릭터 아바타"
             src={
               this.context.settings.avatar === 0
                 ? this.context.customAvatar.uri

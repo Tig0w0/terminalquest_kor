@@ -1,12 +1,12 @@
-# Knowledge is Power
+# 아는 것이 힘이다
 
 <div class="aside">
-<h3>To-Do List</h3>
+<h3>할 일</h3>
 <ul>
-  <li>Answer the questions on the right, then click <em>HACK</em></li>
+  <li>오른쪽 질문에 답한 다음 <em>HACK</em>을 클릭하세요.</li>
 </ul>
 </div>
 
-You see another barrier blocking you from making progress in the simulation. This barrier seems designed to test your knowledge around safe usage of the command line interface on your computer.
+시뮬레이션 진행을 가로막는 또 하나의 장벽이 나타났습니다. 이 장벽은 컴퓨터의 명령줄 인터페이스를 안전하게 사용하는 방법을 알고 있는지 시험하는 듯합니다.
 
-Answer the questions on the right and click *HACK* to continue moving forward. Read the "Help" section for more context on why these questions are important.
+오른쪽 질문에 답하고 *HACK*을 클릭해 계속 나아가세요. 이 질문들이 왜 중요한지 더 알고 싶다면 "도움말"을 읽어 보세요.

@@ -1,13 +1,13 @@
 {
-  "title": "Capture The Flag (New Dev Skill Training)",
-  "description": "Hone your foundational skills as a developer in a series of 'capture the flag' exercises. Learn how to use the command line, text editors, and other tools of the trade. No matter what kind of software you build, these skills will serve you well.",
+  "title": "깃발 뺏기: 개발자 기초 훈련",
+  "description": "일련의 '깃발 뺏기(Capture The Flag, CTF)' 훈련으로 개발자의 기초 실력을 다져 보세요. 명령줄, 텍스트 에디터를 비롯해 개발에 필요한 여러 도구의 사용법을 배웁니다. 어떤 소프트웨어를 만들든 든든한 밑바탕이 되어 줄 기술입니다.",
   "is_mission": true,
   "priority": 2,
   "backgroundMusic": "hackertheme_104771b",
   "backgroundEffect": "vr",
   "flavorTextOverrides": {
-    "notReady": "Looks like this part of the simulation isn't ready yet. <span class=\"highlight\">I should check back later</span>.",
-    "terminalHint": "The sign reads: \"Sometimes, you need to take a leap of faith and <span class=\"highlight\">step into the abyss</span>.\"",
-    "terminalHint2": "The sign reads: \"When your path seems blocked, <span class=\"highlight\">keep moving and feel your way around</span>.\""
+    "notReady": "아직 이 구역의 시뮬레이션은 준비되지 않은 것 같다. <span class=\"highlight\">나중에 다시 와 보자</span>.",
+    "terminalHint": "표지판에 이렇게 적혀 있다. \"때로는 믿음을 갖고 <span class=\"highlight\">심연으로 발을 내디뎌야 한다</span>.\"",
+    "terminalHint2": "표지판에 이렇게 적혀 있다. \"길이 막힌 것처럼 보여도 <span class=\"highlight\">계속 움직이며 길을 더듬어 찾아라</span>.\""
   }
 }

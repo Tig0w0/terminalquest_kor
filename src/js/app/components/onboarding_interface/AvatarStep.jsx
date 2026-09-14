@@ -32,7 +32,7 @@ export default class AvatarStep extends React.Component {
         className={this.props.isActive ? '' : 'o-50'}
         onClick={this.props.onClick}
       >
-        <h3>Select your avatar</h3>
+        <h3>아바타를 선택하세요</h3>
         <AvatarSelector
           avatar={this.context.settings.avatar}
           hotkeysEnabled={this.props.isActive}

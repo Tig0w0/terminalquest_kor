@@ -36,13 +36,13 @@ function ExtensionsList({ extensions }) {
               color: isValid ? '#00ff00' : '#ff0000',
             }}
           >
-            {isValid ? 'loaded' : 'failed'}
+            {isValid ? '로드됨' : '실패'}
           </span>
         </li>
       ))}
     </ul>
   ) : (
-    <span>None</span>
+    <span>없음</span>
   );
 }
 
@@ -68,13 +68,13 @@ function AllExtensionsList() {
 
   return (
     <>
-      <h4>External Extensions</h4>
-      <p>These extensions are being loaded from the directory above.</p>
+      <h4>외부 확장 기능</h4>
+      <p>위 디렉터리에서 불러온 확장 기능입니다.</p>
       <ExtensionsList extensions={externalExtensions} />
       <br />
-      <h4>Bundled Extensions</h4>
+      <h4>내장 확장 기능</h4>
       <p>
-        These extensions come bundled by default when you download TerminalQuest.
+        TerminalQuest를 다운로드할 때 기본으로 포함된 확장 기능입니다.
       </p>
       <ExtensionsList extensions={bundledExtensions} />
     </>
@@ -87,10 +87,10 @@ function EnabledExtensions({ onFocus, onBlur, save }) {
   return (
     <>
       <p>
-        TerminalQuest will attempt to load extensions from the folder below. Note
-        that some extensions may{' '}
-        <span className="highlight">require you to restart the game</span>{' '}
-        before they are available (e.g. new missions in the mission computer).
+        TerminalQuest가 아래 폴더에서 확장 기능을 불러옵니다. 일부 확장 기능은
+        사용할 수 있게 되기 전에{' '}
+        <span className="highlight">게임을 다시 시작해야 할 수 있습니다</span>
+        (예: 미션 컴퓨터에 추가되는 새 미션).
       </p>
       <br />
       <br />
@@ -105,23 +105,23 @@ function EnabledExtensions({ onFocus, onBlur, save }) {
           )
         }
       >
-        Disable Extensions
+        확장 기능 비활성화
       </Button>
       <br />
       <br />
-      <h4>Extension Directory</h4>
+      <h4>확장 기능 디렉터리</h4>
       <div>
         <InputTextField
-          value={directory || 'No directory chosen'}
+          value={directory || '선택한 디렉터리 없음'}
           disabled
         ></InputTextField>
         <InlineButton
-          label="Choose Directory"
+          label="디렉터리 선택"
           onClick={async () => {
             const directoryPath = await getDirectoryPath({
               defaultPath: directory,
-              buttonLabel: 'Choose',
-              title: 'Choose a directory to load your extensions from',
+              buttonLabel: '선택',
+              title: '확장 기능을 불러올 디렉터리를 선택하세요',
             });
 
             if (!directoryPath) {
@@ -139,7 +139,7 @@ function EnabledExtensions({ onFocus, onBlur, save }) {
         />
       </div>
       <br />
-      <h3>Loaded Extensions</h3>
+      <h3>로드된 확장 기능</h3>
       <AllExtensionsList />
       <br />
     </>
@@ -150,15 +150,14 @@ function DisabledExtensions({ save }) {
   return (
     <>
       <p>
-        Click the button below to enable extensions. Extensions can contain new
-        levels, items, or features for TerminalQuest.
+        아래 버튼을 클릭해 확장 기능을 활성화하세요. 확장 기능에는
+        TerminalQuest의 새 레벨, 아이템 또는 기능이 포함될 수 있습니다.
       </p>
       <p>
-        <span className="highlight">Be careful</span>! If you install extensions
-        in TerminalQuest, those extensions will be able to execute code on your
-        computer. Ensure that you trust the extension author before using this
-        feature. Broken extensions can also cause the TerminalQuest game to become
-        unstable, possibly even requiring you to reinstall the game.
+        <span className="highlight">주의하세요</span>! TerminalQuest에 설치한
+        확장 기능은 컴퓨터에서 코드를 실행할 수 있습니다. 이 기능을 사용하기 전에
+        확장 기능의 제작자를 신뢰할 수 있는지 확인하세요. 문제가 있는 확장 기능은
+        게임을 불안정하게 만들며, 게임을 다시 설치해야 하는 상황을 일으킬 수도 있습니다.
       </p>
       <Button
         onClick={() =>
@@ -171,7 +170,7 @@ function DisabledExtensions({ save }) {
           )
         }
       >
-        Enable Extensions
+        확장 기능 활성화
       </Button>
     </>
   );
@@ -182,7 +181,7 @@ export default function Extensions({ onFocus, onBlur, save }) {
 
   return (
     <>
-      <h3>Extensions</h3>
+      <h3>확장 기능</h3>
       {enabled ? (
         <EnabledExtensions onFocus={onFocus} onBlur={onBlur} save={save} />
       ) : (

@@ -1,12 +1,12 @@
 {
-  "title": "CTF: Using a Command Line Interface",
-  "description": "A key tool you will need on your journey as a developer is a <strong>command line interface</strong>. Learn to find and launch one for the first time, and execute a basic command!",
+  "title": "CTF: 명령줄 인터페이스 사용하기",
+  "description": "개발자의 여정에서 꼭 필요한 도구 중 하나가 <strong>명령줄 인터페이스(command line interface, CLI)</strong>입니다. CLI를 찾아 처음 실행하고, 기본 명령어를 입력하는 방법을 배워 보세요!",
   "validation_fields": [
     {
       "name": "pwdOutput",
       "type": "text",
       "placeholder": "e.g. C:\\Users\\kevin",
-      "label": "Paste the **last line only** of the output from the <em>pwd</em> command in the text field below."
+      "label": "<em>pwd</em> 명령어의 출력 중 **마지막 줄만** 아래 입력란에 붙여 넣으세요."
     }
   ],
   "rewards": {

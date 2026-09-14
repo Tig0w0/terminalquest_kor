@@ -29,8 +29,20 @@ async function getAllValidExtensions() {
   }
 
   const bundledDirectories = getBundledExtensionDirectories();
+  const localContentDirectory = {
+    absolutePath: staticFilePath('.'),
+    name: 'terminalquest-local-content',
+    isValid: true,
+  };
 
-  return [...externalDirectories, ...bundledDirectories].filter(
+  // User-installed extensions retain the highest priority. Files shipped
+  // directly in public act as a durable localization/content overlay for
+  // bundled npm extensions, which are recreated whenever dependencies install.
+  return [
+    ...externalDirectories,
+    localContentDirectory,
+    ...bundledDirectories,
+  ].filter(
     extension => extension.isValid
   );
 }

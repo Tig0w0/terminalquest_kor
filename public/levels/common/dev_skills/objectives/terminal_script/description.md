@@ -1,12 +1,12 @@
-# Highly Scripted
+# 치밀하게 짜인 스크립트
 
 <div class="aside">
-<h3>To-Do List</h3>
+<h3>할 일</h3>
 <ul>
-  <li>Create a new <b>script file</b> named <code>my_script.sh</code> on Mac/Linux, or <code>my_script.ps1</code> on Windows</li>
-  <li>Use the <code>echo</code> command to print a line of text in your script</li>
-  <li>Paste the full path to your script file in the text field on the right, then click <em>HACK</em></li>
+  <li>Mac/Linux에서는 <code>my_script.sh</code>, Windows에서는 <code>my_script.ps1</code>이라는 새 <b>스크립트 파일</b>을 만드세요.</li>
+  <li>스크립트 안에서 <code>echo</code> 명령어를 사용해 텍스트 한 줄을 출력하세요.</li>
+  <li>스크립트 파일의 전체 경로를 오른쪽 입력란에 붙여 넣은 다음 <em>HACK</em>을 클릭하세요.</li>
 </ul>
 </div>
 
-Feeling your way through the VR environment, you've made it to the final barrier standing between you and the chest containing the flag. To clear this barrier, you will need to upgrade from writing commands directly in your command line interface. This time, you will write your command in a **script**, and then execute that script.
+VR 환경을 더듬어 나아간 끝에 깃발이 든 상자를 지키는 마지막 장벽에 도착했습니다. 이 장벽을 해제하려면 명령줄 인터페이스에 명령어를 직접 입력하는 것에서 한 단계 더 나아가야 합니다. 이번에는 명령어를 **스크립트(script)**에 작성하고 그 스크립트를 실행합니다.

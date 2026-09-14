@@ -6,7 +6,7 @@ module.exports = async helper => {
 
   if (!pwdOutput) {
     return helper.fail(`
-      Please provide the output of the <strong>pwd</strong> command!
+      <strong>pwd</strong> 명령어의 출력값을 입력해 주세요!
     `);
   }
 
@@ -14,29 +14,27 @@ module.exports = async helper => {
     const exists = await jetpack.existsAsync(pwdOutput);
     if (!exists) {
       return helper.fail(`
-        Hmm, it looks like the value you entered is not a valid path
-        to a folder on your computer. Make sure you copy and paste in **only**
-        the output from the <strong>pwd</strong> command, and none of the other
-        text!
+        입력한 값은 컴퓨터에 존재하는 폴더의 올바른 경로가 아닌 것 같습니다.
+        다른 문구는 제외하고 <strong>pwd</strong> 명령어의 출력값만
+        복사해 붙여 넣었는지 확인해 주세요!
       `);
     }
 
     if (path.basename(pwdOutput) !== 'quest') {
       return helper.fail(`
-        It looks like you didn't name this folder <strong>quest</strong> as
-        directed in the objective. Make sure you followed the instructions
-        precisely. If you need to rename your folder, check out the instructions
-        in the "Help" tab.
+        과제의 안내와 달리 폴더 이름이 <strong>quest</strong>가 아닌 것 같습니다.
+        지시를 정확히 따랐는지 확인해 주세요. 폴더 이름을 바꿔야 한다면
+        "도움말" 탭의 안내를 확인하세요.
       `);
     }
   } catch (e) {
     console.log(e);
     return helper.fail(`
-      There was a problem validating your input - please try again.
+      입력값을 검사하는 중 문제가 발생했습니다. 다시 시도해 주세요.
     `);
   }
 
   helper.success(`
-    Way to go! You created a new folder on your computer from the CLI.
+    잘했습니다! CLI를 사용해 컴퓨터에 새 폴더를 만들었습니다.
   `);
 };

@@ -1,12 +1,12 @@
 {
-  "title": "CTF: Working with Folders",
-  "description": "One of the most common tasks for programmers at the CLI is <strong>working with folders</strong>, also called <strong>directories</strong>. Learn to create and navigate directories in this challenge!",
+  "title": "CTF: 폴더 다루기",
+  "description": "프로그래머가 CLI에서 가장 자주 하는 작업 중 하나는 <strong>디렉터리(directory)</strong>라고도 부르는 <strong>폴더(folder)를 다루는 것</strong>입니다. 이번 도전에서 디렉터리를 만들고 이동하는 방법을 배워 보세요!",
   "validation_fields": [
     {
       "name": "pwdOutput",
       "type": "text",
       "placeholder": "e.g. C:\\Users\\kevin\\quest",
-      "label": "Paste the **last line only** of the output from the <em>pwd</em> command in the new folder you created."
+      "label": "새로 만든 폴더에서 실행한 <em>pwd</em> 명령어의 출력 중 **마지막 줄만** 붙여 넣으세요."
     }
   ],
   "rewards": {

@@ -23,10 +23,10 @@ export default class ClearDataButton extends React.Component {
   clearUserData() {
     if (
       !window.confirm(
-        `All user data and progress will be deleted. Continue?`
+        `모든 사용자 데이터와 진행 상황이 삭제됩니다. 계속할까요?`
       ) ||
       !window.confirm(
-        `Seriously, we are about to delete all your items and re-set all your progress in the game. Are you very sure you want to do this?`
+        `정말로 모든 아이템을 삭제하고 게임 진행 상황을 초기화합니다. 확실히 계속하시겠습니까?`
       )
     ) {
       console.log('aborting data clear...');
@@ -64,7 +64,7 @@ export default class ClearDataButton extends React.Component {
 
     return (
       <Button
-        label="Erase Game Data"
+        label="게임 데이터 삭제"
         style={clearButtonStyles}
         className="fr bw3 f6 ma2"
         onClick={() => this.clearUserData()}

@@ -69,7 +69,7 @@ export default class ToastMessage extends Component {
             <img className="operator"
               alt="Operator Silhouette" src="images/app/operator.png"/>
             <img className="close"
-              alt="Close" src="images/app/menu/close.png"
+              alt="닫기" src="images/app/menu/close.png"
               onClick={() => this.hide() }/>
             <span className="content"
               dangerouslySetInnerHTML={{ __html: message }}></span>

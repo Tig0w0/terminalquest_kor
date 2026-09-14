@@ -36,7 +36,7 @@ export default class UnlocksTab extends React.Component {
   validateCode(code) {
     return new Promise(resolve => {
       if (isCodeUsed(code)) {
-        return resolve({ success: false, message: 'Code already redeemed!' });
+        return resolve({ success: false, message: '이미 사용한 코드입니다!' });
       }
 
       Firestore.collection('unlockCodes')
@@ -47,7 +47,7 @@ export default class UnlocksTab extends React.Component {
             // Code is not registered in Firebase
             return resolve({
               success: false,
-              message: 'Invalid Code!',
+              message: '올바르지 않은 코드입니다!',
             });
           }
 
@@ -76,7 +76,7 @@ export default class UnlocksTab extends React.Component {
 
           return resolve({
             success: true,
-            message: `Redeemed: "${redeemedReward}"!`,
+            message: `획득: "${redeemedReward}"!`,
           });
         });
     });
@@ -85,17 +85,17 @@ export default class UnlocksTab extends React.Component {
   render() {
     return (
       <Fragment>
-        <h3>Unlock Special Items</h3>
+        <h3>특별 아이템 잠금 해제</h3>
         <p>
-          Did you receive an unlock code for a special item in TerminalQuest?
-          Enter the code below to add the item to your inventory!
+          TerminalQuest 특별 아이템의 잠금 해제 코드를 받으셨나요?
+          아래에 코드를 입력하면 인벤토리에 아이템이 추가됩니다!
         </p>
-        <h4 className="mv2">Unlock Code</h4>
+        <h4 className="mv2">잠금 해제 코드</h4>
         <AsyncInputBox
           onFocus={this.props.onFocus}
           onBlur={this.props.onBlur}
-          defaultButtonLabel="Redeem"
-          resolvingButtonLabel="Redeeming..."
+          defaultButtonLabel="사용"
+          resolvingButtonLabel="확인 중..."
           onSubmit={this.validateCode}
         />
       </Fragment>

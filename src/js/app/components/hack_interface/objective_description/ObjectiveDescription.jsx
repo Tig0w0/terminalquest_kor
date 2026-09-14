@@ -85,9 +85,9 @@ export default class ObjectiveDescription extends React.Component {
     const setupWalkthroughHtml = async walkMd => {
       let walkthroughHtml = await renderMd(walkMd);
       walkthroughHtml += `
-      <h2>Need more help?</h2>
+      <h2>도움이 더 필요한가요?</h2>
       
-      <p>Join the <a href="https://terminal.quest">TQ developer community!</p>
+      <p><a href="https://terminal.quest">TQ 개발자 커뮤니티</a>에 참여해 보세요!</p>
       `;
 
       return walkthroughHtml;
@@ -134,7 +134,7 @@ export default class ObjectiveDescription extends React.Component {
 
     return (
       <div className="mission-intro mw9">
-        <h3>REWARD</h3>
+        <h3>보상</h3>
         <div className="reward-list flex items-center justify-around pa2">
           {rewards}
         </div>
@@ -154,7 +154,7 @@ export default class ObjectiveDescription extends React.Component {
           ></span>
           <div className="cta-button">
             <Button
-              label="Let's Do This!"
+              label="도전하기!"
               onClick={() => this.setState({ selectedIndex: 1 })}
             />
           </div>
@@ -172,7 +172,7 @@ export default class ObjectiveDescription extends React.Component {
         />
         <div className="cta-button">
           <Button
-            label="Show Help"
+            label="도움말 보기"
             onClick={() => this.setState({ selectedIndex: 2 })}
           />
         </div>
@@ -205,12 +205,12 @@ export default class ObjectiveDescription extends React.Component {
           <img src="images/app/shield.png" alt="TQ Shield" />
         </div>
 
-        <h2>* Objective Clear! *</h2>
+        <h2>* 과제 완료! *</h2>
 
         {objective.rewards.xp && (
           <div className="mt4">
             <strong>
-              <em>{objective.rewards.xp} XP</em> earned!
+              <em>{objective.rewards.xp} XP</em> 획득!
             </strong>
           </div>
         )}
@@ -218,14 +218,14 @@ export default class ObjectiveDescription extends React.Component {
         {newRank && (
           <div className="mt4">
             <strong>
-              New rank <em>{newRank}</em> reached!
+              새로운 랭크 <em>{newRank}</em> 달성!
             </strong>
           </div>
         )}
 
         {objective.rewards.items && !!objective.rewards.items.length && (
           <div className="mt4">
-            <strong>Items awarded!</strong>
+            <strong>아이템 획득!</strong>
 
             <div className="flex items-center justify-around mb3">
               {objective.rewards.items
@@ -247,14 +247,14 @@ export default class ObjectiveDescription extends React.Component {
                 });
               }}
             >
-              View in Inventory &raquo;
+              인벤토리에서 보기 &raquo;
             </a>
           </div>
         )}
 
         {!!newEnvVars.length && (
           <div className="mt4">
-            <strong>Environment variables unlocked!</strong>
+            <strong>환경 변수 잠금 해제!</strong>
 
             <div className="mt3 mb3">
               {newEnvVars.map(envVar => (
@@ -269,7 +269,7 @@ export default class ObjectiveDescription extends React.Component {
                 });
               }}
             >
-              View in Settings &raquo;
+              설정에서 보기 &raquo;
             </a>
           </div>
         )}
@@ -278,7 +278,7 @@ export default class ObjectiveDescription extends React.Component {
   }
 
   render() {
-    const buttonLabels = ['Overview', 'Objective', 'Help'];
+    const buttonLabels = ['개요', '과제', '도움말'];
     const { cleared } = this.props;
 
     return (

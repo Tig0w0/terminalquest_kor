@@ -17,8 +17,8 @@ export default class Inventory extends React.Component {
           <ItemBrowser />
         </div>
         <div className="tc pt2">
-          <strong>Drag/drop</strong> or <strong>double click</strong>
-          &nbsp;to equip items.
+          아이템을 장착하려면 <strong>드래그 앤 드롭</strong>하거나
+          &nbsp;<strong>더블 클릭</strong>하세요.
         </div>
       </div>
     );

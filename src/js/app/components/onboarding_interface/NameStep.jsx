@@ -29,7 +29,7 @@ export default class NameStep extends React.Component {
         className={this.props.isActive ? '' : 'o-50'}
         onClick={this.props.onClick}
       >
-        <h3>Enter your name</h3>
+        <h3>이름을 입력하세요</h3>
         <span className="caret">&gt;&nbsp;</span>
         <input
           autoFocus

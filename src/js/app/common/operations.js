@@ -12,7 +12,7 @@ async function getOperationFromBackend(joinCode) {
     if (response.status === 404) {
       return {
         success: false,
-        message: "This operation does not exist!",
+        message: "존재하지 않는 작전입니다!",
       };
     }
 
@@ -23,7 +23,7 @@ async function getOperationFromBackend(joinCode) {
       
       return {
         success: false,
-        message: "Something went wrong!",
+        message: "문제가 발생했습니다!",
       };
     }
 
@@ -36,7 +36,7 @@ async function getOperationFromBackend(joinCode) {
     
     return {
       success: false,
-      message: "Something went wrong!",
+      message: "문제가 발생했습니다!",
     };
   }
 }
@@ -96,14 +96,14 @@ function joinOperation(id) {
     if (id === '') {
       return resolve({
         success: false,
-        message: 'You need to enter a code!',
+        message: '코드를 입력해야 합니다!',
       });
     }
 
     if (isOperationAlreadyJoined(id)) {
       return resolve({
         success: false,
-        message: "You're already in this operation!",
+        message: "이미 참가 중인 작전입니다!",
       });
     }
 
@@ -122,7 +122,7 @@ function joinOperation(id) {
 
     return resolve({
       success: true,
-      message: `Joined: "${operation.data.displayName}"!`,
+      message: `참가 완료: "${operation.data.displayName}"!`,
     });
   });
 }

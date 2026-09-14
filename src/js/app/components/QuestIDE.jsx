@@ -40,8 +40,8 @@ export default class QuestIDE extends React.Component {
 
     // Show initialization logging and resize Ace editor to available space
     setTimeout(() => {
-      this.printLn('Initializing JavaScript development environment...');
-      this.printLn('QuestIDE 1.0.0 ready. Welcome, Operator.');
+      this.printLn('JavaScript 개발 환경을 초기화하는 중...');
+      this.printLn('QuestIDE 1.0.0 준비 완료. 환영합니다, 오퍼레이터.');
       this.editor.resize();
     }, 50);
   }
@@ -153,7 +153,7 @@ export default class QuestIDE extends React.Component {
 
   // Execute code currently in the editor
   async runCode() {
-    this.printLn('Executing your program...');
+    this.printLn('프로그램을 실행하는 중...');
     await this.saveCode();
     codeRunner.runCode(
       this.editor.getValue(),
@@ -166,7 +166,7 @@ export default class QuestIDE extends React.Component {
 
   // Reset saved code to the initial example code
   resetCode() {
-    if (confirm('Discard your changes and reset to the sample code?')) {
+    if (confirm('변경 사항을 버리고 예제 코드로 되돌릴까요?')) {
       this.loadSampleCode();
     }
   }
@@ -221,21 +221,21 @@ export default class QuestIDE extends React.Component {
               <Button
                 style={buttonStyles}
                 onClick={() => this.runCode()}
-                title="Run Code in Editor"
+                title="에디터의 코드 실행"
               >
                 <i className="fas fa-play" />
               </Button>
               <Button
                 style={buttonStyles}
                 onClick={() => this.resetCode()}
-                title="Reset to Initial Example Code"
+                title="초기 예제 코드로 되돌리기"
               >
                 <i className="fas fa-trash-alt" />
               </Button>
               <Button
                 style={buttonStyles}
                 onClick={() => this.onClose()}
-                title="Hide Code Editor"
+                title="코드 에디터 숨기기"
               >
                 <i className="fas fa-sign-out-alt" />
               </Button>

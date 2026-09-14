@@ -20,14 +20,14 @@
     }
   },
   "text": {
-    "bookshelf": "Lots of good reads in here.",
-    "drawerBookshelf": "I wonder what is in that drawer...",
-    "blueCrystalFormation": "These are shards of pure <span style=\"color: blue\">Blue-anium</span>!",
-    "redCrystalFormation": "These are shards of solid <span style=\"color: red\">Red-ite</span>!",
-    "pinkCrystalFormation": "These are shards of 100% <span style=\"color: pink\">Pink-ygen</span>!",
-    "greenCrystalFormation": "These are shards of <span style=\"color: green\">Green-drate</span>!",
-    "tombstoneRIP": "You can't really make out the name...",
-    "vaseRed": "What a pretty vase!",
-    "crate": "A box of random stuff."
+    "bookshelf": "읽을 만한 좋은 책이 가득하다.",
+    "drawerBookshelf": "저 서랍 안에는 무엇이 있을까...",
+    "blueCrystalFormation": "순수한 <span style=\"color: blue\">블루아늄(Blue-anium)</span> 결정 조각이다!",
+    "redCrystalFormation": "단단한 <span style=\"color: red\">레드아이트(Red-ite)</span> 결정 조각이다!",
+    "pinkCrystalFormation": "순도 100%의 <span style=\"color: pink\">핑키젠(Pink-ygen)</span> 결정 조각이다!",
+    "greenCrystalFormation": "<span style=\"color: green\">그린드레이트(Green-drate)</span> 결정 조각이다!",
+    "tombstoneRIP": "이름을 제대로 알아볼 수 없다...",
+    "vaseRed": "정말 예쁜 꽃병이다!",
+    "crate": "잡동사니가 담긴 상자다."
   }
 }

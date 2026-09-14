@@ -1,45 +1,45 @@
 // Responses
 mixin what_is_tq3
   response#what_is_tq3.
-    Tell me about TwilioQuest 3!
+    TwilioQuest 3에 대해 알려 주세요!
 
 mixin what_do_i_do
   response#what_do_i_do.
-    What do I need to do in this training exercise?
+    이 훈련에서는 무엇을 해야 하나요?
 
 mixin have_ideas
   response#have_ideas.
-    Who should I talk to if I have feedback or ideas for TwilioQuest?
+    TwilioQuest에 관한 의견이나 아이디어는 누구에게 전하면 되나요?
 
 conversation(display_name="Kevin Whinnery")
   case lastResponse
     when "what_is_tq3"
       statement
-        | Our goal is to use TwilioQuest to #[span.highlight teach one million developers] to code. To get there, we're trying something a little bit crazy. We're creating a role-playing game for PC, Mac, and Linux where your character will need to learn real-world engineering skills to oppose the villainous #[span(style="color: red;") Legacy Systems].
+        | 우리의 목표는 TwilioQuest로 #[span.highlight 백만 명의 개발자]에게 코딩을 가르치는 것입니다. 그 목표를 위해 조금 엉뚱한 도전을 하고 있죠. PC, Mac, Linux에서 플레이하며 현실의 엔지니어링 기술을 배워 악당 #[span(style="color: red;") 레거시 시스템(Legacy Systems)]에 맞서는 역할 수행 게임을 만들고 있습니다.
         br
         br
-        | Developers will learn how to use Twilio and SendGrid of course, but they'll learn how to use git, write SQL queries, and build React apps too.
+        | 개발자는 Twilio와 SendGrid 사용법은 물론, Git을 사용하고 SQL 쿼리를 작성하며 React 앱을 만드는 방법도 배우게 됩니다.
       responses
         +what_do_i_do
         +have_ideas
 
     when "what_do_i_do"
       statement.
-        To clear this mission, you'll need to get past two barriers. In the first one, we'll just need you to configure a SendGrid Web API key. In the second, we'll ask you to send an e-mail using TwilioQuest's built-in IDE.
+        이 미션을 완료하려면 두 장벽을 통과해야 합니다. 첫 번째 장벽에서는 SendGrid Web API 키를 설정하고, 두 번째 장벽에서는 TwilioQuest의 내장 IDE를 사용해 이메일을 보내야 합니다.
       responses
         +what_is_tq3
         +have_ideas
 
     when "have_ideas"
       statement.
-        That would be me! I mean, actual me. I'd love to hear any thoughts or feedback you have about TwilioQuest. Drop me an e-mail at #[a(href="mailto:kw@twilio.com") kw@twilio.com] - I'm given to understand you're quite talented at sending the e-mails.
+        바로 접니다! 그러니까, 진짜 현실의 저요. TwilioQuest에 관한 생각이나 의견이 있다면 꼭 듣고 싶습니다. #[a(href="mailto:kw@twilio.com") kw@twilio.com]으로 이메일을 보내 주세요. 듣자 하니 이메일 보내기에 꽤 소질이 있으시다면서요.
       responses
         +what_is_tq3
         +what_do_i_do
     
     default
       statement.
-        What's up, Operator! This is a sneak preview of the #[span.highlight SendGrid] training exercise in TwilioQuest 3. There's not much to it yet, but we wanted to give you an idea of what we had in mind.
+        반갑습니다, 오퍼레이터! 이곳은 TwilioQuest 3의 #[span.highlight SendGrid] 훈련을 미리 체험하는 구역입니다. 아직 내용은 많지 않지만 우리가 어떤 것을 구상하고 있는지 보여 드리고 싶었습니다.
       responses
         +what_is_tq3
         +what_do_i_do

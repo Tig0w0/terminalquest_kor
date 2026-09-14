@@ -169,7 +169,7 @@ export default class Conversation extends React.Component {
       <ConversationChoice
         index={responses.length}
         key={responses.length}
-        text={'<end conversation>'}
+        text={'<대화 끝내기>'}
         onClick={() => this.endConversation()}
       />,
     ];

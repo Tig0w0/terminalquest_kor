@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { staticFilePath, staticFileUrl } from './fs_utils';
 import db from './database';
 import config from '../config/config';
+import { localizeLevel } from '../config/koreanContent';
 import { getContext } from './context';
 import {
   readFile,
@@ -63,7 +64,7 @@ class LevelLoader {
 
     this.levels = await Promise.all(
       levelFileNames.map(async levelFileName => {
-        if (levelFileName === '.DS_Store') {
+        if (levelFileName === '.DS_Store' || levelFileName === 'common') {
           return;
         }
 
@@ -548,7 +549,7 @@ class LevelLoader {
       );
     }
 
-    let levelInfo = JSON.parse(fileContents);
+    let levelInfo = localizeLevel(levelDirName, JSON.parse(fileContents));
     levelInfo.levelName = levelDirName;
 
     const missionInfo = await this.getMissionInfo(levelInfo);

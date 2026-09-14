@@ -1,15 +1,15 @@
-# Great Power === Great Responsibility
+# 큰 힘 === 큰 책임
 
-The command line interface on your computer is a powerful tool - it allows you to quickly perform tasks that affect everything on your computer. This is generally a great thing, but there are a few things you should keep in mind.
+컴퓨터의 명령줄 인터페이스(CLI)는 컴퓨터 전체에 영향을 주는 작업을 빠르게 수행할 수 있는 강력한 도구입니다. 아주 유용한 만큼 반드시 기억해야 할 주의 사항이 있습니다.
 
-## Don't run untrusted commands or code
+## 신뢰할 수 없는 명령어나 코드를 실행하지 마세요
 
-Because the CLI has so much power, there may be tricksters or randos on the Internet who want to fool you into using the command line to harm your computer or give away personal information. For this reason, you should **never execute code** from an untrusted source, or execute commands without understanding what they do. When in doubt, ask a more experienced computer user for help.
+CLI는 강력하기 때문에 인터넷의 누군가가 악성 명령어를 실행하도록 속여 컴퓨터를 망가뜨리거나 개인 정보를 빼내려 할 수 있습니다. 따라서 신뢰할 수 없는 출처의 코드는 **절대 실행하지 말고**, 무슨 일을 하는지 모르는 명령어도 실행해서는 안 됩니다. 확신이 서지 않으면 경험이 많은 사용자에게 도움을 요청하세요.
 
-## There is no "undo"
+## "실행 취소"가 없을 수 있습니다
 
-When you make a mistake in a Google document, you can always use "Edit > Undo" to back out your mistake. When executing commands from the command line, there is no such thing as an "Undo". This can lead to tough situations, like accidentally losing or deleting files you still need and want on your computer.
+문서 편집 중 실수했다면 보통 "편집 > 실행 취소"로 되돌릴 수 있습니다. 하지만 명령줄에서 실행한 명령은 되돌릴 수 없는 경우가 많습니다. 실수로 필요한 파일을 삭제하거나 잃어버리는 곤란한 상황이 생길 수 있습니다.
 
-## A timeless lesson...
+## 언제나 기억할 교훈
 
-When using the CLI, think before you type! Mistakes happen to all of us (even experienced programmers), but respecting the power of the CLI will help prevent you from getting into too much trouble.
+CLI를 사용할 때는 입력하기 전에 한 번 더 생각하세요! 숙련된 프로그래머도 실수합니다. CLI의 강력함을 이해하고 조심해서 사용하면 큰 문제를 예방할 수 있습니다.

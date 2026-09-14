@@ -74,7 +74,7 @@ const FogOwlFlying = ({
               textTransform: 'uppercase',
             }}
           >
-            Packet transmission drive engaged, please stand by...
+            패킷 전송 드라이브 가동 중, 잠시 기다려 주세요...
           </p>
         </div>
       )}

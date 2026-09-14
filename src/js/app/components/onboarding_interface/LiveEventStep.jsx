@@ -57,7 +57,7 @@ export default class LiveEventStep extends React.Component {
         className={this.props.isActive ? '' : 'o-50'}
         onClick={this.props.onClick}
       >
-        <h3 className="mt2 mb2">Do you have an adventure team join code?</h3>
+        <h3 className="mt2 mb2">어드벤처 팀 참가 코드가 있나요?</h3>
         <div className="flex justify-around tc mv3">
           <div
             className={`${
@@ -65,7 +65,7 @@ export default class LiveEventStep extends React.Component {
             } ba bw2 w-50 pa2 mr2`}
             onClick={() => this.selectLiveEventAnswer(false)}
           >
-            NO
+            아니요
           </div>
           <div
             className={`${
@@ -73,12 +73,12 @@ export default class LiveEventStep extends React.Component {
             } ba bw2 w-50 pa2 ml2`}
             onClick={() => this.selectLiveEventAnswer(true)}
           >
-            YES
+            예
           </div>
         </div>
         {this.state.liveEventAnswer && (
           <>
-            <h3>Enter your team join code:</h3>
+            <h3>팀 참가 코드를 입력하세요.</h3>
             <JoinTeam
               onSuccess={() => this.props.setValid(true)}
               enableSubmitHotkey={!this.context.liveEvent}

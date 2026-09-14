@@ -4,7 +4,7 @@ export default function Credits() {
   return (
     <div className="Credits">
       <div className="fl w-60">
-        <h3>Team TerminalQuest</h3>
+        <h3>TerminalQuest 팀</h3>
         <p>
           <a href="https://twitter.com/kevinwhinnery">Kevin Whinnery</a>
         </p>
@@ -14,7 +14,7 @@ export default function Credits() {
 
         <br/>
 
-        <h3>Artwork</h3>
+        <h3>아트워크</h3>
         <p>
           Kerrie Lake
         </p>
@@ -27,7 +27,7 @@ export default function Credits() {
 
         <br/>
 
-        <h3>Soundtrack</h3>
+        <h3>사운드트랙</h3>
         <p>
           Dino Lionetti
         </p>
@@ -55,7 +55,7 @@ export default function Credits() {
 
         <br/>
 
-        <h3>Team TerminalQuest Emeritus</h3>
+        <h3>전 TerminalQuest 팀원</h3>
         <p>
           <a href="https://twitter.com/ryrykubes">Ryan Kubik</a>
         </p>
@@ -86,7 +86,7 @@ export default function Credits() {
 
         <br/>
 
-        <h3>Code and Tutorial Contributors</h3>
+        <h3>코드 및 튜토리얼 기여자</h3>
 
         <div className="fl w-50">
           <p>
@@ -133,7 +133,7 @@ export default function Credits() {
           <p>&nbsp;</p>
         </div>
 
-        <h3>With Special Thanks To</h3>
+        <h3>특별 감사</h3>
 
         <div className="fl w-50">
           <p>Kendra Whinnery</p>

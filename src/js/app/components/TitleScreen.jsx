@@ -127,7 +127,7 @@ export default class TitleScreen extends React.Component {
         </div>
         <div className="controls">
           <span onClick={() => this.onPlayerPressedStart()}>
-            press spacebar to start
+            시작하려면 Space 키를 누르세요
           </span>
           {!getContext('hasSeenCinematic') ? (
             ''
@@ -141,7 +141,7 @@ export default class TitleScreen extends React.Component {
               }}
             >
               <i className="fas fa-play" />
-              &nbsp;mission briefing
+              &nbsp;미션 브리핑
             </span>
           )}
         </div>
@@ -152,10 +152,10 @@ export default class TitleScreen extends React.Component {
       <div className="cinematic">
         <div className="metaControls">
           <span onClick={() => this.hideCinematic()}>
-            Back to Title (ESC Key)
+            타이틀로 돌아가기 (ESC 키)
           </span>
           <span onClick={() => this.toggleMute()}>
-            {this.state.muteCinematic ? 'UNMUTE' : 'MUTE'} AUDIO
+            오디오 {this.state.muteCinematic ? '켜기' : '끄기'}
           </span>
           <span
             onClick={() => {
@@ -177,7 +177,7 @@ export default class TitleScreen extends React.Component {
               this.onPlayerPressedStart();
             }}
           >
-            Start Game (SPACEBAR)
+            게임 시작 (SPACE 키)
           </span>
         </div>
         <video

@@ -91,7 +91,7 @@ function WarpLink({
         closeMissionComputer();
       }}
     >
-      Warp Here &gt;
+      이곳으로 워프 &gt;
     </a>
   );
 }
@@ -117,7 +117,7 @@ function WarpPointListItem({
       <p>{description}</p>
       {areAnyPrereqsUnmet ? (
         <p>
-          <i className="fas fa-lock"></i> Locked
+          <i className="fas fa-lock"></i> 잠김
         </p>
       ) : (
         <WarpLink
@@ -168,11 +168,10 @@ export default class MissionComputer extends React.Component {
         return (
           <div className="prereqs">
             <em>
-              <span className="highlight">Hold up, Operator!</span>
+              <span className="highlight">잠시만요, 오퍼레이터!</span>
             </em>
             <p>
-              Before you can take on this mission, you must complete these
-              mission objectives:
+              이 미션을 시작하려면 다음 미션 과제를 먼저 완료해야 합니다.
             </p>
             {prereqList.map(({ key, title }) => {
               return (
@@ -199,7 +198,7 @@ export default class MissionComputer extends React.Component {
             this.props.close();
           }}
         >
-          LAUNCH MISSION
+          미션 시작
         </Button>
         {this.getDisplayableWarpPoints().length > 0 && (
           <a
@@ -212,7 +211,7 @@ export default class MissionComputer extends React.Component {
             }}
             href=""
           >
-            Warp Points &gt;
+            워프 지점 &gt;
           </a>
         )}
       </>
@@ -262,7 +261,7 @@ export default class MissionComputer extends React.Component {
             alt={selectedMission.title}
           />
           <h2>{selectedMission.title}</h2>
-          <div className="progress">Warp Points</div>
+          <div className="progress">워프 지점</div>
           <ul
             style={{
               listStyle: 'none',
@@ -286,7 +285,7 @@ export default class MissionComputer extends React.Component {
               this.setState({ showWarpPoints: false });
             }}
           >
-            {'< BACK'}
+            {'< 뒤로'}
           </Button>
         </>
       );
@@ -307,9 +306,9 @@ export default class MissionComputer extends React.Component {
           />
           <h2>{selectedMission.title}</h2>
           <div className="progress">
-            {percentComplete}% Complete
+            {percentComplete}% 완료
             <br />
-            Rank:&nbsp;
+            랭크:&nbsp;
             <span className="highlight">
               {rank(objCompleted, totalObjectives)}
             </span>
@@ -319,7 +318,7 @@ export default class MissionComputer extends React.Component {
         </>
       );
     } else {
-      contents = <h2 className="inactive">&lt; SELECT A MISSION</h2>;
+      contents = <h2 className="inactive">&lt; 미션을 선택하세요</h2>;
     }
 
     return <div className="missionDescription">{contents}</div>;
@@ -333,7 +332,7 @@ export default class MissionComputer extends React.Component {
     return (
       <div className="MissionComputer">
         <MenuContainer
-          title="Select Training Mission"
+          title="훈련 미션 선택"
           onClose={() => this.props.close()}
         >
           <div className="missions">

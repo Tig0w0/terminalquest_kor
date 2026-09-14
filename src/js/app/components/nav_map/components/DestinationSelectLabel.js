@@ -21,7 +21,7 @@ const DestinationSelectLabel = ({ assets }) => {
         marginTop: '-4rem',
       }}
     >
-      <p style={{ paddingTop: '6px' }}>SELECT A DESTINATION</p>
+      <p style={{ paddingTop: '6px' }}>목적지를 선택하세요</p>
       <div className="levelSelect__background">
         {createDestSelectBox({ row: 0, col: 0 })}
         {createDestSelectBox({ row: 0, col: 1 })}

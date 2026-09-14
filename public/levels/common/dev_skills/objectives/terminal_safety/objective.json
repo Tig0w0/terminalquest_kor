@@ -1,18 +1,18 @@
 {
-  "title": "CTF: Terminal Safety",
-  "description": "The command line is powerful, and with great power comes great responsibility. <strong>Prove you understand this power</strong> to proceed further in the simulation.",
+  "title": "CTF: 터미널 안전 수칙",
+  "description": "명령줄은 강력한 도구이며, 큰 힘에는 큰 책임이 따릅니다. <strong>그 힘을 올바르게 이해했다는 것을 증명</strong>하고 시뮬레이션을 계속하세요.",
   "validation_fields": [
     {
       "name": "one",
       "type": "text",
-      "placeholder": "type True or False",
-      "label": "It is safe to copy and paste code or commands you find on the Internet into your command line interface, even if you don't know and trust the source they came from. True or false?"
+      "placeholder": "true 또는 false 입력",
+      "label": "출처를 모르거나 신뢰할 수 없어도 인터넷에서 찾은 코드나 명령어를 명령줄 인터페이스에 복사해 붙여 넣는 것은 안전하다. 맞으면 `true`, 틀리면 `false`를 입력하세요."
     },
     {
       "name": "two",
       "type": "text",
-      "placeholder": "type True or False",
-      "label": "The command line app can move or delete files and folders with no 'do-over', so you should be careful when giving commands that concern files and folders. True or false?"
+      "placeholder": "true 또는 false 입력",
+      "label": "명령줄 앱에서는 파일과 폴더를 이동하거나 삭제한 뒤 되돌리지 못할 수 있으므로, 파일과 폴더를 다루는 명령어를 사용할 때 주의해야 한다. 맞으면 `true`, 틀리면 `false`를 입력하세요."
     }
   ],
   "rewards": {

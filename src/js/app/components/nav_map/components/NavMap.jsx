@@ -148,8 +148,8 @@ const NavMap = ({ hide, displayFsmState, finishTransition }) => {
     }
 
     if (!nextSelectedKey) {
-      if (planets.length === 0) return 'No Destinations...';
-      else return 'Navigation Loading...';
+      if (planets.length === 0) return '목적지 없음...';
+      else return '항법 정보 불러오는 중...';
     }
 
     return '...';
@@ -164,8 +164,8 @@ const NavMap = ({ hide, displayFsmState, finishTransition }) => {
       return selectedMission.description;
     }
 
-    if (planets.length === 0) return 'No intelligence report to assign...';
-    else return 'Loading intelligence report...';
+    if (planets.length === 0) return '표시할 정보 보고서가 없습니다...';
+    else return '정보 보고서 불러오는 중...';
   };
 
   const selectPlanet = levelKey => {

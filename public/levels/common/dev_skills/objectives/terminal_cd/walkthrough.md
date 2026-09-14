@@ -1,29 +1,29 @@
-# Navigating Folders from the CLI
+# CLI에서 폴더 이동하기
 
-Data inside computers is organized with the concept of "files" and "folders" - this concept is called a [file system](https://techterms.com/definition/filesystem). 
+컴퓨터 안의 데이터는 "파일(file)"과 "폴더(folder)"라는 개념으로 정리됩니다. 이러한 체계를 [파일 시스템(file system)](https://techterms.com/definition/filesystem)이라고 합니다.
 
-If you are student, you know that folders are a place to keep lots of different pieces of paper. Each piece of paper in your folder could be considered a "file". Inside your computer, a **file** is just a name for a piece of data that is saved on the computer. All those bits of data are organized by placing them inside **folders**, to keep related data logically close together.
+서류철에 여러 장의 종이를 넣어 정리하는 모습을 떠올려 보세요. 서류철 안의 종이 한 장 한 장이 "파일"에 해당합니다. 컴퓨터에서 **파일**은 저장된 데이터 한 덩어리를 뜻합니다. 관련된 데이터를 논리적으로 가까이 모으기 위해 파일들을 **폴더** 안에 넣어 정리합니다.
 
-It's not fancy or glamorous, but navigating through the files and folders on your computer using the CLI is a task you will do all the time as a software developer. This objective introduces a couple key commands for doing just that.
+화려한 작업은 아니지만, CLI로 컴퓨터의 파일과 폴더 사이를 이동하는 일은 소프트웨어 개발자가 끊임없이 하게 됩니다. 이번 과제에서는 그때 필요한 핵심 명령어 두 가지를 소개합니다.
 
-* [mkdir](https://en.wikipedia.org/wiki/Mkdir) - short for "make directory", this command creates a new folder on your computer
-* [cd](https://en.wikipedia.org/wiki/Cd_(command)) - short for "change directory", this command changes the "current working directory" of your terminal app, allowing you to execute commands on files in different locations on your computer.
+* [mkdir](https://en.wikipedia.org/wiki/Mkdir) - "make directory"의 줄임말로, 컴퓨터에 새 폴더를 만듭니다.
+* [cd](https://en.wikipedia.org/wiki/Cd_(command)) - "change directory"의 줄임말로, 터미널 앱의 "현재 작업 디렉터리"를 변경합니다. 이를 통해 컴퓨터의 다른 위치에 있는 파일을 대상으로 명령어를 실행할 수 있습니다.
 
-We will also use the [pwd](https://en.wikipedia.org/wiki/Pwd) command that you used earlier, which prints out the "current working directory".
+앞에서 사용한 [pwd](https://en.wikipedia.org/wiki/Pwd) 명령어도 사용합니다. 이 명령어는 "현재 작업 디렉터리"를 출력합니다.
 
-As a software developer, you will often need to create several files that contain code (which you'll do in a moment). And you will usually want to keep your code organized in folders. That is why we are bothering to teach you all these arcane commands, since you'll frequently want to manage files and folders from the command line.
+소프트웨어 개발자는 코드를 담은 파일을 자주 만들며, 대개 그 파일들을 폴더별로 정리합니다. 앞으로 명령줄에서 파일과 폴더를 자주 관리하게 될 테니, 조금 낯설어 보이는 이 명령어들을 지금 배워 두는 것입니다.
 
-## Completing the Objective
+## 과제 완료하기
 
-Open up your **command line application** - `Terminal` on the Mac, or `PowerShell` on Windows. 
+**명령줄 앱**을 여세요. Mac에서는 `Terminal`, Windows에서는 `PowerShell`을 실행합니다.
 
-What you need to do is:
+해야 할 일은 다음과 같습니다.
 
-* Create a new folder called `quest`
-* Change your working directory to that new folder
-* Print out your new folder's name
+* `quest`라는 새 폴더 만들기
+* 작업 디렉터리를 새 폴더로 변경하기
+* 새 폴더의 경로 출력하기
 
-Here are the commands you will need to do it. Execute each, one at a time, pressing *enter* after each command:
+필요한 명령어는 다음과 같습니다. 한 번에 하나씩 입력하고, 각 명령어 뒤에 *Enter* 키를 눌러 실행하세요.
 
 ```bash
 mkdir quest
@@ -37,19 +37,19 @@ cd quest
 pwd
 ```
 
-After you print out the new folder's full [path](https://techterms.com/definition/path) with the `pwd` command, paste the last line of the output into the text field on the right and click *HACK*
+`pwd` 명령어로 새 폴더의 전체 [경로(path)](https://techterms.com/definition/path)를 출력한 뒤, 출력의 마지막 줄을 오른쪽 입력란에 붙여 넣고 *HACK*을 클릭하세요.
 
-## I goofed and named the folder something different!
+## 실수로 폴더 이름을 다르게 지었어요!
 
-That's okay! If you have already done the `cd` command to change into the new, wrongly-named folder, you can use this command:
+괜찮습니다! 이미 `cd` 명령어로 이름을 잘못 지은 새 폴더 안에 들어왔다면 다음 명령어를 사용하세요.
 
 ```bash
 cd ..
 ```
 
-This will change the working directory to the next folder up in the hierarchy. Once you are there, use the command `ls` to list all items in the current folder. If it's your home folder, there may be quite a few items. Your newly created folder should be there.
+이 명령어는 작업 디렉터리를 한 단계 위의 폴더로 변경합니다. 이동한 뒤 `ls` 명령어를 사용하면 현재 폴더의 모든 항목을 볼 수 있습니다. 홈 폴더라면 항목이 꽤 많을 수 있지만, 방금 만든 폴더도 그 안에 있을 것입니다.
 
-To change the name of your folder, use the `mv` command (short for "move") - even though you're not going to actually move the folder this time (you are renaming it), the command is the same:
+폴더 이름을 바꾸려면 "move"의 줄임말인 `mv` 명령어를 사용하세요. 이번에는 폴더를 실제로 이동하지 않고 이름만 바꾸지만 사용하는 명령어는 같습니다.
 
 ```bash
 mv my_wrong_folder_name quest

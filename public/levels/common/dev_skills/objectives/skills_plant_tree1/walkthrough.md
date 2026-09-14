@@ -1,9 +1,9 @@
-# Plant a Tree!
+# 나무를 심어요!
 
-You can [support reforestation efforts in Australia](https://twil.io/tq-trees) by playing TwilioQuest. For the first 10,000 players who complete this objective (and others like it scattered throughout the game), Twilio will donate $1.00 to plant a tree. So far, TwilioQuest players have planted thousands of trees!
+TerminalQuest를 플레이하면 [호주의 재조림 활동을 지원](https://twil.io/tq-trees)할 수 있습니다. 이 과제를 비롯해 게임 곳곳에 있는 비슷한 과제를 완료한 최초 10,000명의 플레이어를 위해 Twilio가 나무 한 그루를 심는 데 1달러를 기부합니다. 지금까지 TerminalQuest 플레이어들은 수천 그루의 나무를 심었습니다!
 
-All you need to do to plant one more is click *HACK*.
+나무 한 그루를 더 심으려면 *HACK*을 클릭하기만 하면 됩니다.
 
-## Plant More Trees!
+## 더 많은 나무를 심어요!
 
-Scattered throughout the game, there are more chests like this one that enable you to plant trees. See if you can find them all!
+게임 곳곳에는 나무를 심을 수 있는 상자가 더 있습니다. 모두 찾아보세요!

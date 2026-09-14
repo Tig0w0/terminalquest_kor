@@ -54,7 +54,7 @@ function QuestList({ quests }) {
     <_QuestList>
       { questList.length > 0 ? 
         questList : 
-        <small>No Quests Found.</small> 
+        <small>퀘스트가 없습니다.</small>
       }
     </_QuestList>
   );
@@ -105,11 +105,11 @@ export default class Journal extends React.Component {
     return (
       <div className="Journal">
         <section className="journal-inner">
-          <h1>Quest Journal</h1>
-          <h2>Active Quests</h2>
+          <h1>퀘스트 일지</h1>
+          <h2>진행 중인 퀘스트</h2>
           <QuestList quests={this.state.activeQuests}/>
           <h2 style={{ color: colors.lightBlue, marginTop: '50px' }}>
-            Completed Quests
+            완료한 퀘스트
           </h2>
           <QuestList quests={this.state.completedQuests}/>
         </section>

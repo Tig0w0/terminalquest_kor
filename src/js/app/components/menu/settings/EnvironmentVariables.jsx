@@ -24,7 +24,7 @@ export default class EnvironmentVariables extends React.Component {
         className="underline pointer"
         onClick={this.toggleEnvVarLock.bind(this)}
       >
-        {this.state.envVarsLocked ? 'Unlock' : 'Lock'}
+        {this.state.envVarsLocked ? '잠금 해제' : '잠그기'}
       </span>
     );
   }
@@ -32,7 +32,7 @@ export default class EnvironmentVariables extends React.Component {
   renderEmptyState() {
     return (
       <h5>
-        Variables will appear here when unlocked in missions.
+        미션에서 잠금 해제한 변수가 여기에 표시됩니다.
       </h5>
     );
   }
@@ -43,12 +43,12 @@ export default class EnvironmentVariables extends React.Component {
     return (
       <div>
         <h3 className="mb2" key="title">
-          Environment Variables
+          환경 변수(Environment Variables)
         </h3>
         <p>
-          Missions in TerminalQuest will save important data as "environment
-          variables" to use them across different missions. If you need to change
-          any of them, click "Unlock" and edit them using the fields below.
+          TerminalQuest의 미션은 여러 미션에서 함께 사용할 중요한 데이터를
+          "환경 변수(environment variable)"로 저장합니다. 값을 변경해야 한다면
+          "잠금 해제"를 클릭한 뒤 아래 입력란에서 수정하세요.
         </p>
         {!!envKeys.length ? this.renderLockControl() : this.renderEmptyState()}
         {envKeys

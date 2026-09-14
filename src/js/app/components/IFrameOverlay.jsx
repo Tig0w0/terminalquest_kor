@@ -119,12 +119,12 @@ const IFrameOverlay = ({
   const getMessageText = () => {
     switch (validatingUrl) {
       case 'loading':
-        return `Loading... URL: ${url}`;
+        return `불러오는 중... URL: ${url}`;
       case 'errored':
-        return `Error loading URL: "${url}"`;
+        return `URL을 불러오지 못했습니다: "${url}"`;
       default:
       case 'loaded':
-        return 'Loaded!';
+        return '불러왔습니다!';
     }
   };
 
@@ -159,7 +159,7 @@ const IFrameOverlay = ({
               onClick={hide}
               style={{ margin: '2rem', cursor: 'pointer' }}
             >
-              Close
+              닫기
             </button>
           </div>
         ) : null}

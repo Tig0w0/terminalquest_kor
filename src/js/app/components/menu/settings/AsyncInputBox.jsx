@@ -16,8 +16,8 @@ export default class AsyncInputBox extends React.Component {
   };
 
   static defaultProps = {
-    defaultButtonLabel: 'Submit',
-    resolvingButtonLabel: 'Submitting...',
+    defaultButtonLabel: '제출',
+    resolvingButtonLabel: '제출 중...',
     autoFocus: true,
     enableSubmitHotkey: true,
     onSuccess: () => {},
@@ -124,12 +124,12 @@ export default class AsyncInputBox extends React.Component {
                 this.setState({
                   currentState: this.states.VALID,
                   value: '',
-                  message: message || 'Success!',
+                  message: message || '성공!',
                 });
               } else {
                 this.setState({
                   currentState: this.states.INVALID,
-                  message: message || 'Error!',
+                  message: message || '오류!',
                 });
               }
             });

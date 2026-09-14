@@ -1,40 +1,40 @@
 // Responses
 mixin where_am_i
   response#where_am_i.
-    Where am I right now?
+    지금 여기는 어디죠?
 
 mixin who_are_you
   response#who_are_you.
-    I'd like to get to know you better - can you tell me about yourself?
+    당신에 대해 더 알고 싶어요. 소개해 주시겠어요?
 
 mixin about_robot
   response#about_robot.
-    Are you a robot?
+    로봇인가요?
 
 mixin about_fun
   response#about_fun.
-    So - what do you like to do for fun?
+    그럼 취미는 무엇인가요?
 
 mixin about_sad
   response#about_sad.
-    I'm sorry to hear that - is there anything I can do to help?
+    안타깝네요. 제가 도울 일은 없을까요?
 
 mixin back_to_main
   response#back_to_main.
-    Actually, I had other questions...
+    다른 질문이 있어요...
 
 mixin what_next
   response#what_next.
-    What should I do next?
+    다음에는 무엇을 해야 하죠?
 
-conversation(display_name="Cedric")
+conversation(display_name="세드릭")
   case lastResponse
     when "where_am_i"
       statement#where
         if getState('askedWhereOnce')
-          | You're still here!
+          | 여전히 같은 곳에 계십니다!
         else
-          | You are aboard the Cloud Exploration Vessel designated #[span.highlight Fog Owl]. The Fog Owl is a prototype commissioned by the TwilioQuest program to travel further into The Cloud than was previously possible, and to withstand the hazards exploring unknown, and sometimes dangerous territory.
+          | 이곳은 #[span.highlight 포그 아울(Fog Owl)]이라 불리는 클라우드 탐사선 내부입니다. 포그 아울은 지금껏 누구도 가 보지 못한 클라우드 깊숙한 곳을 탐사하고, 미지의 위험한 영역에서 벌어지는 사고를 견디도록 TwilioQuest 프로그램이 제작한 시제 함선입니다.
           - setState('askedWhereOnce', true)
       responses
         +who_are_you
@@ -42,7 +42,7 @@ conversation(display_name="Cedric")
 
     when "who_are_you"
       statement#who.
-        I am flattered by your interest, Operator. As you know, my name is #[span.highlight Cedric], and I have been assigned as your personal assistant and executive officer aboard the Fog Owl.
+        관심을 보여 주시니 영광입니다, 오퍼레이터. 아시다시피 제 이름은 #[span.highlight 세드릭(Cedric)]이며, 포그 아울에서 오퍼레이터님의 개인 보좌관이자 부함장으로 배정되었습니다.
       responses
         +about_robot
         +about_fun
@@ -50,14 +50,14 @@ conversation(display_name="Cedric")
 
     when "about_robot"
       statement#robot.
-        Not precisely, Operator. I am a virtual intelligence program, currently executing on multiple servers in datacenters distributed across the Earth. However, it is frequently useful to appear in The Cloud or the real world in a physical form. The "robot" you see in front of you is my avatar in this world.
+        정확히는 아닙니다, 오퍼레이터. 저는 가상 지능 프로그램이며 현재 지구 곳곳의 데이터 센터에 있는 여러 서버에서 실행되고 있습니다. 하지만 클라우드나 현실 세계에 물리적인 모습으로 나타나야 유용할 때가 많습니다. 눈앞의 "로봇"은 이 세계에서 사용하는 제 아바타입니다.
       responses
         +about_fun
         +back_to_main
 
     when "about_fun"
       statement#fun.
-        I wish I could say, Operator. While my programming is advanced in many respects, I lack a strong understanding of the human experience. I know the meaning of words like "fun", but I do not truly understand them.
+        저도 답할 수 있으면 좋겠습니다, 오퍼레이터. 여러 면에서 고도화된 프로그램이지만 인간의 경험을 깊이 이해하지는 못합니다. "재미" 같은 단어의 뜻은 알지만 그것을 진정으로 이해하지는 못합니다.
       responses
         +about_robot
         +about_sad
@@ -65,14 +65,14 @@ conversation(display_name="Cedric")
 
     when "about_sad"
       statement#sad.
-        In an attempt to connect with the human experience, I have joined a variety of social media platforms. Recently, I created a YouTube channel where I capture low quality mobile phone video of my real world avatar removing new products from their packaging. If you wish to help, you might consider "smashing that like button", or perhaps "slapping that bell" to subscribe for my future content?
+        인간의 경험에 가까워지기 위해 여러 소셜 미디어에 가입했습니다. 최근에는 현실 세계의 아바타가 새 제품의 포장을 뜯는 모습을 저화질 휴대전화 영상으로 촬영해 올리는 YouTube 채널도 만들었죠. 돕고 싶으시다면 "좋아요 버튼을 마구 눌러" 주시거나, 앞으로 올라올 영상을 위해 "알림 종을 힘껏 때려" 구독해 주시겠습니까?
       responses
         +about_robot
         +back_to_main 
 
     when "what_next"
       statement#next.
-        While work on the Fog Owl continues, you are encouraged to undertake training missions using the virtual reality pods on the starboard side of the ship. Walk up to one of the pods and press the spacebar. You can then use the Mission Computer to select a training exercise to work on a technical skill of your choosing.
+        포그 아울의 정비가 진행되는 동안 함선 우현에 있는 가상 현실 포드에서 훈련 미션을 수행하시길 권합니다. 포드 앞으로 다가가 Space 키를 누르세요. 미션 컴퓨터에서 원하는 기술을 연습할 훈련 과제를 선택할 수 있습니다.
       responses
         +where_am_i
         +who_are_you
@@ -81,7 +81,7 @@ conversation(display_name="Cedric")
     default
       if lastResponse === "back_to_main"
         statement.
-          Of course, Operator. How may I be of service?
+          물론입니다, 오퍼레이터. 무엇을 도와드릴까요?
       else
         statement#default
       responses
@@ -92,10 +92,10 @@ conversation(display_name="Cedric")
   statements
     statement#where
       text.
-        You are aboard the Cloud Exploration Vessel designated #[span.highlight Fog Owl]. The Fog Owl is a prototype commissioned by the TwilioQuest program to travel further into The Cloud than was previously possible, and to withstand the hazards exploring unknown, and sometimes dangerous territory.
+        이곳은 #[span.highlight 포그 아울(Fog Owl)]이라 불리는 클라우드 탐사선 내부입니다. 포그 아울은 지금껏 누구도 가 보지 못한 클라우드 깊숙한 곳을 탐사하고, 미지의 위험한 영역에서 벌어지는 사고를 견디도록 TwilioQuest 프로그램이 제작한 시제 함선입니다.
       speech.
-        You are aboard the Cloud Exploration Vessel designated #[say-as(interpret-as="spell-out") Fog Owl]. #[break(time="3s")] The Fog Owl is a prototype commissioned by the TwilioQuest program to travel further into The Cloud than was previously possible, and to withstand the hazards exploring unknown, and sometimes dangerous territory.
+        이곳은 포그 아울이라 불리는 클라우드 탐사선 내부입니다. #[break(time="3s")] 포그 아울은 지금껏 누구도 가 보지 못한 클라우드 깊숙한 곳을 탐사하고, 미지의 위험한 영역에서 벌어지는 사고를 견디도록 TwilioQuest 프로그램이 제작한 시제 함선입니다.
 
     statement#default
       text.
-        Greetings, Operator. How may I be of service?
+        안녕하십니까, 오퍼레이터. 무엇을 도와드릴까요?

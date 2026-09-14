@@ -6,7 +6,7 @@ import rank from '../common/rank';
 import CharacterAvatar from './CharacterAvatar';
 
 const DEF_TITLE = 'TerminalQuest';
-const DEF_DESC = 'Explore The Cloud and build your programming skills!';
+const DEF_DESC = '클라우드를 탐험하며 프로그래밍 실력을 키워 보세요!';
 
 export default class HUDBar extends React.Component {
   static contextType = context;
@@ -80,7 +80,7 @@ export default class HUDBar extends React.Component {
   }
 
   returnToFogOwl() {
-    if (this.state.showFogOwlButton && window.confirm('Return to the Fog Owl?')) {
+    if (this.state.showFogOwlButton && window.confirm('포그 아울로 돌아갈까요?')) {
       setContext({
         currentLevel: {
           levelName: 'fog_owl',
@@ -99,7 +99,7 @@ export default class HUDBar extends React.Component {
             {this.context.settings.name}
             <p>
               XP: <span>{numeral(this.context.xp).format('0,0')}</span>&nbsp;
-              Rank: <span>
+              랭크: <span>
                 {rank(Object.keys(this.context.completedObjectives).length, this.context.numObjectives)}
               </span>
             </p>
@@ -107,31 +107,31 @@ export default class HUDBar extends React.Component {
         </section>
         <section className="buttons">
           <div className="relative" onClick={() => this.toggleMenu('inventory')}>
-            <img src="images/app/hud_bar/inventory.png" alt="Inventory (1)" />
+            <img src="images/app/hud_bar/inventory.png" alt="인벤토리 (1)" />
             <p>1</p>
-            <span className="tooltip">Inventory</span>
+            <span className="tooltip">인벤토리</span>
           </div>
           <div className="relative" onClick={() => this.toggleMenu('journal')}>
-            <img src="images/app/hud_bar/book.png" alt="Journal (2)" />
+            <img src="images/app/hud_bar/book.png" alt="퀘스트 일지 (2)" />
             <p>2</p>
-            <span className="tooltip">Journal</span>
+            <span className="tooltip">퀘스트 일지</span>
           </div>
           <div className="relative" onClick={() => this.toggleMenu('settings')}>
-            <img src="images/app/hud_bar/settings.png" alt="Settings (3)" />
+            <img src="images/app/hud_bar/settings.png" alt="설정 (3)" />
             <p>3</p>
-            <span className="tooltip">Settings</span>
+            <span className="tooltip">설정</span>
           </div>
           <div className="relative" onClick={() => this.toggleMenu('help')}>
-            <img src="images/app/hud_bar/help.png" alt="Help (4)" />
+            <img src="images/app/hud_bar/help.png" alt="도움말 (4)" />
             <p>4</p>
-            <span className="tooltip">Help</span>
+            <span className="tooltip">도움말</span>
           </div>
 
           {this.state.showFogOwlButton && (
             <section className="fogOwl" onClick={() => this.returnToFogOwl()}>
-              <img src="images/app/fog_owl.gif" alt="Return to Fog Owl (5)" />
+              <img src="images/app/fog_owl.gif" alt="포그 아울로 돌아가기 (5)" />
               <p>5</p>
-              <span className="tooltip">Return to Fog Owl</span>
+              <span className="tooltip">포그 아울로 돌아가기</span>
             </section>
           )}
 

@@ -6,12 +6,12 @@ import { context, setContext } from '../../../common/context';
 import { isEquipped } from '../../context_provider/itemsHelper';
 
 const slotFixtures = [
-  { name: 'hand' },
-  { name: 'head' },
-  { name: 'body' },
-  { name: 'legs' },
-  { name: 'feet' },
-  { name: 'accessory' },
+  { name: 'hand', displayName: '손' },
+  { name: 'head', displayName: '머리' },
+  { name: 'body', displayName: '상의' },
+  { name: 'legs', displayName: '하의' },
+  { name: 'feet', displayName: '발' },
+  { name: 'accessory', displayName: '장신구' },
 ];
 
 export default class ItemBrowser extends React.Component {

@@ -9,21 +9,21 @@ export default class Help extends React.Component {
   render() {
     return (
       <div className="Help pv3">
-        <h2>Help</h2>
+        <h2>도움말</h2>
 
-        <h4>Movement</h4>
+        <h4>이동</h4>
         <p>
-          Move your player with the <strong>arrow keys</strong> or
-          the <strong>[W], [A], [S], and [D]</strong> keys.
+          캐릭터는 <strong>방향키</strong> 또는
+          <strong> [W], [A], [S], [D]</strong> 키로 움직입니다.
         </p>
         <p>
-          Interact with people or objects using the <strong>spacebar</strong>.
+          사람이나 사물과 상호작용하려면 <strong>Space 키</strong>를 누르세요.
         </p>
 
-        <h4>Technical Assistance</h4>
+        <h4>기술 지원</h4>
         <p>
-          Need help on a particular code challenge, or other technical
-          assistance? Chat with your fellow Operators in our <a href="https://twil.io/tq-discord">Discord server</a>.
+          코드 과제나 기술적인 문제로 도움이 필요하신가요? <a href="https://twil.io/tq-discord">Discord 서버</a>에서
+          다른 오퍼레이터들과 대화해 보세요.
         </p>
       </div>
     );

@@ -1,12 +1,12 @@
 {
-  "title": "CTF: Stick to the Script",
-  "description": "It's a pain to have to type in the same commands over and over again. <strong>Learn to use a script</strong> to save complex commands, so you can run them the same way whenever you want.",
+  "title": "CTF: 스크립트대로 실행하기",
+  "description": "같은 명령어를 계속 반복해서 입력하는 것은 번거롭습니다. 복잡한 명령을 저장하고 언제든 같은 방식으로 실행할 수 있도록 <strong>스크립트(script) 사용법</strong>을 배워 보세요.",
   "validation_fields": [
     {
       "name": "scriptPath",
       "type": "text",
       "placeholder": "C:\\Users\\kw\\quest\\my_script.ps1",
-      "label": "Paste the full path to your new script file in the text field below."
+      "label": "새로 만든 스크립트 파일의 전체 경로를 아래 입력란에 붙여 넣으세요."
     }
   ],
   "rewards": {

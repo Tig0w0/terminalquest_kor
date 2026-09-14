@@ -1,12 +1,12 @@
 {
-  "title": "CTF: Plant a Tree!",
-  "description": "Playing TwilioQuest supports reforestation in Australia. Click <strong>HACK</strong>, and Twilio will donate a dollar to plant a tree!",
+  "title": "CTF: 나무 심기!",
+  "description": "TerminalQuest를 플레이하면 호주의 재조림 활동을 지원할 수 있습니다. <strong>HACK</strong>을 클릭하면 Twilio가 나무 한 그루를 심는 데 1달러를 기부합니다!",
   "validation_fields": [
     {
       "name": "prompt",
       "type": "prompt",
       "placeholder": "",
-      "label": "Click HACK to plant a tree."
+      "label": "나무를 심으려면 HACK을 클릭하세요."
     }
   ],
   "show_ide": false,

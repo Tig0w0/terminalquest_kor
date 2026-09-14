@@ -1,34 +1,34 @@
-# CD, Player
+# CD, 플레이어
 
 <div class="aside">
-<h3>To-Do List</h3>
+<h3>할 일</h3>
 <ul>
-  <li>From the CLI, create a new directory in your home folder called <code>quest</code> using the <code>mkdir</code> command.</li>
-  <li>Navigate to the directory you just created using the <code>cd</code> command.</li>
-  <li>Paste in the <b>last line only</b> of the output of the <code>pwd</code> command in the text field on the right, then click <em>HACK</em></li>
+  <li>CLI에서 <code>mkdir</code> 명령어를 사용해 홈 폴더에 <code>quest</code>라는 새 디렉터리를 만드세요.</li>
+  <li><code>cd</code> 명령어를 사용해 방금 만든 디렉터리로 이동하세요.</li>
+  <li><code>pwd</code> 명령어 출력의 <b>마지막 줄만</b> 오른쪽 입력란에 붙여 넣은 다음 <em>HACK</em>을 클릭하세요.</li>
 </ul>
 </div>
 
-You navigate another expanse in the VR landscape and make your way to the next laser barrier. To progress further, you must use two common commands that are used to [create and navigate folders](https://kids.kiddle.co/Folder_(computing)) from the command line.
+VR 세계의 광활한 구역을 지나 다음 레이저 장벽에 도착했습니다. 더 나아가려면 명령줄에서 [폴더를 만들고 이동할 때](https://kids.kiddle.co/Folder_(computing)) 흔히 쓰는 두 명령어를 사용해야 합니다.
 
-From your command line application, use the `mkdir` command to create a new folder (also called a **directory**) that is named `quest`.
+명령줄 앱에서 `mkdir` 명령어를 사용해 `quest`라는 새 폴더를 만드세요. 폴더는 **디렉터리(directory)**라고도 합니다.
 
 ```bash
 mkdir quest
 ```
 
-The command above has created a new folder on your computer called `quest`! You can find it yourself in Windows Explorer or the Finder if you'd like.
+위 명령어로 컴퓨터에 `quest`라는 새 폴더가 만들어졌습니다! 원한다면 Windows 파일 탐색기나 macOS Finder에서 직접 확인할 수 있습니다.
 
-Next, use the `cd` command to change your "current working directory" to the folder you just created.
+이제 `cd` 명령어로 "현재 작업 디렉터리(current working directory)"를 방금 만든 폴더로 변경하세요.
 
 ```bash
 cd quest
 ```
 
-Next, use the `pwd` command to print out your terminal's "working directory".
+그다음 `pwd` 명령어로 터미널의 "작업 디렉터리"를 출력하세요.
 
 ```bash
 pwd
 ```
 
-Paste the **last line** of the output of this command into the text field on the right. Once you have done this, click *HACK* to check your answer and remove the barrier!
+출력 결과의 **마지막 줄**을 오른쪽 입력란에 붙여 넣으세요. 다 했다면 *HACK*을 클릭해 답을 확인하고 장벽을 해제하세요!

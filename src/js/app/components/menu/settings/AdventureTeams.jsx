@@ -9,8 +9,8 @@ export class JoinTeam extends React.Component {
       <AsyncInputBox
         onFocus={this.props.onFocus}
         onBlur={this.props.onBlur}
-        defaultButtonLabel="Join"
-        resolvingButtonLabel="Joining..."
+        defaultButtonLabel="참가"
+        resolvingButtonLabel="참가 중..."
         onSubmit={joinTeam}
         onSuccess={onSuccess}
         enableSubmitHotkey={enableSubmitHotkey}
@@ -25,7 +25,7 @@ export class CurrentTeam extends React.Component {
     
     return (
       <>
-        <h4 className="mt4">Current Team(s)</h4>
+        <h4 className="mt4">현재 참가 중인 팀</h4>
         {teams ? 
           teams.map(
             team => (
@@ -34,13 +34,13 @@ export class CurrentTeam extends React.Component {
               <div className={`mb3 red`}>
                 <span className={`pb1 bb b--red pointer`}
                     onClick={() => disconnectTeam(team)}>
-                  Leave Team
+                  팀 나가기
                 </span>
               </div>
             </Fragment>
           )
           ) : (
-          <p>You're not on a team right now.</p>
+          <p>현재 참가 중인 팀이 없습니다.</p>
         )}
       </>
     );

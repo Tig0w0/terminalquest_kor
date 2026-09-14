@@ -255,7 +255,7 @@ const DevFundamentalsElevator = ({
                         flex: 1,
                       }}
                     >
-                      {'Floor Directory'}
+                      {'층별 안내'}
                     </h1>
                     <NavMapButton
                       onClick={hide}

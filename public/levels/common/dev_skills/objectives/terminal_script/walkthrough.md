@@ -1,15 +1,60 @@
-# Great Power === Great Responsibility
+# 스크립트 만들기
 
-The command line interface on your computer is a powerful tool - it allows you to quickly perform tasks that affect everything on your computer. This is generally a great thing, but there are a few things you should keep in mind.
+스크립트(script)는 여러 명령어를 순서대로 적어 둔 텍스트 파일입니다. 자주 쓰는 명령이나 복잡한 작업을 스크립트로 저장해 두면 매번 다시 입력하지 않고 같은 작업을 정확하게 반복할 수 있습니다.
 
-## Don't run untrusted commands or code
+이번 과제에서는 `quest` 폴더 안에 스크립트를 만들고, `echo` 명령어로 텍스트 한 줄을 출력해 봅니다. `echo`는 뒤에 적은 텍스트를 화면에 출력하는 명령어입니다.
 
-Because the CLI has so much power, there may be tricksters or randos on the Internet who want to fool you into using the command line to harm your computer or give away personal information. For this reason, you should **never execute code** from an untrusted source, or execute commands without understanding what they do. When in doubt, ask a more experienced computer user for help.
+## Windows PowerShell
 
-## There is no "undo"
+먼저 이전 과제에서 만든 `quest` 폴더로 이동하세요.
 
-When you make a mistake in a Google document, you can always use "Edit > Undo" to back out your mistake. When executing commands from the command line, there is no such thing as an "Undo". This can lead to tough situations, like accidentally losing or deleting files you still need and want on your computer.
+```powershell
+cd ~/quest
+```
 
-## A timeless lesson...
+다음 명령어는 `echo` 명령이 들어 있는 `my_script.ps1` 파일을 만듭니다.
 
-When using the CLI, think before you type! Mistakes happen to all of us (even experienced programmers), but respecting the power of the CLI will help prevent you from getting into too much trouble.
+```powershell
+'echo "Hello from my script!"' | Set-Content my_script.ps1
+```
+
+스크립트를 실행하려면 다음과 같이 입력합니다.
+
+```powershell
+./my_script.ps1
+```
+
+파일의 전체 경로는 다음 명령어로 확인할 수 있습니다.
+
+```powershell
+(Resolve-Path ./my_script.ps1).Path
+```
+
+## Mac 또는 Linux
+
+먼저 `quest` 디렉터리로 이동하세요.
+
+```bash
+cd ~/quest
+```
+
+다음 명령어는 `echo` 명령이 들어 있는 `my_script.sh` 파일을 만듭니다.
+
+```bash
+echo 'echo "Hello from my script!"' > my_script.sh
+```
+
+실행 권한을 추가한 뒤 스크립트를 실행하세요.
+
+```bash
+chmod +x my_script.sh
+./my_script.sh
+```
+
+파일의 전체 경로는 다음 명령어로 확인할 수 있습니다.
+
+```bash
+realpath my_script.sh
+```
+
+출력된 전체 경로를 오른쪽 입력란에 붙여 넣고 *HACK*을 클릭하세요.

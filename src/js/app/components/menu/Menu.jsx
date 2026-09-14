@@ -56,17 +56,17 @@ export default class Menu extends React.Component {
           {this.isActive('help') && <Help />}
 
           <div className="menu-tabs">
-            {this.renderMenuTab('inventory', 'Inventory')}
-            {this.renderMenuTab('journal', 'Journal')}
-            {this.renderMenuTab('settings', 'Settings')}
-            {this.renderMenuTab('help', 'Help')}
+            {this.renderMenuTab('inventory', '인벤토리')}
+            {this.renderMenuTab('journal', '퀘스트 일지')}
+            {this.renderMenuTab('settings', '설정')}
+            {this.renderMenuTab('help', '도움말')}
           </div>
 
           <div
             className="menu-close pointer"
             onClick={() => this.navigate(null)}
           >
-            <img src="images/app/menu/close.png" alt="Close Menu" />
+            <img src="images/app/menu/close.png" alt="메뉴 닫기" />
           </div>
         </div>
       </div>

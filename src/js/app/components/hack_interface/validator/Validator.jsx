@@ -24,12 +24,12 @@ const MD = new Converter({
 MD.setFlavor('vanilla');
 
 const STATUS = {
-  INITIALIZING: '** ANALYZING **',
-  LOCKED: '** LOCKED **',
-  HACKING: '** HACKING **',
-  CLEAR: '** CLEAR **',
-  SUCCESS: '** SUCCESS **',
-  FAIL: '** FAILED **',
+  INITIALIZING: '** 분석 중 **',
+  LOCKED: '** 잠김 **',
+  HACKING: '** 해킹 중 **',
+  CLEAR: '** 해제됨 **',
+  SUCCESS: '** 성공 **',
+  FAIL: '** 실패 **',
 };
 
 // NOTE: window.require must be used to "fool" webpack and just use
@@ -450,7 +450,7 @@ export default class Validator extends React.Component {
           <p dangerouslySetInnerHTML={{ __html: this.state.feedback }} />
           <p>
             <button onClick={() => this.doReset()}>
-              &lt; Back to tutorial
+              &lt; 튜토리얼로 돌아가기
             </button>
           </p>
         </div>
@@ -462,7 +462,7 @@ export default class Validator extends React.Component {
           content.push(
             <div key="questide" className="ide-prompt">
               <Button onClick={() => this.props.launchIde()}>
-                <i className="fas fa-file-alt" /> Show Tutorial
+                <i className="fas fa-file-alt" /> 튜토리얼 보기
               </Button>
             </div>
           );
@@ -470,7 +470,7 @@ export default class Validator extends React.Component {
           content.push(
             <div key="questide" className="ide-prompt">
               <Button onClick={() => this.props.launchIde()}>
-                <i className="fas fa-code" /> Show Code Editor
+                <i className="fas fa-code" /> 코드 에디터 보기
               </Button>
             </div>
           );
@@ -531,7 +531,7 @@ export default class Validator extends React.Component {
                   htmlFor={`input-${field.name}-true`}
                   style={{ display: 'inline-block', padding: '0 20px 0 5px' }}
                 >
-                  True
+                  참(True)
                 </label>
                 <input
                   type="radio"
@@ -549,7 +549,7 @@ export default class Validator extends React.Component {
                   htmlFor={`input-${field.name}-false`}
                   style={{ display: 'inline-block', padding: '0 5px' }}
                 >
-                  False
+                  거짓(False)
                 </label>
               </div>
             );
@@ -600,14 +600,14 @@ export default class Validator extends React.Component {
               doesFeedbackExist={this.state.feedback}
               onClick={() => this.copyObjectiveDebugInfo()}
             >
-              Copy debug info
+              디버그 정보 복사
             </CopyDebugInfoButton>
           </p>
         </div>
         <div className="validation-button">
           {this.state.statusReadout === STATUS.FAIL ? null : (
             <Button
-              label={this.state.feedback ? 'DONE' : 'HACK'}
+              label={this.state.feedback ? '완료' : 'HACK'}
               onClick={() =>
                 this.state.feedback ? this.props.onDone() : this.validate()
               }

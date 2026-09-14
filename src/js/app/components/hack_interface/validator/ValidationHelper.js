@@ -62,9 +62,8 @@ export default class ValidationHelper {
       return this.client;
     } catch (e) {
       throw new Error(`
-        It seems you don't have a valid Twilio account configured - 
-        open the Settings UI to double check your Twilio account configuration 
-        variables.
+        올바른 Twilio 계정이 설정되지 않은 것 같습니다.
+        설정 화면을 열어 Twilio 계정의 환경 변수를 다시 확인해 주세요.
       `);
     }
   }
@@ -103,7 +102,7 @@ export default class ValidationHelper {
             if (number) {
               resolve(number);
             } else {
-              reject(`Couldn't find ${phoneNumber}. Please try again`);
+              reject(`${phoneNumber} 번호를 찾을 수 없습니다. 다시 시도해 주세요.`);
             }
           },
         });
@@ -194,8 +193,8 @@ export default class ValidationHelper {
     const response = await this.fakeRequest(webhookUrl, parameters, client);
     if (!response.ok) {
       throw `
-        Oh no there seems to be a problem with your TwiML generation. 
-        Status code: ${response.statusCode}
+        TwiML을 생성하는 중 문제가 발생한 것 같습니다.
+        상태 코드: ${response.statusCode}
       `;
     }
     const responseText = await response.text();
@@ -218,7 +217,7 @@ export default class ValidationHelper {
    */
   async isExecutableValid(path, args) {
     if (path === undefined || path.trim() === '') {
-      return [false, `You didn't enter a file path.`];
+      return [false, `파일 경로를 입력하지 않았습니다.`];
     }
 
     /**
@@ -236,7 +235,7 @@ export default class ValidationHelper {
     if (!existsSync(path)) {
       return [
         false,
-        `The path you provided does not exist!
+        `입력한 경로가 존재하지 않습니다!
       
         "${path}"
         `,
@@ -270,10 +269,10 @@ export default class ValidationHelper {
       ) {
         return [
           false,
-          `The path you provided isn't executable!
+          `입력한 경로의 파일을 실행할 수 없습니다!
 
-        Please ensure this is a path to an executable and that TwilioQuest has
-        the appropriate permissions to execute the file.
+        실행 파일의 경로가 맞는지, TerminalQuest에 해당 파일을 실행할
+        권한이 있는지 확인해 주세요.
         
         "${path}"
         `,
@@ -282,10 +281,10 @@ export default class ValidationHelper {
 
       return [
         false,
-        `An error occured when we tried to validate we could run your executable!
+        `실행 파일을 실행할 수 있는지 검사하는 중 오류가 발생했습니다!
 
-      Path: ${path}
-      Error: ${err}
+      경로: ${path}
+      오류: ${err}
       `,
       ];
     }

@@ -13,7 +13,7 @@ export default function rank(progress, total) {
   } else if (fraction > 0) {
     return 'E';
   } else {
-    return 'None';
+    return '없음';
   }
 }
 

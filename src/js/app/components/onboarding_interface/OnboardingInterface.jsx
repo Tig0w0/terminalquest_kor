@@ -60,7 +60,7 @@ export default class OnboardingInterface extends React.Component {
   render() {
     return (
       <div className="OnboardingInterface bg-black">
-        <MenuContainer title="Operator Login" showCloseButton={false}>
+        <MenuContainer title="오퍼레이터 로그인" showCloseButton={false}>
           <div
             className="pa2 h-100 overflow-y-scroll"
             ref={node => (this.scrollableRef = node)}
@@ -90,33 +90,33 @@ export default class OnboardingInterface extends React.Component {
 
               {this.state.step >= this.finalStep && (
                 <div className="mt4">
-                  <h3>Welcome, {this.context.settings.name}.</h3>
+                  <h3>환영합니다, {this.context.settings.name}.</h3>
                   {this.context.liveEvent && (
-                    <h3>You are connected to {this.context.liveEvent.name}.</h3>
+                    <h3>{this.context.liveEvent.name}에 연결되었습니다.</h3>
                   )}
                 </div>
               )}
 
               {this.state.stepIsValid && (
                 <div className="mt4">
-                  Press{' '}
+                  계속하려면{' '}
                   <span
                     className="yellow pointer"
                     onClick={() => this.nextStep()}
                   >
                     [ENTER]
                   </span>{' '}
-                  to {this.state.step === 4 ? 'start' : 'continue'}
+                  키를 누르세요
                   {this.state.step > 1 && (
                     <span>
-                      &nbsp;or{' '}
+                      &nbsp;또는 뒤로 가려면{' '}
                       <span
                         className="yellow pointer"
                         onClick={() => this.prevStep()}
                       >
                         [ESC]
                       </span>{' '}
-                      to go back
+                      키를 누르세요
                     </span>
                   )}
                 </div>
