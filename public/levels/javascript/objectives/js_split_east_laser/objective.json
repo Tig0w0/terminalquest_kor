@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript 연구소: 광선 3 가동",
+  "description": "<strong>전기 엔지니어의 활성화 코드</strong>와 <strong>반복문 및 순회(loops and iteration)</strong> 지식을 사용하여 이 정지 광선을 가동하세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "왼쪽에 설명된 과제를 완수했다면 <em>HACK</em> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

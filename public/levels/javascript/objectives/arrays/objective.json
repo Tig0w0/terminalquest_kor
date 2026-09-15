@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript 연구소: 찬란한 배열",
+  "description": "<span class='highlight'>배열(Arrays)</span>은 프로그래밍 중에 흔히 마주치게 될 데이터 구조입니다. 이 화물선 안을 탐색하려면 배열이 어떻게 동작하는지 배워야 합니다!",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": []
+  }
+}

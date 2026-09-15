@@ -1,0 +1,16 @@
+{
+  "title": "JavaScript 연구소: 각자의 길을 가다 (For Each)",
+  "description": "종종 배열 안의 모든 항목에 대해 각각 한 번씩 코드 조각을 실행해야 할 때가 있습니다. 이는 <strong>반복문(loop)</strong>을 사용하여 수행할 수 있습니다. 내장 배열 함수인 <strong>forEach</strong>를 사용해 이 작업을 완수하는 방법을 배워보세요!",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "title": "JavaScript 연구소: 첫 번째 조건문(Conditional)",
+  "description": "프로그래밍의 핵심 구성 요소인 <strong>if 문(if statement)</strong>에 대해 배워보세요!",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "show_ide": false,
+  "rewards": {
+    "xp": 100
+  }
+}

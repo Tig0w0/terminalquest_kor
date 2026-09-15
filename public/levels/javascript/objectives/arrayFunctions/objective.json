@@ -1,0 +1,16 @@
+{
+  "title": "JavaScript 연구소: 배열 내장 함수",
+  "description": "<strong>배열을 여러 개로 쪼개는(split)</strong> 방법과 그 <strong>배열 안의 항목들을 정렬(sort)하는</strong> 방법을 배워보세요.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": []
+  }
+}

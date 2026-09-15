@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript 연구소: 조건 분기 심화",
+  "description": "식물학자에게 가는 다리를 확장하면서, 조건 논리(conditional logic)를 <strong>여러 방향으로 분기(branch)</strong>시키는 방법을 배워보세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

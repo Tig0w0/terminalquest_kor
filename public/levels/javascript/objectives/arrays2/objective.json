@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript 연구소: 배열에 접근하기",
+  "description": "<strong>인덱스(indexes)</strong>를 사용하여 배열 안의 데이터에 접근하는 방법을 배워보세요.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": []
+  }
+}

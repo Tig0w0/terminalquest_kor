@@ -1,0 +1,16 @@
+{
+  "title": "JavaScript 연구소: 품격 있는 수업 (Class Act)",
+  "description": "여러분은 그동안 문자열(Strings)과 숫자(Numbers) 같은 내장 객체를 사용해 왔습니다. 이제부터는 독자적인 동작을 가진 <strong>새로운 객체를 직접 생성하는 법</strong>을 배워보세요.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": []
+  }
+}

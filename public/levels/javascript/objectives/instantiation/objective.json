@@ -1,0 +1,16 @@
+{
+  "title": "JavaScript 연구소: 객체 리터럴 (Object of My Affection)",
+  "description": "<strong>객체 리터럴 표기법(object literal notation)</strong>을 사용하여 더 복잡한 <strong>데이터 구조</strong>를 생성하는 방법을 배워보세요.",
+  "show_ide": false,
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript 연구소: 마스터 비밀번호 (The Master Password)",
+  "description": "<strong>전기 엔지니어</strong>가 이 보안 장벽 뒤에 갇혀 있습니다 - <strong>Infinite Loop</strong> 화물선의 퍼즐을 풀고 그녀를 구출하세요!",
+  "validation_fields": [
+    {
+      "name": "puzzlePassword",
+      "type": "text",
+      "placeholder": "",
+      "label": "이 장벽을 해제하기 위해 필요한 비밀번호를 입력하세요 - 도움이 필요하다면 과제 탭을 확인하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 300
+  }
+}

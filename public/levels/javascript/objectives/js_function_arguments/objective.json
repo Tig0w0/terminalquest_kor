@@ -1,0 +1,14 @@
+{
+  "title": "JavaScript 연구소: 함수 인수(Function Arguments)",
+  "description": "<strong>인수(arguments)</strong>를 받아들이는 함수를 생성하여, 재사용 가능한 코드가 입력값에 따라 각기 다른 결과를 도출하도록 만드는 법을 배우세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 200
+  }
+}

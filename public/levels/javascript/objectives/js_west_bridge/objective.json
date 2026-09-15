@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript 연구소: 나무가 살았다면 다리 연결",
+  "description": "조건 논리(conditional logic)에 <strong>else 문(else statement)</strong>을 사용하는 방법을 배워 서쪽 다리를 확장하세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

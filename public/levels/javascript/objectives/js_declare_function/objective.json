@@ -1,0 +1,14 @@
+{
+  "title": "JavaScript 연구소: 도대체 함수가 뭐야?",
+  "description": "재사용 가능한 JavaScript 코드 블록인 <strong>함수를 생성하는 방법</strong>을 배워 연구소 안쪽으로 들어가세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "과제 탭의 설명대로 프로그램을 작성한 뒤, <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 200
+  }
+}

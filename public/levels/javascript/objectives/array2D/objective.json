@@ -1,0 +1,21 @@
+{
+  "title": "JavaScript 연구소: 또 다른 차원",
+  "description": "배열 안에 들어있는 아이템이 <strong>또 다른 배열</strong>이 될 수 있다는 걸 알고 계셨나요? 이 과제에서 배열 인셉션(inception)에 대해 배워보세요!",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "text",
+      "placeholder": "",
+      "label": "과제 탭의 2차원 배열에서 인덱스 [0][0]에 해당하는 값은 무엇인가요?"
+    },
+    {
+      "name": "answer2",
+      "type": "text",
+      "placeholder": "",
+      "label": "과제 탭의 2차원 배열에서 인덱스 [2][2]에 해당하는 값은 무엇인가요?"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

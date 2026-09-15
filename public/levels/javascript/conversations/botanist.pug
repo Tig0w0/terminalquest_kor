@@ -1,0 +1,27 @@
+- const worldState = getState('TQ_JAVASCRIPT_WORLD_STATE');
+
+// Responses
+mixin funny_way
+  response#funny_way.
+    감사 인사 치고는 참 재미있네요.
+
+conversation(display_name="TwilioQuest 식물학자")
+  if lastResponse === "funny_way"
+    statement.
+      뭐, 당신이 완전히 바보 천치는 아니라는 걸 증명했다고 훈장이라도 달라는 건가요? 줄 건 없고, 당신의 프로그래밍 실력이 아주 쓸모없지는 않다는 걸 인정하는 것으로 만족하세요.
+
+  else if worldState.southWing.hadSavedConversation
+    statement.
+      당신은 이미 메인 실험실에 있는 #[span.highlight 빔 2(Beam 2)를 위한 내 접근 코드]를 가지고 있습니다. 더 필요한 게 있나요, 아니면 내가 연구 자료를 챙기는 동안 내 시간을 더 빼앗을 작정인가요?
+    responses
+      +funny_way
+
+  else
+    - worldState.southWing.hadSavedConversation = true;
+    statement.
+      이제야 왔군요. 자 - 정 원한다면, 메인 실험실에 있는 #[span.highlight 빔 2(Beam 2)를 위한 내 접근 코드]를 가져가세요. 대피하기 전에 연구 자료를 챙기기 위해 조금 더 머물러야 하니까요.<br/><br/>... 당신이 내가 처음 생각했던 것만큼 구제 불능은 아니라는 건 인정하죠.
+    responses
+      +funny_way
+
+// Flush world state changes, if any
+- setState('TQ_JAVASCRIPT_WORLD_STATE', worldState);
