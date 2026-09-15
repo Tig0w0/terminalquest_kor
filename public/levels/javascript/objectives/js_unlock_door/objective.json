@@ -1,0 +1,14 @@
+{
+  "title": "JavaScript 연구소: 친절하게 부탁하기",
+  "description": "하급 관리자를 달래고 <strong>첫 번째 JavaScript 프로그램을 실행</strong>하여 이 장벽을 통과하세요.",
+  "validation_fields": [
+    {
+      "name": "prompt",
+      "type": "prompt",
+      "label": "도움말(과제)에 설명된 대로 프로그램을 작성한 후 <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

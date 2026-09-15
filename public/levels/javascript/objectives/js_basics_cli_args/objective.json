@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript 연구소: 스크립트 인수(Arguments)",
+  "description": "<strong>명령줄 인수(command line arguments)</strong>를 통해 전달된 데이터를 사용하는 코드를 작성하세요.",
+  "validation_fields": [
+    {
+      "name": "one",
+      "type": "prompt",
+      "placeholder": "",
+      "label": "도움말(과제)에 설명된 대로 프로그램을 작성한 후 <span class='highlight'>HACK</span> 버튼을 클릭하세요."
+    }
+  ],
+  "rewards": {
+    "xp": 200
+  }
+}

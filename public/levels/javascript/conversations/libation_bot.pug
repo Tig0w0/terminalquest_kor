@@ -1,0 +1,45 @@
+// Responses
+mixin where_should_go
+  response#where_should_go.
+    다음에는 어디로 가야 하나요?
+
+mixin about
+  response#about.
+    이 정거장에서 어떤 연구를 진행 중인가요?
+
+conversation(display_name="Libation Bot")
+  case lastResponse
+    when "about"
+      statement#about
+      responses
+        +where_should_go
+
+    when "where_should_go"
+      statement#where_should_go
+      responses
+        +about
+
+    default
+      statement#default
+      responses
+        +where_should_go
+        +about
+
+  statements
+
+    statement#where_should_go
+      text.
+        당신의 현재 출입 카드로 덕타이피움(Ducktypium) 연구 모듈에 갈 수 있습니다.
+        본 유닛의 여가용 액체 저장고 뒤편에 있는 복도를 지나가면 해당 연구 모듈에 들어갈 수 있습니다.<br/><br/>
+        <i>[로봇을 잠시 의아하게 쳐다본 후, 당신은 로봇의 말이 바(bar) 뒤에 있는 출입구를 지나가라는 뜻이라는 걸 깨달았습니다.]</i>
+
+    statement#about
+      text.
+        오류. 본 플랫폼은 방향 안내 및 상황에 적절한 갈증 해소 기술을
+        제공할 권한만 가지고 있습니다.
+        혹시 망고 용과(MANGO DRAGONFRUIT) 액상 추출물에 관심이 있으십니까?
+        경구 복용 또는 정맥 주사 방식으로 투여해 드릴 수 있습니다.
+
+    statement#default
+      text.
+        반갑습니다. 저는 Libation Bot(음료 봇)입니다. 저는 방향을 안내하고 상황에 적절한 갈증 해소 기술을 제공할 권한을 가지고 있습니다.

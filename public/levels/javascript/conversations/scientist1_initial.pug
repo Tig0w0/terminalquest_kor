@@ -1,0 +1,42 @@
+// Partial conversation template for the initial scientist conversation
+case lastResponse
+  when "oh_no"
+    statement.
+      아, 대수로운 일은 아닙니다. 그냥... #[span.highlight 덕타이피움(ducktypium)]을 안정화하려면 방 중앙에 있는 #[span.highlight 네 개의 분자 정지 광선을 모두 활성화]해야 하거든요. 과정 자체는 완전히 자동화되어 있지만 비밀번호가 필요합니다. 그런데 제가, 어... 지금 그 비밀번호를 기억하지 못해서요.
+    responses
+      response#reset_password.
+        이런. 비밀번호를 초기화할 방법이 없나요?
+
+  when "reset_password"
+    statement.
+      방법이야 있죠. 하지만 제가 정지 광선 비밀번호를 또 까먹었다는 소문이 나면 연구소에서 평생 놀림을 받을 겁니다! 사실 제 등 뒤쪽 복도에 있는 제 연구실의 #[span.highlight 종이 조각에 적어두긴 했는데]...
+    responses
+      response#also_forgot.
+        하지만 지금 여기에 서 계신 걸 보면, 혹시...
+
+  when "also_forgot"
+    statement.
+      네, 그러니까... 비밀번호를 가지러 들어가려다 제 연구실로 가는 길에 있는 #[span.highlight 보안 장벽들]까지 모조리 작동시켜 버린 것 '같기도' 합니다. 절 너무 이상하게 보진 마세요. 전 엄청 바쁜 과학자라고요! 이상하게 생각하시는 건 아니죠?
+    responses
+      response#its_okay.
+        아뇨, 당연히 아니죠. 누구나 실수를 하니까요.
+
+  when "its_okay"
+    statement.
+      감사합니다. 저기, 오퍼레이터들은 이런 문제를 꽤 잘 해결한다고 들었는데, 혹시 #[span.highlight 제 연구실에 들어가서 비밀번호를 찾아와] 주실 수 있나요? 이 은혜는 잊지 않겠습니다.
+    responses
+      response#you_bet.
+        그럼요. 제가 한 번 시도해 보겠습니다.
+
+  when "you_bet"
+    statement.
+      정말 구세주십니다! 제 뒤에 있는 보안 장벽들을 통과하시면, 정지 광선 비밀번호가 #[span.highlight 제 책상 위 종이 조각에 적혀 있을 겁니다].
+    // Flag that the scientist initial conversation has been finished
+    - worldState.room1.scientistInitalConvo = true;
+
+  default
+    statement.
+      아, 안녕하세요. 저희 연구를 시찰하러 오신 오퍼레이터님이군요. 정말 흥미진진한 타이밍에 오셨습니다! 역사상 최초로 #[span.highlight 덕타이피움(ducktypium)] 단일 분자를 안정화하기 직전이거든요! <br/><br/>뭐, 현재 테스트 과정에서 #[span.highlight 아주 작고, 거의 사소하다고 볼 수 있는 문제]가 하나 있긴 하지만요...
+    responses
+      response#oh_no.
+        어이쿠, 무슨 일이 생겼나요?

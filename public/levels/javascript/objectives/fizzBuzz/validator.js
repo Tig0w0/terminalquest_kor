@@ -1,6 +1,8 @@
 const path = require("path");
 const jetpack = require("fs-jetpack");
-const { executeCodeString } = require("../../../../scripts/objectiveValidation");
+const {
+  executeCodeString,
+} = require('../../../../node_modules/twilioquest-javascript/scripts/objectiveValidation');
 
 function correctDecrypt(number) {
   let output = "";

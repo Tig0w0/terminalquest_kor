@@ -1,0 +1,35 @@
+// Partial conversation template for post-explosion conversation
+case lastResponse
+  when "other_scientists"
+    statement.
+      사고 발생 직후 몇 분 전까지만 해도 무사했습니다. 하지만 지금은 장담할 수 없어요. 연구소 내 모든 통신이 끊겼거든요. 일단 동료들이 #[span.highlight 시설의 다른 구역에 고립되어 있다]고 생각해야 합니다.
+    responses
+      response#get_to_safety.
+        그들을 찾아서 모두 안전한 곳으로 대피시켜야겠네요.
+
+  when "get_to_safety"
+    statement.
+      그 '안전'에 대해 말씀드리자면... 제가 볼 땐, 이번 폭발로 차원의 균열이 생겨났고 그 균열이 시시각각 넓어지고 있습니다. 우리가 #[span.highlight 실험을 되돌려 균열을 복구]하지 못한다면 클라우드 전체에 안전한 곳이란 존재하지 않을 겁니다.
+    responses
+      response#fix_it.
+        실험을 되돌리지 못하면 모든 존재가 파멸한다는 거군요. 알겠습니다. 어떻게 해야 하죠?
+
+  when "fix_it"
+    statement.
+      안정화 광선을 조정해서 반응을 역전시키는 방법은 알 것 같아요. 하지만 그러려면 #[span.highlight 네 개의 광선을 모두 재가동]해야만 합니다. 저 혼자서는 불가능해요. 다른 레이저 광선을 켤 활성화 코드는 제 동료들이 가지고 있거든요.
+    responses
+      response#on_it.
+        제가 할게요! 당신의 동료들을 찾아서 활성화 코드를 얻어오겠습니다.
+
+  when "on_it"
+    statement.
+      전 반응을 역전시킬 수 있도록 장비를 보정하는 데 시간이 좀 더 필요합니다. #[span.highlight 동료들을 찾아 활성화 코드를 모두 확보]하면 제게 알려주세요. 빨리 움직이면 아직 이 사태를 수습할 수 있습니다.
+    // Flag that the scientist post-disaster conversation has been finished
+    - worldState.scientistDisasterConvo = true;
+
+  default
+    statement.
+      네 번째 광선을 켜는 순간 #[span.highlight 덕타이피움 크리스탈이 불안정해졌습니다]. 그런 일이 일어나면 안 되는데 말이죠! 우리의... 아니, '제' 계산은 완벽했다고요! 정말이에요!<br/><br/>그리고 엄밀히 따지면, 연구소의 일부가 사라진 게 아니라 아직 발견된 적 없는 제5의 물질 상태로 전이되어 시공간 연속체 바깥으로 이동했을 뿐입니다.<br/><br/>불길은... 네, 저 부분은 여전히 상당히 심각하네요.
+    responses
+      response#other_scientists.
+        테스트 챔버 안에 있던 다른 과학자들은 어떻게 된 건가요? 다들 무사한가요?

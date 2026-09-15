@@ -1,4 +1,6 @@
-const { DIVINATION_API_ENDPOINT } = require("../../../../scripts/config");
+const {
+  DIVINATION_API_ENDPOINT,
+} = require('../../../../node_modules/twilioquest-api-academy/scripts/config');
 const assert = require("assert");
 
 const assertTestCase = (testFunction, helper) => async (input) => {

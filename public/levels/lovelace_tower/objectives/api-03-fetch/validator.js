@@ -1,4 +1,6 @@
-const { MAGIC_API_ENDPOINT } = require("../../../../scripts/config");
+const {
+  MAGIC_API_ENDPOINT,
+} = require('../../../../node_modules/twilioquest-api-academy/scripts/config');
 
 module.exports = async function (helper) {
   try {
