@@ -85,6 +85,10 @@ const levels = {
       'TwilioQuest 프로그램이 JavaScript 기술의 최신 발전을 연구하는 첨단 시설입니다. 연구소는 한 오퍼레이터에게 기지를 방문해 보안 상태를 점검해 달라고 요청했습니다.',
     questTitle: 'JavaScript 테스트 연구소',
     questDescription: '기지를 조사하고 연구팀을 도와주세요!',
+    flavorTextOverrides: {
+      passwordDeskNote:
+        '책상 위 포스트잇에 이렇게 적혀 있다. "정지 광선 비밀번호: <span class="highlight">PEW PEW PEW!</span>"',
+    },
   },
   open_source: {
     title: '오픈 소스의 숲',
