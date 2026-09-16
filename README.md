@@ -31,6 +31,25 @@ npm start
 
 이 명령어를 실행하면 로컬 [Electron](https://www.electronjs.org/) 창이 열리면서 게임이 구동됩니다.
 
+## 세이브 파일 연동 및 백업
+
+TerminalQuest는 **오토세이브(자동 저장)** 방식을 사용하며, 플레이 데이터는 로컬 시스템에 저장됩니다. 다른 PC나 환경에서 진행 상황을 이어서 하려면 다음 2개의 파일을 백업하여 새 PC의 동일한 경로에 덮어씌워 주세요.
+
+1. **`config.json`** (퀘스트 진행도 및 플레이어 설정 데이터)
+2. **`user_code.js`** (인게임 에디터에서 작성 중이던 코드 내역)
+
+**[OS별 세이브 파일 기본 경로]**
+
+* **Windows**
+  * `C:\Users\사용자이름\AppData\Roaming\terminalquest\config.json`
+  * `C:\Users\사용자이름\AppData\Roaming\TerminalQuest\QuestIDE\user_code.js`
+* **macOS**
+  * `~/Library/Application Support/terminalquest/config.json`
+  * `~/Library/Application Support/TerminalQuest/QuestIDE/user_code.js`
+* **Linux**
+  * `~/.config/terminalquest/config.json`
+  * `~/.config/TerminalQuest/QuestIDE/user_code.js`
+
 ## 라이선스
 
 이 게임의 소스 코드는 MIT 라이선스를 따릅니다 (상세 내용은 `LICENSE` 파일 참조).

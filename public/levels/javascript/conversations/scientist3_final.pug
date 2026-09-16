@@ -1,0 +1,35 @@
+- const worldState = getState('TQ_JAVASCRIPT_WORLD_STATE');
+
+mixin welcome
+  response#welcome.
+    도움이 되어 기쁩니다.
+
+mixin follow_up
+  response#follow_up.
+    Infinite Loop 호에서 화물을 무사히 구출하셨나요?
+
+conversation(display_name="TwilioQuest 엔지니어")
+  if lastResponse === "welcome"
+    statement.
+      글쎄요, The Cloud에는 당신 같은 사람들이 더 필요해요. 혹시 저희가 도울 일이 생긴다면 언제든 주저하지 말고 말씀해 주세요.
+
+    responses
+      +follow_up
+
+  else if lastResponse === "follow_up"
+    statement.
+      다행히 연구소로 향하던 화물은 비교적 무사히 구출해냈습니다. 이제 저희 프로젝트도 본격적으로 궤도에 올랐으니, 연구팀에 필요한 도구들을 만드느라 눈코 뜰 새 없이 바빠지겠네요. 하지만 그 화물선에 갇혀 있는 것보다는 바쁜 편이 훨씬 낫죠 - 신세 한 번 크게 졌습니다.
+
+    responses
+      +welcome
+
+  else
+    statement.
+      그래서 - 당신이 #[span.highlight 오리타이피움(ducktypium)] 분자를 안정화시키고 모두를 구하셨군요. 당신 명성에 걸맞은 오퍼레이터다운 대활약이었습니다!
+
+    responses
+      +welcome
+      +follow_up
+
+// Flush world state changes, if any
+- setState('TQ_JAVASCRIPT_WORLD_STATE', worldState);

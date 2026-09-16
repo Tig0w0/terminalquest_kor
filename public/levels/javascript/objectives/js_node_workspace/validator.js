@@ -1,5 +1,5 @@
 const jetpack = require("fs-jetpack");
-const { NiceError } = require("../../../../node_modules/twilioquest-javascript/scripts/objectiveValidation");
+const { NiceError } = require("../../scripts/objectiveValidation");
 
 module.exports = async (helper) => {
   try {

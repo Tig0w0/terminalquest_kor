@@ -1,0 +1,35 @@
+- const worldState = getState('TQ_JAVASCRIPT_WORLD_STATE');
+
+mixin welcome
+  response#welcome.
+    당연히 해야 할 일이었는데요 뭐!
+
+mixin sabotage
+  response#sabotage.
+    제가 마지막 레이저를 고칠 때 보니, 누군가 고의로 망가뜨린 흔적이 있었습니다.
+
+conversation(display_name="TwilioQuest 수석 연구원")
+  if lastResponse === "welcome"
+    statement.
+      겸손하시군요! 보통 일주일에 현실 세계를 위협하는 위기를 몇 번이나 해결하시나요?
+
+    responses
+      +sabotage
+
+  else if lastResponse === "sabotage"
+    statement.
+      맞아요 - 저희가 연구소 보안 카메라를 확인해 봤는데, 레이저를 조작한 범인은 바로 그 괴팍한 식물학자였습니다! 그리고 그는 지금 아주 절묘한 타이밍에 우주 정거장을 빠져나갔고요. 아직 사건을 조사 중이지만, 저희는 #[span.red 레거시 시스템(Legacy Systems)]이 그의 우주 정거장 잠입과 연구 방해 공작을 도왔을 것이라고 의심하고 있습니다.<br/><br/> 당신이 제때 나타나 주어서 정말 다행이에요 - 하마터면 #[span.red 레거시 시스템]이 성공할 뻔했습니다. 당신처럼 뛰어난 능력을 가진 오퍼레이터가 있을 줄은 꿈에도 몰랐겠죠.
+
+    responses
+      +welcome
+
+  else
+    statement.
+      정말 놀라워요 - #[span.highlight 오리타이피움] 분자가 안정화되었습니다. 당신이 해냈어요!<br/><br/>이런 말을 자주 들으시겠지만, 당신은 진정한 영웅입니다! 우리 팀과 The Cloud의 모든 주민들은 평생 갚지 못할 은혜를 입었습니다.
+
+    responses
+      +welcome
+      +sabotage
+
+// Flush world state changes, if any
+- setState('TQ_JAVASCRIPT_WORLD_STATE', worldState);

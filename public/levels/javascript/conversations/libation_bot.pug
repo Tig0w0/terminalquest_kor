@@ -1,13 +1,13 @@
 // Responses
 mixin where_should_go
   response#where_should_go.
-    다음에는 어디로 가야 하나요?
+    제가 다음으로 어디로 가야 하는지 아시나요?
 
 mixin about
   response#about.
-    이 정거장에서 어떤 연구를 진행 중인가요?
+    이 우주 정거장에서는 어떤 종류의 연구를 진행하고 있나요?
 
-conversation(display_name="Libation Bot")
+conversation(display_name="리베이션 봇(Libation Bot)")
   case lastResponse
     when "about"
       statement#about
@@ -26,20 +26,16 @@ conversation(display_name="Libation Bot")
         +about
 
   statements
-
+    
     statement#where_should_go
       text.
-        당신의 현재 출입 카드로 덕타이피움(Ducktypium) 연구 모듈에 갈 수 있습니다.
-        본 유닛의 여가용 액체 저장고 뒤편에 있는 복도를 지나가면 해당 연구 모듈에 들어갈 수 있습니다.<br/><br/>
-        <i>[로봇을 잠시 의아하게 쳐다본 후, 당신은 로봇의 말이 바(bar) 뒤에 있는 출입구를 지나가라는 뜻이라는 걸 깨달았습니다.]</i>
+        현재 당신의 보안 카드는 오리타이피움(Ducktypium) 연구 모듈로의 이동을 허용합니다. 이 유닛의 오락용 액체 저장소 뒤편 복도를 통해 연구 모듈로 진입할 수 있습니다.<br/><br/>
+        <i>[당신은 로봇을 잠시 의아하게 쳐다본 후, 바(bar) 뒤편의 출입구로 들어가라는 뜻임을 알아차렸습니다.]</i>
 
     statement#about
       text.
-        오류. 본 플랫폼은 방향 안내 및 상황에 적절한 갈증 해소 기술을
-        제공할 권한만 가지고 있습니다.
-        혹시 망고 용과(MANGO DRAGONFRUIT) 액상 추출물에 관심이 있으십니까?
-        경구 복용 또는 정맥 주사 방식으로 투여해 드릴 수 있습니다.
+        오류. 본 플랫폼은 방향 안내 및 상황에 맞는 갈증 해소 기술만 제공하도록 승인되었습니다. 망고 드래곤프루트 리퀴드 인퓨전 한 잔 하시겠습니까? 입으로 마실 수도 있고, 정맥에 직접 투여해 드릴 수도 있습니다.
 
     statement#default
       text.
-        반갑습니다. 저는 Libation Bot(음료 봇)입니다. 저는 방향을 안내하고 상황에 적절한 갈증 해소 기술을 제공할 권한을 가지고 있습니다.
+        반갑습니다. 저는 리베이션 봇(Libation Bot)입니다. 저는 방향 안내 및 상황에 맞는 갈증 해소 기술을 제공하도록 승인되었습니다.

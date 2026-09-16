@@ -1,0 +1,71 @@
+- const worldState = getState('TQ_JAVASCRIPT_WORLD_STATE');
+
+// Responses
+mixin need_code
+  response#need_code.
+    수석 연구원이 실험을 되돌리려고 하고 있어요, 하지만 당신의 접근 코드가 필요합니다.
+
+mixin how_do_i_do_it
+  response#how_do_i_do_it.
+    가능하면 도와드릴게요 - 어떻게 그쪽으로 가면 되죠?
+
+mixin second_thought
+  response#second_thought.
+    있잖아요, 다시 생각해 보니 그냥 당신을 거기 내버려두고 시공간이 무너지게 두는 게 낫겠네요 - 최소한 당신의 그 태도에서는 벗어날 수 있을 테니까요.
+
+mixin can_you_just_tell
+  response#can_you_just_tell.
+    들어보세요, 지금 현실이 무너져내리고 있어서 시간이 없어요 - 그냥 당신의 접근 코드를 알려주면 안 되나요?
+
+conversation(display_name="TwilioQuest 식물학자")
+  if lastResponse === "how_do_i_do_it"
+    statement.
+      어떻게요?! 딱 보면 모르겠습니까! 실험실의 각 구역을 연결하는 #[span.highlight 에너지 브리지(energy bridge)를 확장]해야 합니다. 브리지 구역마다 조작할 수 있는 제어 패널이 있을 거예요.<br/><br/>물론 이걸 해내려면 #[span.highlight 조건 논리(conditional logic)를 사용하는 JavaScript 코드]를 작성할 수 있을 만큼 영리해야 하니 - 기대도 안 합니다만.
+    responses
+      +can_you_just_tell
+      +second_thought
+
+  else if lastResponse === "can_you_just_tell"
+    statement.
+      당신이 신경 써야 할 유일한 현실은, 과학적 발견을 이끌어갈 대체 불가능한 엔진인 내가 동료들의 무능함 때문에 이곳에 갇혔다는 사실뿐입니다!<br/><br/>그건 그렇고, 내 접근 코드는 하드웨어 토큰에 암호화되어 있습니다 - 그 바보 같은 심부름을 기어코 해내겠다면 #[span.highlight 나한테서 직접 가져가셔야 할 겁니다]. 뭐 당신 능력으로 할 수 있는 심부름은 그것밖에 없겠지만요.
+    responses
+      +how_do_i_do_it
+      +second_thought
+
+  else if lastResponse === "second_thought"
+    statement.
+      안 돼요. 설마요! 난... 이건... 제발 그러지 마세요.
+    responses
+      +how_do_i_do_it
+
+  else if lastResponse === "what_was_that"
+    statement.
+      본인 유머가 귀엽다고 생각하나요? 단언컨대 전혀 아니며, 그 유치한 헛소리 때문에 상부로부터 #[span.red 엄중한 문책(stern reprimand)]을 받게 될 겁니다!
+    responses
+      +need_code
+      +how_do_i_do_it
+
+  else if lastResponse === "need_code"
+    statement.
+      하. 그녀가 해결책을 찾고 있다고요? 애초에 내가 이 프로젝트의 책임자였다면 이런 상황까지 오지도 않았을 겁니다.<br/><br/>그녀를 돕는 데 시간을 낭비하고 싶다면 마음대로 하세요. 하지만 내가 탈출할 수 있도록 #[span.highlight 길을 열어주면 기꺼이 내 접근 코드를 드리죠].
+    responses
+      +can_you_just_tell
+      +how_do_i_do_it
+
+  else if worldState.southWing.hadIntroConversation
+    statement.
+      이건 말도 안 됩니다! 식물학 종신 교수로 20년, 수십 편의 논문을 발표한 내가 불타버린 실험실 잔해 속에 갇히다니...<br/><br/>거기 당신! 설마 날 잊은 건 아니겠죠? 당장 날 구해주지 않으면 난... 당신은...
+    responses
+      response#what_was_that.
+        방금 무슨 소리 안 들렸나요? 젠장, 자의식 과잉 투정을 들으면 생기는 선택적 난청인가 보네.
+
+  else
+    - worldState.southWing.hadIntroConversation = true;
+    statement.
+      이봐요 - 당신! 거기 당신!<br/><br/>이 시설에서 가장 뛰어나고 업적이 많은 과학자로서, 당장 나를 도울 것을 요구합니다!
+    responses
+      +need_code
+      +how_do_i_do_it
+
+// Flush world state changes, if any
+- setState('TQ_JAVASCRIPT_WORLD_STATE', worldState);

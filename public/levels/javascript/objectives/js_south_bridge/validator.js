@@ -2,7 +2,7 @@ const path = require("path");
 const jetpack = require("fs-jetpack");
 const {
   executeCodeString,
-} = require("../../../../node_modules/twilioquest-javascript/scripts/objectiveValidation");
+} = require("../../scripts/objectiveValidation");
 
 module.exports = async (helper) => {
   try {

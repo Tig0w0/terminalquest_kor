@@ -1,0 +1,28 @@
+- const worldState = getState('TQ_JAVASCRIPT_WORLD_STATE');
+
+// Responses
+mixin thanks
+  response#thanks.
+    감사합니다 - 이리저리 뛰어다니느라 고생 좀 했지만, 도움이 되었다니 다행이네요.
+
+conversation(display_name="TwilioQuest 엔지니어")
+  if lastResponse === "thanks"
+    statement.
+      거기다 보너스로 루프(loop) 말장난까지! 여기서 일을 마치면 실험실로 가보겠습니다.
+
+  else if worldState.eastWing.hadSavedConversation
+    statement.
+      메인 실험실에 있는 #[span.highlight 빔 3(Beam 3)를 위한 내 접근 코드]를 이미 받으셨군요. 결국엔 저도 그곳으로 합류하겠지만, 폭발로 인해 보급품이 손상되지 않았는지 먼저 확인해 봐야 할 것 같아요. 다시 한번 멋진 활약이었습니다. 큰 신세를 졌네요.
+    responses
+      +thanks
+
+  else
+    - worldState.eastWing.hadSavedConversation = true;
+    statement.
+      어떻게 여기까지 들어오셨어요? 오셔서 정말 다행이긴 한데, 구조대가 Infinite Loop 호의 보안 시스템을 뚫고 들어오려면 며칠은 걸릴 줄 알았거든요!<br/><br/>
+      ...실험실의 레이저를 재설정하기 위해 제 코드가 필요하시다고요? 물론이죠 - 여기 #[span.highlight 빔 3(Beam 3)를 활성화하는 데 필요한 하드웨어 토큰]입니다. 오퍼레이터라 해도 당신은 정말 특별한 분이 틀림없군요.
+    responses
+      +thanks
+
+// Flush world state changes, if any
+- setState('TQ_JAVASCRIPT_WORLD_STATE', worldState);
